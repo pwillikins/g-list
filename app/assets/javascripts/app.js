@@ -1,66 +1,50 @@
-angular.module('g-list', ['ui.router'])
+angular.module('g-list', ['ui.router', 'templates', 'Devise'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: '/home.html',
-      controller: 'MainCtrl'
+      templateUrl: 'home/_home.html',
+      controller: 'MainCtrl',
+      resolve: {
+        postPromise: ['posts', function(posts) {
+          return posts.getAll();
+        }]
+      }
+    })
+
+    .state('login', {
+      url: '/login',
+      templateUrl: 'auth/_login.html',
+      controller: 'AuthCtrl',
+      onEnter: ['$state', 'Auth', function($state, Auth) {
+        Auth.currentUser().then(function (){
+          $state.go('home');
+        })
+      }]
+    })
+
+    .state('register', {
+      url: '/register',
+      templateUrl: 'auth/_register.html',
+      controller: 'AuthCtrl',
+      onEnter: ['$state', 'Auth', function($state, Auth) {
+        Auth.currentUser().then(function (){
+          $state.go('home');
+        })
+      }]
     })
 
     .state('posts', {
       url: '/posts/{id}',
-      templateUrl: '/posts.html',
-      controller: 'PostsCtrl'
+      templateUrl: 'posts/_posts.html',
+      controller: 'PostsCtrl',
+      resolve: {
+        post: ['$stateParams', 'posts', function($stateParams, posts) {
+          return posts.get($stateParams.id);
+        }]
+      }
     });
 
   $urlRouterProvider.otherwise('home');
-}])
-
-.factory('posts', [function(){
-  var factory = {
-    posts: []
-  };
-
-  return factory;
-}])
-
-.controller('MainCtrl', ['$scope', 'posts', function($scope, posts){
-  $scope.posts = posts.posts;
-
-  $scope.addPost = function() {
-    if (!$scope.title || $scope.title === '') { return; }
-    $scope.posts.push({
-      title: $scope.title,
-      upvotes: 0,
-      link: $scope.link,
-      comments: [
-        {author: 'Joe', body: 'Cool post!', upvotes: 0},
-        {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
-      ]
-    });
-    $scope.title = '';
-    $scope.link = '';
-  };
-
-  $scope.incrementUpvotes = function(post) {
-    post.upvotes += 1;
-  };
-
-}])
-
-.controller('PostsCtrl', ['$scope', '$stateParams', 'posts', function($scope, $stateParams, posts){
-
-  $scope.post = posts.posts[$stateParams.id];
-
-  $scope.addComment = function(){
-    if($scope.body === '') { return; }
-    $scope.post.comments.push({
-      body: $scope.body,
-      author: 'user',
-      upvotes: 0
-    });
-    $scope.body = '';
-  };
-
 }]);
