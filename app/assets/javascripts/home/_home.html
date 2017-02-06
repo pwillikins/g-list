@@ -18,7 +18,7 @@
   </span>
 </div>
 
-<form ng-submit="addPost()" style="margin-top:30px;">
+<form ng-show="signedIn()" ng-submit="addPost()" style="margin-top:30px;">
   <h3>Add a new post</h3>
 
   <div class="form-group">

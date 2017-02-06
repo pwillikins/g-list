@@ -1,6 +1,7 @@
 angular.module('g-list')
-.controller('MainCtrl', ['$scope', 'posts', function($scope, posts){
+.controller('MainCtrl', ['$scope', 'posts', 'Auth', function($scope, posts, Auth){
   $scope.posts = posts.posts;
+  $scope.signedIn = Auth.isAuthenticated;
 
   $scope.addPost = function() {
     if (!$scope.title || $scope.title === '') { return; }

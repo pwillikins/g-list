@@ -17,22 +17,22 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
       url: '/login',
       templateUrl: 'auth/_login.html',
       controller: 'AuthCtrl',
-      onEnter: ['$state', 'Auth', function($state, Auth) {
-        Auth.currentUser().then(function (){
-          $state.go('home');
-        })
-      }]
+      // onEnter: ['$state', 'Auth', function($state, Auth) {
+      //   Auth.currentUser().then(function (){
+      //     $state.go('home');
+      //   })
+      // }]
     })
 
     .state('register', {
       url: '/register',
       templateUrl: 'auth/_register.html',
       controller: 'AuthCtrl',
-      onEnter: ['$state', 'Auth', function($state, Auth) {
-        Auth.currentUser().then(function (){
-          $state.go('home');
-        })
-      }]
+      // onEnter: ['$state', 'Auth', function($state, Auth) {
+      //   Auth.currentUser().then(function (){
+      //     $state.go('home');
+      //   })
+      // }]
     })
 
     .state('posts', {
