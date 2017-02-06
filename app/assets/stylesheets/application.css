@@ -14,3 +14,9 @@
  *= require_tree .
  *= require_self
  */
+
+.user-forms {
+  width: 25%;
+  margin-right: auto;
+  margin-left: auto;
+}

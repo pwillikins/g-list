@@ -1,5 +1,5 @@
 angular.module('g-list')
-.controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
+.controller('NavCtrl', ['$scope', 'Auth', '$state', function($scope, Auth, $state) {
 
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
@@ -18,6 +18,7 @@ angular.module('g-list')
 
   $scope.$on('devise:logout', function (e, user){
     $scope.user = {};
+    $state.go('login');
   });
 
 }]);

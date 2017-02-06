@@ -1410,7 +1410,7 @@ a.bg-danger:focus {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
+  /*border-bottom: 1px solid #eee;*/
 }
 ul,
 ol {
@@ -1603,7 +1603,7 @@ pre code {
   }
 }
 .container-fluid {
-  padding-right: 15px;
+  padding-right: 45px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
@@ -4571,6 +4571,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-link {
   color: #777;
+  font-size: 18px;
 }
 .navbar-default .navbar-link:hover {
   color: #333;
