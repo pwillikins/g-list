@@ -1,16 +1,11 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <div ng-controller="NavCtrl">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#/home">Home</a></li>
-          <li ng-hide="signedIn()"><a href="#!/login">Log In</a></li>
-          <li ng-hide="signedIn()"><a href="#!/register">Register</a></li>
-          <li ng-show="signedIn()"><a href="#!/">{{ user.username }}</a></li>
-          <li ng-show="signedIn()"><a style="cursor: pointer;" ng-click="logout()">Log Out</a></li>
-        </ul>
-      </div>
-    </div>
-    <p class="navbar-text navbar-right"><a href="#" class="navbar-link">gList</a></p>
+<nav class="navbar">
+  <div ng-controller="NavCtrl">
+    <ul class="nav navbar-nav" ng-class="{'nav-buttons' : true}">
+        <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="loginPage()">Log In</button></li>
+        <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="registerPage()">Register</a></button></li>
+        <!-- <li ng-show="signedIn()"><a href="#!/">{{ user.username }}</a></li> -->
+    </ul>
+    <button ng-show="signedIn()" ng-class="{ 'logout-button': true }" type="button" class="btn btn-default" ng-click="logout()">Log Out</button>
   </div>
+  <p ng-class="{ 'navbar-title': true }" class="navbar-right"><a href="#" class="navbar-title-text">gList</a></p>
 </nav>

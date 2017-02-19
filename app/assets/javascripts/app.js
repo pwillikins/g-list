@@ -1,5 +1,5 @@
 angular.module('g-list', ['ui.router', 'templates', 'Devise'])
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('home', {

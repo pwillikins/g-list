@@ -21,4 +21,12 @@ angular.module('g-list')
     $state.go('login');
   });
 
+  $scope.registerPage = function() {
+    $state.go('register');
+  };
+
+  $scope.loginPage = function() {
+    $state.go('login');
+  };
+
 }]);
