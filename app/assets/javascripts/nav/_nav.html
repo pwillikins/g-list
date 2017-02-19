@@ -1,11 +1,20 @@
-<nav class="navbar">
-  <div ng-controller="NavCtrl">
+
+<div ng-controller="NavCtrl">
+  <nav class="navbar">
     <ul class="nav navbar-nav" ng-class="{'nav-buttons' : true}">
         <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="loginPage()">Log In</button></li>
         <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="registerPage()">Register</a></button></li>
+        <li ng-show="signedIn()"><a class="menu-icon" ng-click="openNav()">&#9776;</a></li>
         <!-- <li ng-show="signedIn()"><a href="#!/">{{ user.username }}</a></li> -->
     </ul>
     <button ng-show="signedIn()" ng-class="{ 'logout-button': true }" type="button" class="btn btn-default" ng-click="logout()">Log Out</button>
+    <p ng-class="{ 'navbar-title': true }" class="navbar-right"><a href="#" class="navbar-title-text" ng-click="closeNav()">gList</a></p>
+  </nav>
+
+  <div id="mySidenav" class="sidenav">
+    <a class="closebtn" ng-click="closeNav()">&times;</a>
+    <a href="#">Products</a>
+    <a href="#">Categories</a>
+    <a href="#">Recipes</a>
   </div>
-  <p ng-class="{ 'navbar-title': true }" class="navbar-right"><a href="#" class="navbar-title-text">gList</a></p>
-</nav>
+</div>
