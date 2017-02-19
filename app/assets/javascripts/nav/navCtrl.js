@@ -29,4 +29,12 @@ angular.module('g-list')
     $state.go('login');
   };
 
+  $scope.openNav = function() {
+    document.getElementById("mySidenav").style.width = "250px";
+  };
+
+  $scope.closeNav = function() {
+    document.getElementById("mySidenav").style.width = "0";
+  };
+
 }]);
