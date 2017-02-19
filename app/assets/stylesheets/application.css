@@ -63,6 +63,35 @@
   cursor: pointer;
 }
 
+.product-name-input {
+  width: 20%;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+/*.product-button {
+  float: right;
+}*/
+
+/*input, button {
+  margin: 0;
+}*/
+
+.product-form {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+th {
+  padding: 3px;
+}
+
+.products-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */

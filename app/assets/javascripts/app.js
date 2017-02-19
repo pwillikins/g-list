@@ -35,6 +35,17 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
       // }]
     })
 
+    .state('products', {
+      url: '/products',
+      templateUrl: 'products/_products.html',
+      controller: 'ProductsCtrl',
+      resolve: {
+        postPromise: ['products', function(products) {
+          return products.getAll();
+        }]
+      }
+    })
+
     .state('posts', {
       url: '/posts/{id}',
       templateUrl: 'posts/_posts.html',

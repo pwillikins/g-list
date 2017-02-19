@@ -1,0 +1,33 @@
+<div class="page-title">
+  <h1>{{title}}</h1>
+
+    <form ng-submit="createProduct()">
+      <div class="form-group">
+        <table class="product-form" style="margin-right: auto; margin-left: auto;">
+          <tr>
+            <th><input type="text" class="form-control" placeholder="Name" ng-model="name"></input></th>
+            <th><button type="submit" class="btn btn-primary">Add Product</button></th>
+          </tr>
+        </table>
+      </div>
+    </form>
+
+</div>
+<hr style="width: 60%;">
+
+<table class="products-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="product in products">
+      <td></td>
+      <td>{{product["name"]}}</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
