@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219174950) do
+ActiveRecord::Schema.define(version: 20170220011435) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",                       null: false
+    t.integer  "user_id"
+    t.boolean  "recipe",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "category_products", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"

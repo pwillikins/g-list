@@ -46,6 +46,17 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
       }
     })
 
+    .state('categories', {
+      url: '/categories',
+      templateUrl: 'categories/_categories.html',
+      controller: 'CategoriesCtrl',
+      resolve: {
+        postPromise: ['categories', function(categories) {
+          return categories.getAll();
+        }]
+      }
+    })
+
     .state('posts', {
       url: '/posts/{id}',
       templateUrl: 'posts/_posts.html',

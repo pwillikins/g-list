@@ -1,13 +1,12 @@
 <div class="page-title">
   <h1>{{title}}</h1>
 
-    <form ng-submit="createProduct()">
+    <form ng-submit="createCategory()">
       <div class="form-group">
         <table class="product-form" style="margin-right: auto; margin-left: auto;">
           <tr>
             <th><input type="text" class="form-control" placeholder="Name" ng-model="name"></input></th>
-            <!-- <th><select class="form-controle" name="category" ng-options="''"> -->
-            <th><button type="submit" class="btn btn-primary">Add Product</button></th>
+            <th><button type="submit" class="btn btn-primary">Add Category</button></th>
           </tr>
         </table>
       </div>
@@ -19,16 +18,12 @@
 <table class="products-table">
   <thead>
     <tr>
-      <th></th>
       <th>Name</th>
-      <th>Category</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="product in products">
-      <td><input type="checkbox" name="name" value="name"></td>
-      <td>{{ product["name"] | uppercase }}</td>
-      <td></td>
+    <tr ng-repeat="category in categories">
+      <td>{{ category["name"] | uppercase }}</td>
     </tr>
   </tbody>
 </table>
