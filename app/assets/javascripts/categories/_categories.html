@@ -8,6 +8,10 @@
             <th><input type="text" class="form-control" placeholder="Name" ng-model="name"></input></th>
             <th><button type="submit" class="btn btn-primary">Add Category</button></th>
           </tr>
+          <tr>
+            <td><input type="checkbox" name="recipe" value="true" ng-model="recipe">Recipe</td>
+            <td></td>
+          </tr>
         </table>
       </div>
     </form>
@@ -23,7 +27,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="category in categories">
-      <td>{{ category["name"] | uppercase }}</td>
+      <td>{{ category["attributes"]["name"] | uppercase }}</td>
     </tr>
   </tbody>
 </table>

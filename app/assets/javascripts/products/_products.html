@@ -6,7 +6,12 @@
         <table class="product-form" style="margin-right: auto; margin-left: auto;">
           <tr>
             <th><input type="text" class="form-control" placeholder="Name" ng-model="name"></input></th>
-            <!-- <th><select class="form-controle" name="category" ng-options="''"> -->
+
+            <th><select name="category" id="category" ng-options="(category.attributes.name | uppercase) for category in categories track by category.id"
+               ng-class="{ 'category-select': true }" class="form-control" ng-model="category" placeholder="Category">
+               <option value="">Choose Category</option>
+              </select></th>
+
             <th><button type="submit" class="btn btn-primary">Add Product</button></th>
           </tr>
         </table>
@@ -27,7 +32,7 @@
   <tbody>
     <tr ng-repeat="product in products">
       <td><input type="checkbox" name="name" value="name"></td>
-      <td>{{ product["name"] | uppercase }}</td>
+      <td>{{ product["attributes"]["name"] | uppercase }}</td>
       <td></td>
     </tr>
   </tbody>

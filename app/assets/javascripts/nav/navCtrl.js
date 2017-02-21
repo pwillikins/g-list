@@ -37,8 +37,4 @@ angular.module('g-list')
     document.getElementById("mySidenav").style.width = "0";
   };
 
-  $scope.productsPage = function() {
-    $state.go('products');
-  };
-
 }]);

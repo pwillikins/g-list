@@ -70,13 +70,14 @@
 
 }
 
-/*.product-button {
-  float: right;
-}*/
+.category-select {
+  height: 34px;
+  width: 150px;
+}
 
-/*input, button {
-  margin: 0;
-}*/
+.option-placeholder {
+  color: #B8B8B8;
+}
 
 .product-form {
   margin-right: auto;

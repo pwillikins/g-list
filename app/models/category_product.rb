@@ -1,4 +1,5 @@
 class CategoryProduct < ActiveRecord::Base
-
+  belongs_to :products
+  belongs_to :categories
 
 end

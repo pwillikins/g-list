@@ -40,8 +40,11 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
       templateUrl: 'products/_products.html',
       controller: 'ProductsCtrl',
       resolve: {
-        postPromise: ['products', function(products) {
-          return products.getAll();
+        postPromise: ['products', 'categories', '$q', function(products, categories, $q) {
+          return $q.all({
+            products: products.getAll(),
+            categories: categories.getAll()
+          });
         }]
       }
     })

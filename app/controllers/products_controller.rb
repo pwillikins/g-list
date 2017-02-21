@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-    respond_with Product.create(product_params.merge({user_id: current_user.id}))
+    product = Product.create( product_params.merge({ user_id: current_user.id }) )
+    if params[:categoryId].present?
+      Categorization.create( product_id: product.id, category_id: params[:categoryId] )
+    end
+    respond_with product
   end
 
   private
