@@ -60,6 +60,17 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
       }
     })
 
+    .state('recipes', {
+      url: '/recipes',
+      templateUrl: 'recipes/_recipes.html',
+      controller: 'RecipesCtrl',
+      resolve: {
+        postPromise: ['categories', function(categories) {
+          return categories.getAll();
+        }]
+      }
+    })
+
     .state('posts', {
       url: '/posts/{id}',
       templateUrl: 'posts/_posts.html',
