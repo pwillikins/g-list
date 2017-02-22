@@ -8,7 +8,7 @@
       <th>Recipe Name</th>
     </tr>
     <tr ng-repeat="recipe in recipes">
-      <td><a href="#!/recipes/{{recipe['id']}}">{{ recipe["attributes"]["name"] | uppercase }}</a></td>
+      <td style="text-align: left;"><a href="#!/recipes/{{recipe['id']}}">{{ recipe["attributes"]["name"] | uppercase }}</a></td>
     </tr>
   </table>
 </div>
