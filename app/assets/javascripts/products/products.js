@@ -16,6 +16,15 @@ angular.module('g-list')
     });
   };
 
+  factory.deleteProduct = function(id) {
+    return $http.delete('/products/' + id + '.json').then(function() {
+      var updateProducts = factory.products.filter(function(element) {
+        return element.id !== id;
+      });
+      angular.copy(updateProducts, factory.products);
+    });
+  };
+
   return factory;
 
 }]);

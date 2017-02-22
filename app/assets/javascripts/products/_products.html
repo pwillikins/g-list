@@ -27,14 +27,15 @@
       <tr>
         <th></th>
         <th><h4>Name</h4></th>
-        <th><h4>Category</h4></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="product in products">
         <td><input type="checkbox" name="name" value="name"></td>
         <td>{{ product["attributes"]["name"] | uppercase }}</td>
-        <td></td>
+        <td><button style="color: red; border:none; background:white;"
+           class="glyphicon glyphicon-remove" ng-click="removeProduct(product.id)"></button></td>
       </tr>
     </tbody>
 </table>

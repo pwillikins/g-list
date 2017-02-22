@@ -13,6 +13,12 @@ class ProductsController < ApplicationController
     respond_with product
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    respond_with {}
+  end
+
   private
 
   def product_params

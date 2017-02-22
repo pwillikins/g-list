@@ -16,4 +16,8 @@ angular.module('g-list')
     $scope.category = '';
   };
 
+  $scope.removeProduct = function(id) {
+    products.deleteProduct(id);
+  };
+
 }]);
