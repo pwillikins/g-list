@@ -15,6 +15,11 @@
  *= require_self
  */
 
+ .page-container {
+   width: 100%;
+   margin-left: 15px;
+ }
+
 .user-forms {
   width: 25%;
   margin-right: auto;
@@ -26,7 +31,6 @@
 }
 
 .nav-buttons {
-  margin-left: 25px;
   padding: 3px;
 }
 
@@ -35,19 +39,21 @@
 }
 
 .navbar-title-text {
-  font-weight:400;
+  font-weight: 400;
   font-size: 17px;
   color: black;
 }
 
 .navbar-title {
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .logout-button {
   float: right;
-  margin-top: 4px;
+  margin-top: 10px;
+  margin-right: 10px;
+
   cursor: pointer;
 }
 
@@ -67,7 +73,6 @@
   width: 20%;
   margin-right: auto;
   margin-left: auto;
-
 }
 
 .category-select {
@@ -92,6 +97,21 @@ th {
   margin-left: auto;
   margin-right: auto;
 }
+
+.description {
+  margin-left: 25px;
+}
+
+.description-title {
+  margin-left: 35px;
+}
+
+.recipe-save-button {
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+
 
 /* The side navigation menu */
 .sidenav {

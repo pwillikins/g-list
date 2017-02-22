@@ -71,6 +71,17 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
       }
     })
 
+    .state('recipe', {
+      url: '/recipes/{id}',
+      templateUrl: 'recipe/_recipe.html',
+      controller: 'RecipeCtrl',
+      resolve: {
+        recipe: ['$stateParams', 'categories', function($stateParams, categories) {
+          return categories.get($stateParams.id);
+        }]
+      }
+    })
+
     .state('posts', {
       url: '/posts/{id}',
       templateUrl: 'posts/_posts.html',

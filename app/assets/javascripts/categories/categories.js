@@ -16,5 +16,15 @@ angular.module('g-list')
     });
   };
 
+  factory.get = function(id) {
+    return $http.get('/categories/' + id + '.json').then(function(response) {
+      return response.data.data;
+    });
+  };
+
+  factory.addDescription = function(id, description) {
+    return $http.put('/categories/' + id + '.json', description);
+  };
+
   return factory;
 }]);
