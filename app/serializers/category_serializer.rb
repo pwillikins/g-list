@@ -1,5 +1,5 @@
 class CategorySerializer < ActiveModel::Serializer
-  attributes :name, :products, :recipe
+  attributes :name, :products, :recipe, :description
 
   def products
     object.products

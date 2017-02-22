@@ -1,12 +1,14 @@
 <div class="page-title">
   <h2>{{ title }}</h2>
+
   <hr style="width: 60%;">
+
   <table class="products-table">
     <tr>
       <th>Recipe Name</th>
     </tr>
     <tr ng-repeat="recipe in recipes">
-      <td>{{ recipe["attributes"]["name"] | uppercase }}</td>
+      <td><a href="#!/recipes/{{recipe['id']}}">{{ recipe["attributes"]["name"] | uppercase }}</a></td>
     </tr>
   </table>
 </div>

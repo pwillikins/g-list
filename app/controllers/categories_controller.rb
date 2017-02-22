@@ -10,7 +10,16 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    respond_with Category.find(params[:categoryId]) # need to add the association for products
+    respond_with Category.find(params[:id])
+  end
+
+  def update
+    if params[:description].present?
+      category = Category.find(params[:id])
+      category.description = params[:description]
+      category.save
+      render json: category
+    end
   end
 
   private
