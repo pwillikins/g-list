@@ -9,7 +9,7 @@
 
     <form ng-submit="saveDescription()">
       <textarea ng-class="{ 'description': true }" class="form-control"
-       rows="3" placeholder="Recipe Description" ng-model="description"></textarea>
+       rows="3" placeholder="Recipe Instructions" ng-model="description"></textarea>
        <button ng-class="{ 'save-description-button': true }" type="submit"
         class="btn btn-primary">Save</button>
     </form>
@@ -17,14 +17,14 @@
   </div>
   <div class="col-md-6">
     <h3 align="left" style="margin-left: 10px;">Ingredients</h3>
-
-    <table>
+    <hr ng-hide="recipeProducts" class="recipe-ingredients-sperator">
+    <table style="width: 95%;" class="table">
       <tr ng-repeat="product in recipeProducts">
         <th><input type="checkbox" name="product" value="true">{{ product["name"] }}</th>
         <th></th>
       </tr>
       <tr>
-        <td><button type="button" class="btn btn-default" name="button">Add to List</button></td>
+        <td ng-show="recipeProducts"><button type="button" class="btn btn-default" name="button">Add to List</button></td>
         <td></td>
       </tr>
     </table>

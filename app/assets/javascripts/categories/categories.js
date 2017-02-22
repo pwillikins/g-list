@@ -1,18 +1,33 @@
 angular.module('g-list')
 .factory('categories', ['$http', function($http) {
   factory = {
-    categories: []
+    categories: [],
+    recipes: []
   };
 
   factory.getAll = function() {
     return $http.get('/categories.json').then(function(response) {
-      angular.copy(response.data.data, factory.categories);
+      factory.recipes = [];
+      factory.categories = [];
+      var categoriesResponse = response.data.data;
+      for (index = 0; index < categoriesResponse.length; index ++) {
+        if (categoriesResponse[index].attributes.recipe) {
+          factory.recipes.push(categoriesResponse[index]);
+        } else {
+          factory.categories.push(categoriesResponse[index]);
+        };
+      };
     });
   };
 
   factory.create = function(category) {
     return $http.post('/categories.json', category).then(function(data) {
-      factory.categories.push(data.data.data);
+      var newCategory = data.data.data;
+      if (!newCategory.attributes.recipe) {
+        factory.categories.push(newCategory);
+      } else {
+        factory.recipes.push(newCategory);
+      };
     });
   };
 

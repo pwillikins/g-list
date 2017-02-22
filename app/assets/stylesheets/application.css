@@ -93,6 +93,12 @@ th {
   padding: 3px;
 }
 
+.recipe-ingredients-sperator {
+  margin-top: 0;
+  width: 95%;
+  margin-left: 2px;
+}
+
 .custom-table {
   margin-left: auto;
   margin-right: auto;
