@@ -19,21 +19,23 @@
     </form>
 
 </div>
-<hr style="width: 60%;">
+<hr style="width: 95%;">
 
-<table class="products-table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Category</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="product in products">
-      <td><input type="checkbox" name="name" value="name"></td>
-      <td>{{ product["attributes"]["name"] | uppercase }}</td>
-      <td></td>
-    </tr>
-  </tbody>
+<div class="custom-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><h4>Name</h4></th>
+        <th><h4>Category</h4></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="product in products">
+        <td><input type="checkbox" name="name" value="name"></td>
+        <td>{{ product["attributes"]["name"] | uppercase }}</td>
+        <td></td>
+      </tr>
+    </tbody>
 </table>
+</div>

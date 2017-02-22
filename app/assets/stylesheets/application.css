@@ -93,7 +93,13 @@ th {
   padding: 3px;
 }
 
-.products-table {
+.custom-table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+
+.categories-list {
   margin-left: auto;
   margin-right: auto;
 }
@@ -106,7 +112,7 @@ th {
   margin-left: 35px;
 }
 
-.recipe-save-button {
+.save-description-button {
   margin-left: 25px;
   margin-top: 10px;
 }

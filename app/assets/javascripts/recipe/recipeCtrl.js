@@ -3,6 +3,7 @@ angular.module('g-list')
 
   $scope.recipe = recipe;
   $scope.description = $scope.recipe.attributes.description;
+  $scope.recipeProducts = $scope.recipe.attributes.products;
 
   $scope.saveDescription = function() {
     if ($scope.description == '') { return; }

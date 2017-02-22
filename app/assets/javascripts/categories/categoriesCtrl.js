@@ -20,4 +20,8 @@ angular.module('g-list')
     $scope.name = '';
     $scope.recipe = false;
   };
+
+  $scope.removeCategory = function(id) {
+    categories.deleteCategory(id);
+  };
 }]);

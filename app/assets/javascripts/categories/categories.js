@@ -26,5 +26,14 @@ angular.module('g-list')
     return $http.put('/categories/' + id + '.json', description);
   };
 
+  factory.deleteCategory = function(id) {
+    return $http.delete('/categories/' + id + '.json').then(function() {
+      var updateCategories = factory.categories.filter(function(element) {
+        return element.id !== id;
+      });
+      angular.copy(updateCategories, factory.categories);
+    });
+  };
+
   return factory;
 }]);
