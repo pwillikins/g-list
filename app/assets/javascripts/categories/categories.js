@@ -2,7 +2,8 @@ angular.module('g-list')
 .factory('categories', ['$http', function($http) {
   factory = {
     categories: [],
-    recipes: []
+    recipes: [],
+    allCategories: []
   };
 
   factory.getAll = function() {
@@ -10,6 +11,8 @@ angular.module('g-list')
       factory.recipes = [];
       factory.categories = [];
       var categoriesResponse = response.data.data;
+      angular.copy(categoriesResponse, factory.allCategories);
+
       for (index = 0; index < categoriesResponse.length; index ++) {
         if (categoriesResponse[index].attributes.recipe) {
           factory.recipes.push(categoriesResponse[index]);

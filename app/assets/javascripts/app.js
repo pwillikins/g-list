@@ -93,5 +93,5 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
       }
     });
 
-  $urlRouterProvider.otherwise('home');
+  $urlRouterProvider.otherwise('login');
 }]);

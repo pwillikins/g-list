@@ -3,7 +3,15 @@ angular.module('g-list')
 
   $scope.title = 'Products';
   $scope.products = products.products;
-  $scope.categories = categories.categories;
+  $scope.categories = categories.allCategories;
+
+  for (i = 0; i < $scope.categories.length; i++) {
+    if ($scope.categories[i].attributes.recipe) {
+      $scope.categories[i].content = 'Recipe';
+    } else {
+      $scope.categories[i].content = 'Category';
+    };
+  };
 
   $scope.createProduct = function() {
     var product = { name: $scope.name }
