@@ -17,22 +17,12 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
       url: '/login',
       templateUrl: 'auth/_login.html',
       controller: 'AuthCtrl',
-      // onEnter: ['$state', 'Auth', function($state, Auth) {
-      //   Auth.currentUser().then(function (){
-      //     $state.go('home');
-      //   })
-      // }]
     })
 
     .state('register', {
       url: '/register',
       templateUrl: 'auth/_register.html',
       controller: 'AuthCtrl',
-      // onEnter: ['$state', 'Auth', function($state, Auth) {
-      //   Auth.currentUser().then(function (){
-      //     $state.go('home');
-      //   })
-      // }]
     })
 
     .state('products', {
@@ -80,6 +70,23 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
           return categories.get($stateParams.id);
         }]
       }
+    })
+
+    .state('shoppingLists', {
+      url: '/shopping_lists',
+      templateUrl: 'shoppingLists/_shoppingLists.html',
+      controller: 'ShoppingListsCtrl',
+      resolve: {
+        postPromise: ['shoppingLists', function(shoppingLists) {
+          return shoppingLists.getAll();
+        }]
+      }
+    })
+
+    .state('newShoppingList', {
+      url: '/new_shopping_list',
+      templateUrl: 'shoppingList/_shoppingListForm.html',
+      controller: 'ShoppingListCtrl'
     })
 
     .state('posts', {

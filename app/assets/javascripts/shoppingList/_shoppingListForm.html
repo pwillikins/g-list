@@ -1,0 +1,20 @@
+<div class="page-title">
+  <h1>{{ title }}</h1>
+</div>
+
+<div class="custom-table">
+  <form  ng-submit="createShoppingList()">
+    <table class=table>
+      <tr ng-repeat="item in shoppingListItems">
+        <th>{{ item["name"] }}</th>
+        <th><button style="color: red; border:none; background:white;"
+           class="glyphicon glyphicon-remove" ng-click="removeFromList(item)"></button></th>
+      </tr>
+
+      <tr>
+        <td><button ng-show="shoppingListItems.length > 0" type="submit" class="btn btn-primary">Create Shopping List</button></td>
+        <td></td>
+      </tr>
+    </table>
+  </form>
+</div>

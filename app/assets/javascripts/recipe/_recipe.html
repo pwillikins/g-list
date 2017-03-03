@@ -20,12 +20,13 @@
     <hr ng-hide="recipeProducts" class="recipe-ingredients-sperator">
     <table style="width: 95%;" class="table">
       <tr ng-repeat="product in recipeProducts">
-        <th><input type="checkbox" name="product" value="true">{{ product["name"] }}</th>
-        <th></th>
-      </tr>
-      <tr>
-        <td ng-show="recipeProducts.length > 0"><button type="button" class="btn btn-default" name="button">Add to List</button></td>
-        <td></td>
+        <th>{{ product["name"] }}</th>
+        <th><button ng-show="!isInShoppingList(product)" style="color: green; border:none; background:white;"
+          class="glyphicon glyphicon-plus" ng-click="addToShoppingList(product)"></button>
+          <button ng-show="isInShoppingList(product)" style="color: green; border:none; background:white;"
+            class="glyphicon glyphicon-ok" ng-click="removeFromList(product)"></button></th>
+        <th><button style="color: red; border:none; background:white;"
+           class="glyphicon glyphicon-remove" ng-click="removeProduct(product.id)"></button></th>
       </tr>
     </table>
   </div>

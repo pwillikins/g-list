@@ -1,9 +1,15 @@
 angular.module('g-list')
-.controller('ProductsCtrl', ['$scope', 'products', 'categories', function($scope, products, categories) {
+.controller('ProductsCtrl', ['$scope', 'products', 'categories', 'shoppingLists', function($scope, products, categories, shoppingLists) {
 
   $scope.title = 'Products';
   $scope.products = products.products;
   $scope.categories = categories.allCategories;
+
+  if (localStorage.items && localStorage.items.length > 0) {
+    $scope.currentShoppingList = JSON.parse(localStorage.items);
+  } else {
+    $scope.currentShoppingList = [];
+  };
 
   for (i = 0; i < $scope.categories.length; i++) {
     if ($scope.categories[i].attributes.recipe) {
@@ -26,6 +32,33 @@ angular.module('g-list')
 
   $scope.removeProduct = function(id) {
     products.deleteProduct(id);
+  };
+
+  $scope.addToShoppingList = function(product) {
+    newProductFormat = {
+      id: product.id,
+      name: product.attributes.name
+    }
+    $scope.currentShoppingList.push(newProductFormat);
+    localStorage.setItem('items', JSON.stringify($scope.currentShoppingList));
+  };
+
+  $scope.isInShoppingList = function(product) {
+    exists = false
+    if ($scope.currentShoppingList && $scope.currentShoppingList.length > 0) {
+      for (i = 0; i < $scope.currentShoppingList.length; i++) {
+        if (product.id == $scope.currentShoppingList[i].id) {
+          exists = true;
+        }
+      };
+    };
+    return exists;
+  };
+
+  $scope.removeFromList = function(product) {
+    index = $scope.currentShoppingList.indexOf(product);
+    $scope.currentShoppingList.splice(index, 1);
+    localStorage.items = JSON.stringify($scope.currentShoppingList);
   };
 
 }]);

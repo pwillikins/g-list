@@ -19,6 +19,7 @@ angular.module('g-list')
   $scope.$on('devise:logout', function (e, user){
     $scope.user = {};
     $state.go('login');
+    localStorage.clear();
   });
 
   $scope.registerPage = function() {
