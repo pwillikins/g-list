@@ -1,6 +1,6 @@
 angular.module('g-list')
 .controller('ShoppingListsCtrl', ['$scope', 'shoppingLists', function($scope, shoppingLists) {
-  $scope.title = 'Shopping Lists';
+  $scope.title = 'Create Shopping List';
   $scope.shoppingLists = shoppingLists.shoppingLists;
 
   if (localStorage.items && localStorage.items.length > 0) {
@@ -23,12 +23,14 @@ angular.module('g-list')
     }
     shoppingLists.create(params).then(function(data) {
       shoppingLists.shoppingLists.push(data.data.data);
-      localStorage.setItem('id', data.data.data.id);
+      redirect(data.data.data.id);
     });
     $scope.shoppingListItems = [];
-    $scope.shoppingListId = localStorage.id;
     localStorage.clear();
-    url = window.location.origin + '/#!/shopping_lists/' + $scope.shoppingListId;
+  };
+
+  redirect = function(id) {
+    url = window.location.origin + '/#!/shopping_lists/' + id;
     window.location.href = url;
   };
 
