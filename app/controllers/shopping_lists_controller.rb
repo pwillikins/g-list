@@ -9,10 +9,14 @@ class ShoppingListsController < ApplicationController
     shopping_list = ShoppingList.create(name: "New List (#{Time.now})", user_id: current_user.id)
     if params[:products].present?
       params[:products].each do |product|
-        shopping_list.products << ShoppingListItem.create(product_id: product.id, shopping_list_id: shopping_list.id)
+        shopping_list.shopping_list_items << ShoppingListItem.create(product_id: product['id'], shopping_list_id: shopping_list.id)
       end
     end
     render json: shopping_list
+  end
+
+  def show
+    respond_with ShoppingList.find(params[:id])
   end
 
   def update

@@ -12,9 +12,12 @@ angular.module('g-list')
   };
 
   factory.create = function(products) {
-    return $http.post('/shopping_lists.json', products).then(function(response) {
-      console.log(response);
-      factory.shoppingLists.push(response.data.data);
+    return $http.post('/shopping_lists.json', products);
+  };
+
+  factory.get = function(id) {
+    return $http.get('/shopping_lists/' + id + '.json').then(function(response) {
+      return response.data.data;
     });
   };
 

@@ -1,4 +1,4 @@
-angular.module('g-list', ['ui.router', 'templates', 'Devise'])
+angular.module('g-list', ['ui.router', 'templates', 'Devise', 'tooltips'])
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
@@ -85,8 +85,19 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise'])
 
     .state('newShoppingList', {
       url: '/new_shopping_list',
-      templateUrl: 'shoppingList/_shoppingListForm.html',
-      controller: 'ShoppingListCtrl'
+      templateUrl: 'shoppingLists/_shoppingListForm.html',
+      controller: 'ShoppingListsCtrl'
+    })
+
+    .state('shoppingList', {
+      url: '/shopping_lists/{id}',
+      templateUrl: 'shoppingList/_shoppingList.html',
+      controller: 'ShoppingListCtrl',
+      resolve: {
+        shoppingList: ['$stateParams', 'shoppingLists', function($stateParams, shoppingLists) {
+          return shoppingLists.get($stateParams.id);
+        }]
+      }
     })
 
     .state('posts', {

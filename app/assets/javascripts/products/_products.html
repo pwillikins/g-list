@@ -33,11 +33,11 @@
     <tbody>
       <tr ng-repeat="product in products">
         <td>{{ product["attributes"]["name"] | uppercase }}</td>
-        <td><button ng-show="!isInShoppingList(product)" style="color: green; border:none; background:white;"
+        <td><button tooltip="Add to List" ng-show="!isInShoppingList(product)" style="border:none; background:white;"
            class="glyphicon glyphicon-plus" ng-click="addToShoppingList(product)"></button>
-         <button ng-show="isInShoppingList(product)" style="color: green; border:none; background:white;"
+         <button tooltip="Remove from List" ng-show="isInShoppingList(product)" style="color: green; border:none; background:white;"
           class="glyphicon glyphicon-ok" ng-click="removeFromList(product)"></button></td>
-        <td><button style="color: red; border:none; background:white;"
+        <td><button tooltip="Remove Product" style="color: red; border:none; background:white;"
            class="glyphicon glyphicon-remove" ng-click="removeProduct(product.id)"></button></td>
       </tr>
     </tbody>

@@ -20,12 +20,13 @@
     <hr ng-hide="recipeProducts" class="recipe-ingredients-sperator">
     <table style="width: 95%;" class="table">
       <tr ng-repeat="product in recipeProducts">
-        <th>{{ product["name"] }}</th>
-        <th><button ng-show="!isInShoppingList(product)" style="color: green; border:none; background:white;"
+        <th>{{ product["name"] | uppercase }}</th>
+        <th><button tooltip="Add to List" ng-show="!isInShoppingList(product)"
+           style="color: green; border:none; background:white;"
           class="glyphicon glyphicon-plus" ng-click="addToShoppingList(product)"></button>
-          <button ng-show="isInShoppingList(product)" style="color: green; border:none; background:white;"
+          <button tooltip="Remove from List" ng-show="isInShoppingList(product)" style="color: green; border:none; background:white;"
             class="glyphicon glyphicon-ok" ng-click="removeFromList(product)"></button></th>
-        <th><button style="color: red; border:none; background:white;"
+        <th><button tooltip="Remove Product" style="color: red; border:none; background:white;"
            class="glyphicon glyphicon-remove" ng-click="removeProduct(product.id)"></button></th>
       </tr>
     </table>

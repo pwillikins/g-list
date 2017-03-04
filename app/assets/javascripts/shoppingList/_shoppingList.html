@@ -1,0 +1,15 @@
+<div class="page-title">
+  <h1>{{ title }}</h1>
+</div>
+
+<div class="custom-table">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+    </tr>
+
+    <tr ng-repeat="item in shoppingListItems">
+      <td>{{ item["name"] }}</td>
+    </tr>
+  </table>
+</div>

@@ -1,10 +1,9 @@
-
 <div ng-controller="NavCtrl">
   <nav class="navbar">
     <ul class="nav navbar-nav" ng-class="{'nav-buttons' : true}">
         <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="loginPage()">Log In</button></li>
         <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="registerPage()">Register</button></li>
-        <li ng-show="signedIn()"><a class="menu-icon" ng-click="openNav()">&#9776;</a></li>
+        <li tooltip="Menu" tooltip-direction="right" ng-show="signedIn()"><a class="menu-icon" ng-click="openNav()">&#9776;</a></li>
         <!-- <li ng-show="signedIn()"><a href="#!/">{{ user.username }}</a></li> -->
     </ul>
     <button ng-show="signedIn()" ng-class="{ 'logout-button': true }" type="button" class="btn btn-default" ng-click="logout()">Log Out</button>
