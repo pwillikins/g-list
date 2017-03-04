@@ -1,9 +1,14 @@
 <div>
   <h1>{{ title }}</h1>
-  <table>
-    <tr ng-repeat="list in shoppingLists">
-      <th></th>
-      <th><a href="#">{{ list["attributes"]["name"] }}</a></th>
-    </tr>
-  </table>
+  <div class="custom-table">
+
+    <table class=table>
+      <tr ng-repeat="list in shoppingLists">
+        <th></th>
+        <th><a href="#!/shopping_lists/{{list['id']}}">{{ list["attributes"]["name"] }}</a></th>
+        <th><button tooltip="Remove Product" style="color: red; border:none; background:white;"
+           class="glyphicon glyphicon-remove" ng-click="removeList(list.id)"></button></th>
+      </tr>
+    </table>
+  </div>
 </div>

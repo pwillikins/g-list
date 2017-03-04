@@ -21,5 +21,14 @@ angular.module('g-list')
     });
   };
 
+  factory.deleteList = function(id) {
+    return $http.delete('/shopping_lists/' + id + '.json').then(function() {
+      var updatedLists = factory.shoppingLists.filter(function(element) {
+        return element.id !== id;
+      });
+      angular.copy(updatedLists, factory.shoppingLists);
+    });
+  };
+
   return factory;
 }]);

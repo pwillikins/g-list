@@ -28,4 +28,10 @@ class ShoppingListsController < ApplicationController
     end
   end
 
+  def destroy
+    shopping_list = ShoppingList.find(params[:id])
+    shopping_list.destroy
+    respond_with {}
+  end
+
 end

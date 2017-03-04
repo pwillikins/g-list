@@ -34,4 +34,8 @@ angular.module('g-list')
     window.location.href = url;
   };
 
+  $scope.removeList = function(id) {
+    shoppingLists.deleteList(id);
+  };
+
 }]);
