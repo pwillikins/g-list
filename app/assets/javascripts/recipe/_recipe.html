@@ -16,16 +16,21 @@
 
   </div>
   <div class="col-md-6">
-    <h3 align="left" style="margin-left: 10px;">Ingredients</h3>
-    <hr ng-hide="recipeProducts" class="recipe-ingredients-sperator">
+    <ul>
+      <li style="display:inline-block;"><h3 align="left" style="margin-left: 10px;">Ingredients</h3></li>
+      <li style="display:inline-block;"><input type="text" name="product" value="product"></li>
+    </ul>
+    <hr ng-hide="recipeProducts.length > 0" class="recipe-ingredients-sperator">
     <table style="width: 95%;" class="table">
       <tr ng-repeat="product in recipeProducts">
         <th>{{ product["name"] | uppercase }}</th>
+
         <th><button tooltip="Add to List" ng-show="!isInShoppingList(product)"
            style="color: green; border:none; background:white;"
           class="glyphicon glyphicon-plus" ng-click="addToShoppingList(product)"></button>
           <button tooltip="Remove from List" ng-show="isInShoppingList(product)" style="color: green; border:none; background:white;"
             class="glyphicon glyphicon-ok" ng-click="removeFromList(product)"></button></th>
+
         <th><button tooltip="Remove Product" style="color: red; border:none; background:white;"
            class="glyphicon glyphicon-remove" ng-click="removeProduct(product.id)"></button></th>
       </tr>

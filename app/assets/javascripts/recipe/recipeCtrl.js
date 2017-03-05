@@ -4,7 +4,12 @@ angular.module('g-list')
   $scope.recipe = recipe;
   $scope.description = $scope.recipe.attributes.description;
   $scope.recipeProducts = $scope.recipe.attributes.products;
-  $scope.currentShoppingList = JSON.parse(localStorage.items) || [];
+
+  if (localStorage.items && localStorage.items.length > 0) {
+    $scope.currentShoppingList = JSON.parse(localStorage.items);
+  } else {
+    $scope.currentShoppingList = [];
+  };
 
   $scope.saveDescription = function() {
     if ($scope.description == '') { return; }

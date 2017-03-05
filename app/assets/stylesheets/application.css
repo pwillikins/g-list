@@ -14,6 +14,13 @@
  *= require_tree .
  *= require_self
  */
+ .checked-off {
+   text-decoration: line-through;
+ }
+
+ .checked-row {
+   background-color: #c1f0c1;
+ }
 
  .page-container {
    width: 100%;
@@ -196,6 +203,20 @@ th {
   background-color: inherit;
 }
 
+.overlay3 {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
 
 
 

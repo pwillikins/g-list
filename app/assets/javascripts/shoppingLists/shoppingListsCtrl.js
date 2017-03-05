@@ -1,6 +1,8 @@
 angular.module('g-list')
 .controller('ShoppingListsCtrl', ['$scope', 'shoppingLists', function($scope, shoppingLists) {
-  $scope.title = 'Create Shopping List';
+
+  $scope.newTitle = 'Create Shopping List';
+  $scope.title = 'Shopping List History';
   $scope.shoppingLists = shoppingLists.shoppingLists;
 
   if (localStorage.items && localStorage.items.length > 0) {

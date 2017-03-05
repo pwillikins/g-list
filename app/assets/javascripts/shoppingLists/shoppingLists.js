@@ -30,5 +30,9 @@ angular.module('g-list')
     });
   };
 
+  factory.updateItem = function(item) {
+    return $http.put('/shopping_lists/' + item.id + '.json', item);
+  };
+
   return factory;
 }]);

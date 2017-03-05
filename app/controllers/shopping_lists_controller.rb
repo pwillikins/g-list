@@ -20,12 +20,11 @@ class ShoppingListsController < ApplicationController
   end
 
   def update
-    if params[:total_spent].present?
-      shopping_list = ShoppingList.find(params[:id])
-      shopping_list.total_spent = params[:total_spent]
-      shopping_list.save
-      render json: shopping_list
-    end
+    shopping_list_item = ShoppingListItem.where(shopping_list_id: params[:shopping_list_id], product_id: params[:id]).first
+    shopping_list_item.purchased = params[:purchased]
+    shopping_list_item.save
+    shopping_list = ShoppingList.find(shopping_list_item.shopping_list_id)
+    render json: shopping_list
   end
 
   def destroy

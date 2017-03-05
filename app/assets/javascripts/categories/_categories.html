@@ -18,18 +18,14 @@
 
 </div>
 <hr style="width: 95%;">
+<div class="custom-table">
 
-<table class="categories-list">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="category in categories">
-      <td>{{ category["attributes"]["name"] | uppercase }}</td>
-      <td><button style="color: red; border:none; background:white;"
-         class="glyphicon glyphicon-remove" ng-click="removeCategory(category.id)"></button></td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table">
+      <tr ng-repeat="category in categories">
+        <td>{{ category["attributes"]["name"] | uppercase }}</td>
+        <td><button style="color: red; border:none; background:white;"
+           class="glyphicon glyphicon-remove" ng-click="removeCategory(category.id)"></button></td>
+      </tr>
+  </table>
+
+</div>

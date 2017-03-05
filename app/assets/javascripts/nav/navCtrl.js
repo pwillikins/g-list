@@ -32,10 +32,15 @@ angular.module('g-list')
 
   $scope.openNav = function() {
     document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("myCanvasNav").style.width = "100%";
+    document.getElementById("myCanvasNav").style.opacity = "0.8";
+    document.getElementById("myCanvasNav").style.marginLeft = "250px"
   };
 
   $scope.closeNav = function() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("myCanvasNav").style.width = "0%";
+    document.getElementById("myCanvasNav").style.opacity = "0";
   };
 
 }]);
