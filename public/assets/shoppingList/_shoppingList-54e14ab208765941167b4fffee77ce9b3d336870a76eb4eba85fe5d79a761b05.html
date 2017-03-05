@@ -1,0 +1,22 @@
+<div class="page-title">
+  <h1>{{ title }}</h1>
+</div>
+
+<div class="custom-table">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+
+    <tr ng-class="{ 'checked-row': item.purchased }" ng-repeat="item in shoppingListItems">
+      <td ng-class="{ 'checked-off': item.purchased }">{{ item["name"] }}</td>
+      <td><button tooltip="Check Off List" ng-hide="item.purchased"
+         style="border:none; background:inherit;"
+        class="glyphicon glyphicon-unchecked" ng-click="checkOffList(item)"></button>
+        <button tooltip="Purchased" ng-show="item.purchased"
+           style="border:none; background:inherit;"
+          class="glyphicon glyphicon-ok-sign"></button></td>
+    </tr>
+  </table>
+</div>

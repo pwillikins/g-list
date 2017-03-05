@@ -1,0 +1,22 @@
+<div ng-controller="NavCtrl">
+  <nav class="navbar">
+    <ul class="nav navbar-nav" ng-class="{'nav-buttons' : true}">
+        <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="loginPage()">Log In</button></li>
+        <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="registerPage()">Register</button></li>
+        <li tooltip="Menu" tooltip-direction="right" ng-show="signedIn()"><a class="menu-icon" ng-click="openNav()">&#9776;</a></li>
+        <!-- <li ng-show="signedIn()"><a href="#!/">{{ user.username }}</a></li> -->
+    </ul>
+    <button ng-show="signedIn()" ng-class="{ 'logout-button': true }" type="button" class="btn btn-default" ng-click="logout()">Log Out</button>
+    <p ng-class="{ 'navbar-title': true }" class="navbar-right"><a href="#" class="navbar-title-text" ng-click="closeNav()">gList</a></p>
+  </nav>
+
+  <div id="mySidenav" class="sidenav">
+    <a class="closebtn" ng-click="closeNav()">&times;</a>
+    <a ng-click="closeNav()" href="#!/home">Home</a>
+    <a ng-click="closeNav()" href="#!/products">Products</a>
+    <a ng-click="closeNav()" href="#!/categories">Categories</a>
+    <a ng-click="closeNav()" href="#!/recipes">Recipes</a>
+    <a ng-click="closeNav()" href="#!/shopping_lists">Shopping Lists</a>
+    <a ng-click="closeNav()" href="#!new_shopping_list">Current Shopping List</a>
+  </div>
+</div>
