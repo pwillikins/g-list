@@ -1,5 +1,5 @@
 <div class="page-title">
-  <h2 style="margin-left: 35px;" align="left">{{ recipe["attributes"]["name"] | uppercase }}</h2>
+  <h2 style="margin-left: 35px;" align="left">{{ recipe.attributes.name | uppercase }}</h2>
   <hr style="width: 95%">
 </div>
 
@@ -8,31 +8,37 @@
     <h3 align="left" class="description-title">Instructions</h3>
 
     <form ng-submit="saveDescription()">
-      <textarea ng-class="{ 'description': true }" class="form-control"
-       rows="6" placeholder="Recipe Instructions" ng-model="description"></textarea>
-       <button ng-class="{ 'save-description-button': true }" type="submit"
-        class="btn btn-primary">Save</button>
+      <textarea class="form-control description"
+       rows="6" placeholder="Recipe Description" ng-model="description"></textarea>
+       <button type="submit" class="save-description-button">SAVE</button>
     </form>
 
   </div>
   <div class="col-md-6">
     <ul>
       <li style="display:inline-block;"><h3 align="left" style="margin-left: 10px;">Ingredients</h3></li>
-      <li style="display:inline-block;"><input type="text" name="product" value="product"></li>
+      
+      <li style="display: inline-block;">
+          <form ng-submit="createProduct()">
+            <md-input-container class="input-container">
+              <input placeholder="Product Name" name="productName" ng-model="productName" minLength="3">
+            </md-input-container>
+          </form>
+      </li>
     </ul>
     <hr ng-hide="recipeProducts.length > 0" class="recipe-ingredients-sperator">
     <table style="width: 95%;" class="table">
       <tr ng-repeat="product in recipeProducts">
-        <th>{{ product["name"] | uppercase }}</th>
+        <th>{{ product.name | uppercase }}</th>
 
-        <th><button tooltip="Add to List" ng-show="!isInShoppingList(product)"
-           style="color: green; border:none; background:white;"
-          class="glyphicon glyphicon-plus" ng-click="addToShoppingList(product)"></button>
-          <button tooltip="Remove from List" ng-show="isInShoppingList(product)" style="color: green; border:none; background:white;"
-            class="glyphicon glyphicon-ok" ng-click="removeFromList(product)"></button></th>
+        <th><button ng-show="!isInShoppingList(product)"
+           style="color: #35887a; border:none; background:white;"
+          class="glyphicon glyphicon-plus" ng-click="addToShoppingList(product)"><md-tooltip md-direction="right">Add to List</md-tooltip></button>
+          <button ng-show="isInShoppingList(product)" style="color: #35887a; border:none; background:white;"
+            class="glyphicon glyphicon-ok" ng-click="removeFromList(product)"><md-tooltip md-direction="right">Remove from List</md-tooltip></button></th>
 
-        <th><button tooltip="Remove Product" style="color: red; border:none; background:white;"
-           class="glyphicon glyphicon-remove" ng-click="removeProduct(product.id)"></button></th>
+        <th><button style="color: red; border:none; background:white;"
+           class="glyphicon glyphicon-trash" ng-click="removeProduct(product.id)"><md-tooltip md-direction="right">Remove Product</md-tooltip></button></th>
       </tr>
     </table>
   </div>

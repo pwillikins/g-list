@@ -21,8 +21,19 @@ angular.module('g-list')
     });
   };
 
+  $scope.createProduct = function () {
+    if ($scope.productName == '') { return; }
+    var product = { name: $scope.productName }
+    product.categoryId = $scope.recipe.id;
+    product.recipe = true;
+    products.create(product);
+    $scope.recipeProducts.push(product);    
+    $scope.productName = '';
+  };
+
   $scope.removeProduct = function(id) {
     products.deleteProduct(id);
+    $scope.recipeProducts = $scope.recipeProducts.filter((product) => product.id != id)
   };
 
   $scope.isInShoppingList = function(product) {
