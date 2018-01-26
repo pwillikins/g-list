@@ -11,4 +11,8 @@ angular.module('g-list')
     $scope.recipeName = '';
   };
 
+  $scope.navigateToRecipe = function (id) {
+    window.location = `#!/recipes/${id}`;
+  }
+
 }]);

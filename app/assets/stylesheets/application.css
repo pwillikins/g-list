@@ -64,6 +64,12 @@
   font-weight: 400;
   font-size: 24px;
   color: #46b19f;
+  
+}
+
+a:hover, a:focus {
+  color: #46b19f;
+  text-decoration: none;
 }
 
 .navbar-title-text:hover {
@@ -172,16 +178,26 @@ th {
     background: #000 url("grocery-spread.jpg") center center;
     width: auto;
     margin-bottom: 15px;
-    height: 400px;
+    height: 450px;
     background-size: cover;
     overflow: hidden;
 }
 
 .homepage-title {
   text-align: center;
-  color: white;
-  font-family: 'Roboto', sans-serif;
+  color: darkgray;
+  font-family: 'Roboto-Light', sans-serif;
   font-size: 90px;
+}
+
+.input-box {
+  height: 75px;
+  width: 300px;
+  background-color: #ffffff;
+  opacity: .8;
+  text-align: center;
+  padding: 8px;
+  margin-top: 50px;
 }
 
 .recipe-tile {
@@ -240,7 +256,7 @@ th {
 }
 
 md-input-container label {
-  color: white;
+  color: darkgray;;
 }
 
 
