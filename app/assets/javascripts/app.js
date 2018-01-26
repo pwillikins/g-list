@@ -1,5 +1,5 @@
-angular.module('g-list', ['ui.router', 'templates', 'Devise', 'tooltips'])
-.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+angular.module('g-list', [ 'ui.router', 'templates', 'Devise', 'tooltips', 'ngMaterial', 'ngAnimate', 'ngAria', 'angularFlex'])
+  .config([ '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('home', {
@@ -7,8 +7,8 @@ angular.module('g-list', ['ui.router', 'templates', 'Devise', 'tooltips'])
       templateUrl: 'home/_home.html',
       controller: 'MainCtrl',
       resolve: {
-        postPromise: ['posts', function(posts) {
-          return posts.getAll();
+        postPromise: [ 'categories', function (categories) {
+          return categories.getAll();
         }]
       }
     })

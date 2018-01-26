@@ -5,4 +5,8 @@
 //= require jquery
 //= require angular-bootstrap
 //= require angular-tooltips
+//= require angular-aria
+//= require angular-animate
+//= require angular-material
+//= require angular-flex
 //= require_tree .

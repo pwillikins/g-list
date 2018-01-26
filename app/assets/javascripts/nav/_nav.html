@@ -1,13 +1,20 @@
 <div ng-controller="NavCtrl">
-  <nav class="navbar">
-    <ul class="nav navbar-nav" ng-class="{'nav-buttons' : true}">
-        <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="loginPage()">Log In</button></li>
-        <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="registerPage()">Register</button></li>
-        <li tooltip="Menu" tooltip-direction="right" ng-show="signedIn()"><a class="menu-icon" ng-click="openNav()">&#9776;</a></li>
-        <!-- <li ng-show="signedIn()"><a href="#!/">{{ user.username }}</a></li> -->
-    </ul>
-    <button ng-show="signedIn()" ng-class="{ 'logout-button': true }" type="button" class="btn btn-default" ng-click="logout()">Log Out</button>
-    <p ng-class="{ 'navbar-title': true }" class="navbar-right"><a href="#" class="navbar-title-text" ng-click="closeNav()">gList</a></p>
+  <nav class="navbar header">
+    <div flex-container="row">
+      <div flex-align="start center" flex-item="20" flex-container="row">
+        <ul class="nav navbar-nav" ng-class="{'nav-buttons' : true}">
+            <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="loginPage()">Log In</button></li>
+            <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="registerPage()">Register</button></li>
+            <li tooltip="Menu" tooltip-direction="right" ng-show="signedIn()"><a class="menu-icon" ng-click="openNav()">&#9776;</a></li>
+        </ul>
+      </div>
+      <div flex-align="center center" flex-item="60" flex-container="row">
+        <p ng-class="{ 'navbar-title': true }"><a href="#" class="navbar-title-text" ng-click="closeNav()">gList</a></p>
+      </div>
+      <div flex-container="row" flex-align="end center" flex-item="20">
+        <button flex-align="center end" ng-show="signedIn()" ng-class="{ 'logout-button': true }" type="button" class="btn btn-default" ng-click="logout()">Log out</button>
+      </div>
+    </div>
   </nav>
 
   <div id="mySidenav" class="sidenav">

@@ -8,17 +8,13 @@
   "license": "ISC",
   "homepage": "https://github.com/pwillikins/g-list",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "ignore": [],
   "dependencies": {
     "angular": "^1.6.1",
     "angular-ui-router": "^0.4.2",
     "bootstrap": "^3.3.7",
-    "AngularDevise": "angular-devise#^1.3.0"
+    "AngularDevise": "angular-devise#^1.3.0",
+    "angular-material": "^1.1.6",
+    "angular-flex": "^1.0.3"
   }
 }

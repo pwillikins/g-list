@@ -10,14 +10,13 @@
   <div class="row" style="width: 100%;">
     <div class="page-container">
       <div id="myCanvasNav" class="overlay3" onclick="closeOffcanvas()"></div>
-      <div ng-include="'nav/_nav.html'"></div>
+      <div ng-include="'nav/_nav.html'" style="width: 100%;"></div>
       <ui-view></ui-view>
     </div>
   </div>
 
   <script>
     closeOffcanvas = function() {
-      // debugger;
       document.getElementById("myCanvasNav").style.width = "0%";
       document.getElementById("myCanvasNav").style.opacity = "0";
       document.getElementById("mySidenav").style.width = "0";
