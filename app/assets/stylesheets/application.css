@@ -16,6 +16,31 @@
  *= require_self
  */
 
+ .material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
  .checked-off {
    text-decoration: line-through;
  }
@@ -161,6 +186,9 @@ th {
 .description {
   margin-left: 25px;
   width: 95%;
+  border: none;
+  box-shadow: none;
+  background-color: lightgray;
 }
 
 .description-title {

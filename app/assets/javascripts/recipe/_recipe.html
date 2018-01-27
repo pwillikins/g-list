@@ -31,14 +31,24 @@
       <tr ng-repeat="product in recipeProducts">
         <th>{{ product.name | uppercase }}</th>
 
-        <th><button ng-show="!isInShoppingList(product)"
-           style="color: #35887a; border:none; background:white;"
-          class="glyphicon glyphicon-plus" ng-click="addToShoppingList(product)"><md-tooltip md-direction="right">Add to List</md-tooltip></button>
-          <button ng-show="isInShoppingList(product)" style="color: #35887a; border:none; background:white;"
-            class="glyphicon glyphicon-ok" ng-click="removeFromList(product)"><md-tooltip md-direction="right">Remove from List</md-tooltip></button></th>
+        <th>
+          <span>
+            <i class="material-icons" ng-show="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
+            <md-tooltip md-direction="right">Add to List</md-tooltip>
+          </span>
+          <span>
+            <i class="material-icons" ng-show="isInShoppingList(product)" ng-click="removeFromList(product)">done</i>
+            <md-tooltip md-direction="right">Remove from List</md-tooltip>
+          </span>
+         
+        </th>
 
-        <th><button style="color: red; border:none; background:white;"
-           class="glyphicon glyphicon-trash" ng-click="removeProduct(product.id)"><md-tooltip md-direction="right">Remove Product</md-tooltip></button></th>
+        <th>
+          <span>
+            <i class="material-icons" ng-click="removeProduct(product.id)">delete</i>
+            <md-tooltip md-direction="right">Remove Product</md-tooltip>
+          </span>
+          
       </tr>
     </table>
   </div>

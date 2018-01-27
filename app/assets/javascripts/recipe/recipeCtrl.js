@@ -53,7 +53,7 @@ angular.module('g-list')
   };
 
   $scope.removeFromList = function(product) {
-    index = $scope.currentShoppingList.indexOf(product);
+    var index = $scope.currentShoppingList.indexOf(product);
     $scope.currentShoppingList.splice(index, 1);
     localStorage.items = JSON.stringify($scope.currentShoppingList);
   };
