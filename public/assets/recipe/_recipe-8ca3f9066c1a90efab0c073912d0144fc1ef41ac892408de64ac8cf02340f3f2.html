@@ -1,0 +1,55 @@
+<div class="page-title">
+  <h2 style="margin-left: 35px;" align="left">{{ recipe.attributes.name | uppercase }}</h2>
+  <hr style="width: 95%">
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h3 align="left" class="description-title">Instructions</h3>
+
+    <form ng-submit="saveDescription()">
+      <textarea class="form-control description"
+       rows="6" placeholder="Recipe Description" ng-model="description"></textarea>
+       <button type="submit" class="save-description-button">SAVE</button>
+    </form>
+
+  </div>
+  <div class="col-md-6">
+    <ul>
+      <li style="display:inline-block;"><h3 align="left" style="margin-left: 10px;">Ingredients</h3></li>
+      
+      <li style="display: inline-block;">
+          <form ng-submit="createProduct()">
+            <md-input-container class="input-container">
+              <input placeholder="Product Name" name="productName" ng-model="productName" minLength="3">
+            </md-input-container>
+          </form>
+      </li>
+    </ul>
+    <hr ng-hide="recipeProducts.length > 0" class="recipe-ingredients-sperator">
+    <table style="width: 95%;" class="table">
+      <tr ng-repeat="product in recipeProducts">
+        <th>{{ product.name | uppercase }}</th>
+
+        <th>
+          <span>
+            <i class="material-icons" ng-show="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
+            <md-tooltip md-direction="right">Add to List</md-tooltip>
+          </span>
+          <span>
+            <i class="material-icons" ng-show="isInShoppingList(product)" ng-click="removeFromList(product)">done</i>
+            <md-tooltip md-direction="right">Remove from List</md-tooltip>
+          </span>
+         
+        </th>
+
+        <th>
+          <span>
+            <i class="material-icons" ng-click="removeProduct(product.id)">delete</i>
+            <md-tooltip md-direction="right">Remove Product</md-tooltip>
+          </span>
+        </th>
+      </tr>
+    </table>
+  </div>
+</div>
