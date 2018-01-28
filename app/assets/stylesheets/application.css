@@ -362,17 +362,20 @@ md-input-container {
     }
 
     .input-box {
-      width: 80% !important;
-      height: 200px !important;
       margin: auto;
+      height: 100px;
     }
 
     md-input-container {
-      width: 90% !important;
+      width: 90%;
     }
 
     md-grid-tile {
       width: 100%;
+    }
+
+    .jumbotron {
+      height: 300px;
     }
 }
 
