@@ -297,6 +297,10 @@ md-input-container label {
   color: darkgray;;
 }
 
+md-input-container {
+  width: 50%;
+}
+
 
 
 /* The side navigation menu */
@@ -350,13 +354,58 @@ md-input-container label {
     .sidenav a {font-size: 18px;}
 }
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+    form {
+      width: 100%;
+    }
+
+    .input-box {
+      width: 80% !important;
+      height: 200px !important;
+      margin: auto;
+    }
+
+    md-input-container {
+      width: 90% !important;
+    }
+
+    md-grid-tile {
+      width: 100%;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+@media screen and (max-width: 600px) {
+    /* .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;} */
+    /* form {
+      width: 100%;
+    }
+
+    .input-box {
+      width: 80% !important;
+      height: 200px !important;
+      margin: auto;
+    }
+
+    md-input-container {
+      width: 90% !important;
+    } */
+}
+
 .nav > li > a:hover, .nav > li > a:focus {
   background-color: inherit;
 }
 
-.grid-tile {
+/* .grid-tile {
   width: 100%;
-}
+} */
 
 .overlay3 {
   height: 100%;
