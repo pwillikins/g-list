@@ -12,7 +12,12 @@ angular.module('g-list')
 
   factory.create = function(product) {
     return $http.post('/products.json', product).then(function(data) {
-      factory.products.push(data.data.data);
+      var newProduct = data.data.data;
+      factory.products.push(newProduct);
+      return newProduct;
+    }).catch(function activateError(error) {
+      return error;
+      // alert('An error happened');
     });
   };
 

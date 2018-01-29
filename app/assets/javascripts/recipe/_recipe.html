@@ -5,8 +5,9 @@
   </div>
 
   <div>
-    <div class="col-md-6" flex-container="row" flex-align="center center">
+    <div class="col-md-6">
       <h3 align="left" class="description-title">INSTRUCTIONS</h3>
+
 
       <form ng-submit="saveDescription()">
         <textarea class="form-control description description-mobile"
@@ -17,20 +18,29 @@
       </form>
     </div>
 
-    <div flex-container="row" flex-align="center center">
-      <ul class="recipe-create-ingredients">
-        <li><h1 align="center">INGREDIENTS</h1></li>
-        
-        <li>
-            <form ng-submit="createProduct()">
-              <div flex-container="row" flex-align="center center">
-                <md-input-container class="input-container">
-                  <input placeholder="ENTER PRODUCT NAME" name="productName" ng-model="productName" minLength="3">
-                </md-input-container>
-              </div>
-            </form>
-        </li>
-      </ul>
+    <div flex-container="column" flex-align="center center">
+      <div><h1 align="center">INGREDIENTS</h1></div>
+      
+      <div flex-container="row" flex-align="center center">
+        <form name="productForm" ng-submit="createProduct()">
+          
+            <md-input-container class="input-container">
+              <input placeholder="CREATE PRODUCT" name="name" ng-model="productName" minLength="3">
+              <span class="errors" ng-show="productForm.name.$dirty && productForm.name.$invalid">
+                <span>{{errors.name}}</span>
+              </span>   
+            </md-input-container>
+          
+        </form>
+
+        <div>
+          <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in searchProducts(searchText)">
+            <md-item-template>
+              <span md-highlight-text="searchText">{{item.attributes.name}}</span>
+            </md-item-template>
+          </md-autocomplete>
+        </div>
+      </div>
 
       <hr ng-hide="recipeProducts.length > 0" class="recipe-ingredients-sperator">
 
