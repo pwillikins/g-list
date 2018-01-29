@@ -31,37 +31,70 @@ angular.module('g-list')
   };
 
   $scope.createProduct = function () {
-    $scope.errors = {};
     if( $scope.productName == '' ) { return; }
+    $scope.errors = {};
 
     var product = { name: $scope.productName };
     product.categoryId = $scope.recipe.id;
     product.recipe = true;
-    products.create(product).then(function(response) {
+    var validationResponse = validateProductName( product.name );
 
-      if( response.data && response.data.errors ) {
-        for( var key in response.data.errors ) {
-          
-          angular.forEach(response.data.errors, function (errors, field) {
-            $scope.productForm[ field ].$setValidity('server', false);
-            $scope.errors[ field ] = errors.join(', ');
-          });
+    if( validationResponse.valid ) {
 
-        }
-
-      } else {
+      products.create(product).then(function(response) {
         
-        var newProduct = response;
-        newProduct.name = response.attributes.name;
-        $scope.recipeProducts.push( newProduct );
+        if( response.data && response.data.errors ) {
+          for( var key in response.data.errors ) {
+            
+            angular.forEach(response.data.errors, function (errors, field) {
+              $scope.productForm[ field ].$setValidity('duplicate', false);
+              $scope.errors[ field ] = errors.join(', ');
+            });
+  
+          }
+  
+        } else {
 
-      }
-      
-    });   
+          $scope.productForm['name'].$setValidity('duplicate', true);
+          $scope.productForm.$invalid = false;
+          $scope.productForm.$dirty = false;
+          var newProduct = response;
+          newProduct.name = response.attributes.name;
+          $scope.recipeProducts.push( newProduct );
+  
+        }
+        
+      });
+
+    } else {
+
+      $scope.productForm[ 'name' ].$setValidity('duplicate', false);
+      $scope.errors[ 'name' ] = validationResponse.error;
+
+    }
     
     $scope.productName = '';
 
   };
+
+  validateProductName = function( input ) {
+    var response = {
+      error: 'Product Already Exists',
+      valid: true
+    };
+
+    if( input.length == 0 ) {
+      response.valid = false;
+    }
+
+    for(var product of $scope.allProducts) {
+      if( input.toLowerCase() == product.attributes.name.toLowerCase() ) {
+        response.valid = false;
+      }
+    }
+
+    return response;
+  }
 
   $scope.removeProduct = function( id ) {
     
@@ -105,7 +138,7 @@ angular.module('g-list')
   $scope.searchProducts = function( input ) {    
     var found = [];
     if( input.length > 2 ) {
-
+      
       for( var product of $scope.allProducts ) {
         
         if( product.attributes.name.toLowerCase().includes( input ) ) {

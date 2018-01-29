@@ -22,24 +22,27 @@
       <div><h1 align="center">INGREDIENTS</h1></div>
       
       <div flex-container="row" flex-align="center center">
-        <form name="productForm" ng-submit="createProduct()">
+
+        <form name="productForm" ng-submit="createProduct()" novalidate>
           
             <md-input-container class="input-container">
-              <input placeholder="CREATE PRODUCT" name="name" ng-model="productName" minLength="3">
-              <span class="errors" ng-show="productForm.name.$dirty && productForm.name.$invalid">
-                <span>{{errors.name}}</span>
+              <input autocomplete="off" placeholder="CREATE PRODUCT" name="name" ng-model="productName">
+              <span class="errors" ng-show="productForm.name.$invalid">
+                <span ng-show="productForm.name.$error.duplicate">{{errors.name}}</span>
               </span>   
             </md-input-container>
           
         </form>
 
         <div>
-          <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in searchProducts(searchText)">
+          <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in searchProducts(searchText)"
+            md-min-length="2" placeholder="SEARCH PRODUCTS">
             <md-item-template>
               <span md-highlight-text="searchText">{{item.attributes.name}}</span>
             </md-item-template>
           </md-autocomplete>
         </div>
+
       </div>
 
       <hr ng-hide="recipeProducts.length > 0" class="recipe-ingredients-sperator">
@@ -50,18 +53,18 @@
 
           <th>
             <span>
-              <i class="material-icons" ng-show="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
+              <i class="material-icons icons" ng-show="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
               <md-tooltip md-direction="right">ADD</md-tooltip>
             </span>
             <span>
-              <i class="material-icons" ng-show="isInShoppingList(product)" ng-click="removeFromList(product)">done</i>
+              <i class="material-icons icons" ng-show="isInShoppingList(product)" ng-click="removeFromList(product)">done</i>
               <md-tooltip md-direction="right">REMOVE</md-tooltip>
             </span>
           </th>
 
           <th>
             <span>
-              <i class="material-icons" ng-click="removeProduct(product.id)">delete</i>
+              <i class="material-icons icons" ng-click="removeProduct(product.id)">delete</i>
               <md-tooltip md-direction="right">Remove Product</md-tooltip>
             </span>
           </th>

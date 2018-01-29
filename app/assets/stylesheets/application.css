@@ -193,6 +193,10 @@ th {
   background-color: lightgray;
 }
 
+.icons {
+  outline: none;
+}
+
 .description-title {
   /* margin-left: 35px; */
   font-weight: 200;
@@ -385,8 +389,14 @@ li {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
+
+    md-autocomplete {
+      width: 90vw;
+      margin-bottom: 20px;  
+    }
+
     form {
-      width: 100%;
+      width: 96%;
     }
 
     .input-box {
