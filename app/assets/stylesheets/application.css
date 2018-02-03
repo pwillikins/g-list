@@ -16,6 +16,12 @@
  *= require_self
  */
 
+ body {
+   width: 100vw;
+   height: 100vh;
+   margin-left: 15px;
+ }
+
  .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -52,7 +58,6 @@
  .page-container {
    width: 100%;
    height: 100%;
-   margin-left: 15px;
    margin-top: 80px;
  }
 
@@ -75,9 +80,9 @@
 }
 
 .row {
-  /* margin-top: 58px; */
   background-color: #ffffff;
 }
+
 .nav-buttons {
   padding: 3px;
 }
@@ -309,7 +314,7 @@ md-input-container label {
 }
 
 md-input-container {
-  width: 35%;
+  width: 200px;
   margin-top: 30px;
 }
 
@@ -318,53 +323,53 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
 }
 md-input-container:not(.md-input-invalid).md-input-focused label {
     color: #46b19f;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 200;
-    /* text-align: right; */
 }
 
-.title {
-  width: 100%;
+.instructions-label {
+  font-size: 26px;
+  font-weight: 200;
 }
 
 
 /* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: #ffffff; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.1s; /* 0.5 second transition effect to slide in the sidenav */
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #ffffff; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.1s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 19px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
-    color: #000000;
+  color: #000000;
 }
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
 }
 
 li {
@@ -377,8 +382,6 @@ li {
   width: 100%;
   height: 100%;
 }
-
-
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
@@ -396,13 +399,25 @@ li {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
+  .title {
+    width: 95%;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .section {
+    width: 95%;
+  }
+
   md-autocomplete {
-    width: 90vw;
-    margin-bottom: 20px;  
+    width: 100%; 
   }
 
   form {
-    width: 96%;
+    width: 100%;
   }
 
   .input-box {
@@ -412,6 +427,10 @@ li {
 
   md-input-container {
     width: 100%;
+  }
+
+  .input-container {
+    margin: 0;
   }
 
   md-grid-tile {
@@ -432,9 +451,9 @@ li {
   }
 
   .save-description-button-mobile {
-    width: 95%;
-    margin: 10px auto;
-    height: 40px;
+    width: 100%;
+    margin: 0;
+    height: 60px;
   }
 
   .header {
