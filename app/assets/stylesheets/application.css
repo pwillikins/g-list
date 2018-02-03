@@ -323,6 +323,10 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     /* text-align: right; */
 }
 
+.title {
+  width: 100%;
+}
+
 
 /* The side navigation menu */
 .sidenav {
@@ -370,78 +374,84 @@ li {
 }
 
 .recipe-container {
-  width: 94%;
+  width: 100%;
   height: 100%;
 }
 
+
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-    transition: margin-left .5s;
-    padding: 20px;
+  transition: margin-left .5s;
+  padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
-    md-autocomplete {
-      width: 90vw;
-      margin-bottom: 20px;  
-    }
+  md-autocomplete {
+    width: 90vw;
+    margin-bottom: 20px;  
+  }
 
-    form {
-      width: 96%;
-    }
+  form {
+    width: 96%;
+  }
 
-    .input-box {
-      margin: auto;
-      height: 100px;
-    }
+  .input-box {
+    margin: auto;
+    height: 100px;
+  }
 
-    md-input-container {
-      width: 100%;
-    }
+  md-input-container {
+    width: 100%;
+  }
 
-    md-grid-tile {
-      width: 100%;
-    }
+  md-grid-tile {
+    width: 100%;
+  }
 
-    .jumbotron-mobile {
-      height: 300px;
-    }
+  .jumbotron-mobile {
+    height: 300px;
+  }
 
-    .recipe-create-ingredients {
-      padding-left: 0;
-      width: 95%;
-    }
+  .recipe-create-ingredients {
+    padding-left: 0;
+    width: 95%;
+  }
 
-    li {
-      width: 100%;
-    }
+  li {
+    width: 100%;
+  }
 
-    .save-description-button-mobile {
-      width: 95%;
-      margin: 10px auto;
-      height: 40px;
-    }
+  .save-description-button-mobile {
+    width: 95%;
+    margin: 10px auto;
+    height: 40px;
+  }
 
-    .header {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      z-index: 100;
-      background-color: #ffffff;
-    }
+  .header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: #ffffff;
+  }
 
-    .description-mobile {
-      font-size: 20px;
-    }
+  .description-container {
+    margin-bottom: 0;
+  }
+
+  .description-mobile {
+    font-size: 20px;
+  }
 }
 
 /* iPads (portrait and landscape) ----------- */
