@@ -43,6 +43,7 @@ angular.module('g-list')
 
       products.create(product).then(function(response) {
         
+        // we handle server validation errors
         if( response.data && response.data.errors ) {
           for( var key in response.data.errors ) {
             
@@ -140,16 +141,11 @@ angular.module('g-list')
     var found = [];
     if( input.length > 2 ) {
       
-      for( var product of $scope.allProducts ) {
-        
-        if( product.attributes.name.toLowerCase().includes( input ) ) {
-          
+      for( var product of $scope.allProducts ) { 
+        if( product.attributes.name.toLowerCase().includes( input.toLowerCase() ) ) {
           found.push( product );
-
         }
-
       }
-
     }
     
     return found;
@@ -159,13 +155,15 @@ angular.module('g-list')
   $scope.selectedItemChange = function (item) {
     
     if( item ) {
-      var match = $scope.recipeProducts.filter( (product ) => product.name == item.attributes.name );
+      var match = $scope.recipeProducts.filter((product) => product.name == item.attributes.name);
       
       if( match.length == 0 ) {
-        products.createRecipeProduct( item.id, $scope.recipe.id).then( function(response) {
-          console.log('response', response)
-          $scope.recipeProducts.push(item);
+
+        products.createRecipeProduct(item.id, $scope.recipe.id).then(function(response) {
+          $scope.recipeProducts.push({id: response.id, name: response.attributes.name});
+          $scope.selectedItem = {};
         });
+
       }
     }
   }

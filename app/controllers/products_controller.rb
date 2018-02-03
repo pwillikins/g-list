@@ -16,9 +16,10 @@ class ProductsController < ApplicationController
   def create_categorization
     if params[:categoryId].present?
       cat = Categorization.create( product_id: params[:productId], category_id: params[:categoryId] )
-      respond_with cat
+      respond_with Product.find(params[:productId])
+    else
+      respond_with {}
     end
-    
   end
 
   def destroy

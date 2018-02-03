@@ -22,7 +22,7 @@ angular.module('g-list')
 
   factory.createRecipeProduct = function (productId, categoryId ) {
     return $http.post('/recipe/products.json', {productId: productId, categoryId: categoryId}).then(function (data) {
-
+      return data.data.data;
     });
   };
 
