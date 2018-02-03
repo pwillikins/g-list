@@ -17,7 +17,12 @@ angular.module('g-list')
       return newProduct;
     }).catch(function activateError(error) {
       return error;
-      // alert('An error happened');
+    });
+  };
+
+  factory.createRecipeProduct = function (productId, categoryId ) {
+    return $http.post('/recipe/products.json', {productId: productId, categoryId: categoryId}).then(function (data) {
+
     });
   };
 
@@ -29,6 +34,12 @@ angular.module('g-list')
       angular.copy(updateProducts, factory.products);
     });
   };
+
+  factory.removeRecipeProduct = function (categoryId, productId) {
+    return $http.post('/categorizations.json', { categoryId: categoryId, productId: productId }).then(function (data) {
+
+    });
+  }
 
   return factory;
 

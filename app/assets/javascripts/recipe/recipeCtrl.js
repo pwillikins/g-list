@@ -58,6 +58,7 @@ angular.module('g-list')
           $scope.productForm['name'].$setValidity('duplicate', true);
           $scope.productForm.$invalid = false;
           $scope.productForm.$dirty = false;
+
           var newProduct = response;
           newProduct.name = response.attributes.name;
           $scope.recipeProducts.push( newProduct );
@@ -96,10 +97,10 @@ angular.module('g-list')
     return response;
   }
 
-  $scope.removeProduct = function( id ) {
+  $scope.removeProduct = function( productId ) {
     
-    products.deleteProduct( id );
-    $scope.recipeProducts = $scope.recipeProducts.filter( ( product ) => product.id != id );
+    products.removeRecipeProduct($scope.recipe.id, productId );
+    $scope.recipeProducts = $scope.recipeProducts.filter( ( product ) => product.id != productId );
 
   };
 
@@ -155,8 +156,18 @@ angular.module('g-list')
     
   }
 
-  $scope.createFromExisting = function(selectedItem) {
-
+  $scope.selectedItemChange = function (item) {
+    
+    if( item ) {
+      var match = $scope.recipeProducts.filter( (product ) => product.name == item.attributes.name );
+      
+      if( match.length == 0 ) {
+        products.createRecipeProduct( item.id, $scope.recipe.id).then( function(response) {
+          console.log('response', response)
+          $scope.recipeProducts.push(item);
+        });
+      }
+    }
   }
 
 }]);

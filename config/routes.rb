@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   end
 
   resources :products
+
+  post '/recipe/products' => 'products#create_categorization'
+  post '/categorizations' => 'products#remove_recipe_product'
   resources :categories
   resources :shopping_lists
   resources :shopping_list_items
