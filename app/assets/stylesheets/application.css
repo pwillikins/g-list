@@ -173,9 +173,8 @@ th {
 }
 
 .recipe-ingredients-sperator {
-  margin-top: 0;
-  width: 95%;
-  margin-left: 2px;
+  margin: 0;
+  width: 100%;
 }
 
 .custom-table {
@@ -383,6 +382,10 @@ li {
   height: 100%;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left .5s;
@@ -399,8 +402,21 @@ li {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
+  .added-to-list {
+    background-color: #46b19f;
+    color: white;
+  }
+
   .title {
-    width: 95%;
+    width: 85%;
+  }
+
+  .section {
+    width: 85%;
+  }
+
+  .list {
+    width: 100%;
   }
 
   .search-container {
@@ -408,9 +424,6 @@ li {
     margin-top: 15px;
   }
 
-  .section {
-    width: 95%;
-  }
 
   md-autocomplete {
     width: 100%; 
@@ -428,6 +441,17 @@ li {
   md-input-container {
     width: 100%;
   }
+
+  md-list {
+    width: 100%;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+ md-list-item.md-no-proxy, md-list-item .md-no-style {
+   padding: 0 30px;
+   border-bottom: 1px solid #eee;
+ }
 
   .input-container {
     margin: 0;
