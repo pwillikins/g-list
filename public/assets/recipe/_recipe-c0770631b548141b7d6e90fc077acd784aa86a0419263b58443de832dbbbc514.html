@@ -1,0 +1,79 @@
+<div class="recipe-container" flex-container="column" flex-align="center center">
+  <div class="title recipe-title" flex-container="row" flex-align="center center">
+    {{ recipe.attributes.name | uppercase }}
+  </div>
+  
+  <hr style="width: 100%">
+
+  <div class="section" flex-container="column" flex-align="center center">
+
+    <!-- RECIPE DESCRIPTION -->
+    <form ng-submit="saveDescription()">
+      <md-input-container class="description-container">
+        <label class="instructions-label">INSTRUCTIONS</label>
+        <textarea class="form-control description description-mobile" placeholder="Recipe Description" ng-model="description"></textarea>
+      </md-input-container>
+      <div flex-container="row" flex-align="center center">
+        <md-button type="submit" class="save-description-button save-description-button-mobile">SAVE INSTRUCTIONS</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="section" flex-container="column" flex-align="center center">
+
+    <!-- SEARCH PRODUCTS -->
+    <div class="search-container" flex-container="row" flex-align="center end">
+      <md-autocomplete md-select-on-match="true" md-no-cache="true" md-search-text="searchText" md-selected-item-change="selectedItemChange(item)"
+        md-selected-item="selectedItem.name" md-items="item in searchProducts(searchText)" md-item-text="item.attributes.name" md-floating-label="SEARCH INGREDIENTS">
+        <md-item-template>
+          <span md-highlight-text="searchText" md-highlight-flags="^i"> {{item.attributes.name}} </span>
+        </md-item-template>
+        <md-not-found>
+          <span class="has-error">No Product Found!!!</span>
+        </md-not-found>
+      </md-autocomplete>
+    </div>
+    
+    <!-- CREATE RECIPE PRODUCT --> 
+    <form name="productForm" ng-submit="createProduct()" novalidate>
+      <md-input-container class="input-container">
+          <input autocomplete="off" placeholder="CREATE INGREDIENT" name="name" ng-model="productName">
+          <span class="errors" ng-show="productForm.name.$invalid">
+            <span ng-show="productForm.name.$error.duplicate">{{errors.name}}</span>
+          </span>   
+        </md-input-container>
+    </form>
+  </div>
+
+  <div class="title ingredients-title" flex-container="row" flex-align="center start">
+    <div>INGREDIENTS</div>
+  </div>
+
+  <hr ng-show="recipeProducts.length > 0" class="recipe-ingredients-sperator">
+
+  <div class="section list" flex-container="column" flex-align="center center">
+    <md-list>
+      <md-list-item  ng-repeat="product in recipeProducts" ng-class="{'added-to-list': isInShoppingList(product)}">
+        <div flex-container="row" flex-item="100">
+          <div flex-container="row" flex-item="60" flex-align="start center">{{ product.name | uppercase }}</div>
+          <div flex-container="row" flex-item="20" flex-align="end center">
+            
+              <i class="material-icons icons pointer" ng-show="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
+              <!-- <md-tooltip md-direction="top">ADD</md-tooltip> -->
+            
+            
+              <i class="material-icons icons pointer" ng-show="isInShoppingList(product)" ng-click="removeFromList(product)">clear</i>
+              <!-- <md-tooltip md-direction="top">REMOVE</md-tooltip> -->
+            
+          </div>
+          <div flex-container="row" flex-item="20" flex-align="end center">
+            <span>
+              <i class="material-icons icons pointer" ng-click="removeProduct(product.id)">delete</i>
+            </span>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+  
+</div>

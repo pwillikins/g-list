@@ -1,0 +1,29 @@
+<div ng-controller="NavCtrl">
+  <nav class="navbar header">
+    <div flex-container="row">
+      <div flex-align="start center" flex-item="20" flex-container="row">
+        <ul class="nav navbar-nav" ng-class="{'nav-buttons' : true}">
+            <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="loginPage()">Log In</button></li>
+            <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="registerPage()">Register</button></li>
+            <li ng-show="signedIn()"><a class="menu-icon menu-icon-mobile" ng-click="openNav()">&#9776;</a></li>
+        </ul>
+      </div>
+      <div flex-align="center center" flex-item="60" flex-container="row">
+        <div class="navbar-title"><a href="#!/home" class="navbar-title-text" ng-click="closeNav()">gList</a></div>
+      </div>
+      <div flex-container="row" flex-align="end center" flex-item="20">
+        <button flex-align="center end" ng-show="signedIn()" type="button" class="btn btn-default logout-button" ng-click="logout()">LOG OUT</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mySidenav" class="sidenav">
+    <a class="closebtn" ng-click="closeNav()">&times;</a>
+    <a ng-click="closeNav()" href="#!/home">Home</a>
+    <a ng-click="closeNav()" href="#!/products">Products</a>
+    <a ng-click="closeNav()" href="#!/categories">Categories</a>
+    <a ng-click="closeNav()" href="#!/recipes">Recipes</a>
+    <a ng-click="closeNav()" href="#!/shopping_lists">Shopping Lists</a>
+    <a ng-click="closeNav()" href="#!new_shopping_list">Current Shopping List</a>
+  </div>
+</div>
