@@ -175,6 +175,11 @@ a:hover, a:focus {
   margin-left: auto;
 }
 
+.products-container {
+  height: 100%;
+  width: 100%;
+}
+
 th {
   padding: 3px;
 }
@@ -409,6 +414,18 @@ li {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
+  .products-form-section {
+    width: 85%;
+  }
+
+  md-select {
+    width: 65%;
+  }
+
+  .products-button-row-mobile {
+    margin-bottom: 20px;
+  }
+
   .row {
     min-height: 880px;
   }
@@ -482,6 +499,10 @@ li {
    height: 67px;
    font-size: 18px;
    font-weight: 200;
+ }
+
+ .product:first-child {
+   border-top: 1px solid #eee;
  }
 
  md-input-container label:not(.md-container-ignore) {
