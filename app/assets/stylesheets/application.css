@@ -62,7 +62,7 @@
  .page-container {
    width: 100%;
    height: 100%;
-   margin-top: 80px;
+   margin-top: 76px;
  }
 
 .user-forms {
@@ -99,11 +99,13 @@
   font-weight: bold;
   font-size: 24px;
   color: #46b19f;
+  outline: 0;
 }
 
 a:hover, a:focus {
   color: #46b19f;
   text-decoration: none;
+  outline: 0;
 }
 
 .navbar-title-text:hover {
@@ -112,8 +114,8 @@ a:hover, a:focus {
 }
 
 .navbar-title {
-  margin-top: 15px;
-  font-size: 30px
+  margin-top: 20px;
+  font-size: 30px;
 }
 
 .navbar {
@@ -125,7 +127,7 @@ a:hover, a:focus {
   font-size: 14px;
   float: right;
   margin-top: 21px;
-  margin-right: 15px;
+  margin-right: 20px;
   background-color: #46b19f;
   color: #ffffff;
   cursor: pointer;
@@ -403,15 +405,20 @@ li {
   .sidenav a {font-size: 18px;}
 }
 
-/* Smartphones (portrait and landscape) ----------- */
+/* MOBILE STYLING (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
+  .row {
+    min-height: 880px;
+  }
   .menu-icon-mobile {
     margin-left: 20px;
   }
 
-
+  .new-recipe-input {
+    margin-top: 25px;
+  }
 
   .added-to-list {
     background-color: #46b19f;
@@ -425,6 +432,7 @@ li {
 
   .recipe-title {
     font-size: 37px;
+    margin-top: 5px;
   }
 
   .ingredients-title {
