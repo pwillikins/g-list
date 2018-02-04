@@ -22,6 +22,10 @@
    margin-left: 15px;
  }
 
+ hr {
+   margin-top: 4px;
+ }
+
  .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -409,6 +413,15 @@ li {
 
   .title {
     width: 85%;
+    font-weight: 100;
+  }
+
+  .recipe-title {
+    font-size: 37px;
+  }
+
+  .ingredients-title {
+    font-size: 30px;
   }
 
   .section {
@@ -451,6 +464,13 @@ li {
  md-list-item.md-no-proxy, md-list-item .md-no-style {
    padding: 0 30px;
    border-bottom: 1px solid #eee;
+   height: 67px;
+   font-size: 18px;
+   font-weight: 200;
+ }
+
+ md-input-container label:not(.md-container-ignore) {
+   font-weight: 200;
  }
 
   .input-container {
