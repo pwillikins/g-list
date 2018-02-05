@@ -1,9 +1,9 @@
 <div class="page-title">
-  <h2>{{ title }}</h2>
+  <h1>RECIPES</h1>
 
-  <hr style="width: 95%;">
+  <hr style="width: 100%;">
 
-  <div class="custom-table">
+  <!-- <div class="custom-table">
     <table class="table">
       <tr>
         <th>Recipe Name</th>
@@ -12,6 +12,20 @@
         <td style="text-align: left;"><a href="#!/recipes/{{recipe['id']}}">{{ recipe["attributes"]["name"] | uppercase }}</a></td>
       </tr>
     </table>
-  </div>
+  </div> -->
+
+  <md-grid-list class="recipe-grid-tile-mobile" flex-container="column" flex-align="center center" md-cols="2" md-cols-lt-sm="1"
+    md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-lg="5" md-cols-gt-lg="5" md-row-height="90" md-row-height-gt-sm="200px">
+    <md-grid-tile flex-align="center center" class="grid-tile" ng-repeat="recipe in recipes">
+      <div flex-container="row" flex-align="center center" class="recipe-tile recipe-tile-mobile" ng-click="navigateToRecipe(recipe.id)">
+        <div class="recipe-name recipe-name-mobile" flex-item="65" flex-container="row" flex-align="center center">
+          {{ recipe.attributes.name | uppercase }}
+        </div>
+        <div class="recipe-description recipe-description-mobile" flex-item="35" flex-container="row" flex-align="center center">
+          {{ recipe.attributes.products.length }} INGREDIENTS
+        </div>
+      </div>
+    </md-grid-tile>
+  </md-grid-list>
 
 </div>

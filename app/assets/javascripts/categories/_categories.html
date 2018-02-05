@@ -1,8 +1,20 @@
-<div class="page-title">
-  <h1>{{title}}</h1>
+<div class="categories-container">
+  <div flex-container="row" flex-align="center center">
+    <h1>CATEGORIES</h1>
+  </div>
 
+  <div class="category-form-section-mobile" flex-container="column" flex-align="center center">
     <form ng-submit="createCategory()">
-      <div class="form-group">
+
+      <md-input-container>
+        <label>CATEGORY NAME</label>
+        <input ng-model="name">
+      </md-input-container>
+
+      <div class="products-button-row-mobile" flex-container="row" flex-align="center center">
+        <md-button type="submit" class="save-description-button save-description-button-mobile">ADD CATEGORY</button>
+      </div>
+      <!-- <div class="form-group">
         <table class="product-form" style="margin-right: auto; margin-left: auto;">
           <tr>
             <th><input type="text" class="form-control" placeholder="Name" ng-model="name"></input></th>
@@ -13,12 +25,27 @@
             <td></td>
           </tr>
         </table>
-      </div>
+      </div> -->
     </form>
+  </div>
+
+  <div class="section list" flex-container="column" flex-align="center center">
+    <md-list>
+      <md-list-item class="product" ng-repeat="category in categories" ng-class="{'added-to-list': isInShoppingList(product)}">
+        <div flex-container="row" flex-item="100" flex-align="center center">
+          <div flex-container="row" flex-item="70" flex-align="start center">{{ category.attributes.name | uppercase }}</div>
+  
+          <div flex-container="row" flex-item="15" flex-align="end center">
+            <i class="material-icons icons pointer" ng-click="removeCategory(category.id)">delete</i>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
 
 </div>
-<hr style="width: 95%;">
-<div class="custom-table">
+<!-- <hr style="width: 95%;"> -->
+<!-- <div class="custom-table">
 
   <table class="table">
       <tr ng-repeat="category in categories">
@@ -28,4 +55,4 @@
       </tr>
   </table>
 
-</div>
+</div> -->

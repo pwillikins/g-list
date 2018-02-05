@@ -115,6 +115,7 @@ a:hover, a:focus {
 
 .navbar-title {
   margin-top: 20px;
+  margin-right: 20px;
   font-size: 30px;
 }
 
@@ -394,6 +395,11 @@ li {
   height: 100%;
 }
 
+.categories-container {
+  width: 100%;
+  height: 100%;
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -414,6 +420,22 @@ li {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
+  .recipe-name-mobile {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 200;
+  }
+
+  .recipe-description-mobile {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  .recipe-tile-mobile {
+    height: 70px;
+  }
+
   .products-form-section {
     width: 85%;
   }
@@ -424,6 +446,12 @@ li {
 
   .products-button-row-mobile {
     margin-bottom: 20px;
+  }
+
+  .category-form-section-mobile {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .row {

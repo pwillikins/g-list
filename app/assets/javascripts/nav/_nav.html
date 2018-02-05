@@ -8,12 +8,12 @@
             <li ng-show="signedIn()"><a class="menu-icon menu-icon-mobile" ng-click="openNav()">&#9776;</a></li>
         </ul>
       </div>
-      <div class="navbar-title" flex-align="center center" flex-item="60" flex-container="row">
+      <div class="navbar-title" flex-align="end center" flex-item="80" flex-container="row">
         <a href="#!/home" class="navbar-title-text" ng-click="closeNav()">gList</a>
       </div>
-      <div flex-container="row" flex-align="end center" flex-item="20">
+      <!-- <div flex-container="row" flex-align="end center" flex-item="20">
         <button flex-align="center end" ng-show="signedIn()" type="button" class="btn btn-default logout-button" ng-click="logout()">LOG OUT</button>
-      </div>
+      </div> -->
     </div>
   </nav>
 
@@ -25,5 +25,6 @@
     <a ng-click="closeNav()" href="#!/recipes">Recipes</a>
     <a ng-click="closeNav()" href="#!/shopping_lists">Shopping Lists</a>
     <a ng-click="closeNav()" href="#!new_shopping_list">Current Shopping List</a>
+    <a ng-click="logout()">LOGOUT</a>
   </div>
 </div>

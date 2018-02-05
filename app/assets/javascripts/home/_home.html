@@ -16,14 +16,14 @@
   </div>
 </div>
 
-<md-grid-list flex-container="column" flex-align="center center" md-cols="2" md-cols-lt-sm="1" md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-lg="5" md-cols-gt-lg="5" md-row-height="200px">
+<md-grid-list class="recipe-grid-tile-mobile" flex-container="column" flex-align="center center" md-cols="2" md-cols-lt-sm="1" md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-lg="5" md-cols-gt-lg="5" md-row-height="90" md-row-height-gt-sm="200px">
   <md-grid-tile flex-align="center center" class="grid-tile" ng-repeat="recipe in recipes">
-    <div class="recipe-tile" ng-click="navigateToRecipe(recipe.id)">
-      <div class="recipe-name" flex-container="row" flex-align="center center">
+    <div flex-container="row" flex-align="center center" class="recipe-tile recipe-tile-mobile" ng-click="navigateToRecipe(recipe.id)">
+      <div class="recipe-name recipe-name-mobile" flex-item="65" flex-container="row" flex-align="center center">
          {{ recipe.attributes.name | uppercase }}
       </div>
-      <div class="recipe-description">
-         Ingredients: {{ recipe.attributes.products.length }}
+      <div class="recipe-description recipe-description-mobile" flex-item="35" flex-container="row" flex-align="center center">
+         {{ recipe.attributes.products.length }} INGREDIENTS
       </div>
     </div>
   </md-grid-tile>
