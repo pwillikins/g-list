@@ -30,7 +30,7 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 26px !important;  /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -422,6 +422,10 @@ li {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
+  .md-select-value.md-select-placeholder {
+    font-size: 20px;
+  }
+
   .recipe-grid-tile-mobile {
     top: 300px;
   }
@@ -469,7 +473,7 @@ li {
   }
 
   md-select {
-    width: 65%;
+    width: 100%;
   }
 
   .products-button-row-mobile {
@@ -556,8 +560,8 @@ li {
   md-list-item.md-no-proxy, md-list-item .md-no-style {
     padding: 0 30px;
     border-bottom: 1px solid #eee;
-    height: 67px;
-    font-size: 18px;
+    height: 100px;
+    font-size: 22px;
     font-weight: 200;
   }
 
