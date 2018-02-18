@@ -242,6 +242,8 @@ th {
     height: 450px;
     background-size: cover;
     overflow: hidden;
+    
+
 }
 
 .homepage-title {
@@ -420,6 +422,10 @@ li {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
+  .recipe-grid-tile-mobile {
+    top: 300px;
+  }
+
   .page-title-mobile {
     text-align: center;
     position: fixed;
@@ -527,7 +533,7 @@ li {
   }
 
   .input-box {
-    margin: auto;
+    margin: 50px auto 0 auto;
     height: 100px;
   }
 
@@ -572,6 +578,10 @@ li {
 
   .jumbotron-mobile {
     height: 300px;
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    z-index: 1;
   }
 
   .recipe-create-ingredients {
