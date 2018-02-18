@@ -420,6 +420,26 @@ li {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
+  .shopping-list-title-mobile {
+    text-align: center;
+    position: fixed;
+    top: 70px;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .create-shopping-list-button-mobile {
+    width: 100%;
+    height: 100px;
+    background-color: #46b19f;
+    position: fixed;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    bottom: 0;
+  }
+
   .recipe-name-mobile {
     margin-top: 0;
     font-size: 24px;
@@ -521,21 +541,28 @@ li {
     padding-top: 0;
   }
 
- md-list-item.md-no-proxy, md-list-item .md-no-style {
-   padding: 0 30px;
-   border-bottom: 1px solid #eee;
-   height: 67px;
-   font-size: 18px;
-   font-weight: 200;
- }
+  .shopping-list-mobile {
+    margin-top: 70px;
+  }
+
+  md-list-item.md-no-proxy, md-list-item .md-no-style {
+    padding: 0 30px;
+    border-bottom: 1px solid #eee;
+    height: 67px;
+    font-size: 18px;
+    font-weight: 200;
+  }
 
  .product:first-child {
    border-top: 1px solid #eee;
  }
 
  md-input-container label:not(.md-container-ignore) {
-   font-weight: 200;
+   font-weight: bold;
+   color: #46b19f;
  }
+
+ 
 
   .input-container {
     margin: 0;
