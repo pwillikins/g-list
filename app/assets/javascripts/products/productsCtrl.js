@@ -56,8 +56,7 @@ angular.module('g-list')
   };
 
   $scope.removeFromList = function(product) {
-    index = $scope.currentShoppingList.indexOf(product);
-    $scope.currentShoppingList.splice(index, 1);
+    $scope.currentShoppingList = $scope.currentShoppingList.filter( ( object ) => object.id != product.id );
     localStorage.items = JSON.stringify($scope.currentShoppingList);
   };
 
