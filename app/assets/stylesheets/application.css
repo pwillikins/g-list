@@ -56,7 +56,7 @@
  }
 
  .checked-row {
-   background-color: #c1f0c1;
+   background-color: #a0e5da;
  }
 
  .page-container {
@@ -420,7 +420,7 @@ li {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
 
-  .shopping-list-title-mobile {
+  .page-title-mobile {
     text-align: center;
     position: fixed;
     top: 70px;
@@ -541,7 +541,7 @@ li {
     padding-top: 0;
   }
 
-  .shopping-list-mobile {
+  .list-mobile {
     margin-top: 70px;
   }
 
@@ -553,16 +553,14 @@ li {
     font-weight: 200;
   }
 
- .product:first-child {
-   border-top: 1px solid #eee;
- }
+  .product:first-child {
+    border-top: 1px solid #eee;
+  }
 
- md-input-container label:not(.md-container-ignore) {
-   font-weight: bold;
-   color: #46b19f;
- }
-
- 
+  md-input-container label:not(.md-container-ignore) {
+    font-weight: bold;
+    color: #46b19f;
+  }
 
   .input-container {
     margin: 0;
