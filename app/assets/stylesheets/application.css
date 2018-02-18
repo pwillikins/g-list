@@ -448,6 +448,7 @@ li {
 
   .recipe-name-mobile {
     margin-top: 0;
+    padding-left: 10px;
     font-size: 24px;
     font-weight: 200;
   }
@@ -455,6 +456,7 @@ li {
   .recipe-description-mobile {
     margin-top: 0;
     font-size: 18px;
+    padding-right: 5px;
     font-weight: 100;
   }
 
@@ -566,6 +568,7 @@ li {
   md-input-container label:not(.md-container-ignore) {
     font-weight: bold;
     color: #46b19f;
+    font-size: 18px;
   }
 
   .input-container {
