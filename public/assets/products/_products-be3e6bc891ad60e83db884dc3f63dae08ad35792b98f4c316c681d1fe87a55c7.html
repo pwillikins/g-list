@@ -1,0 +1,62 @@
+<div class="products-container">
+  <div class="product-form-mobile" flex-container="column" flex-align="center center">
+    <div flex-container="row" flex-align="center center">
+      <h1>PRODUCTS</h1>
+    </div>
+
+    <div class="products-form-section" flex-container="column" flex-item="100" flex-align="center center">
+      <form ng-submit="createProduct()">
+        
+
+          <md-input-container>
+            <label>PRODUCT NAME</label>
+            <input ng-model="name">
+          </md-input-container>
+
+
+        <div flex-container="row" flex-align="center center">
+          <md-select placeholder="Select Category" name="category" id="category" ng-model="category">
+            <md-option ng-value="category" ng-repeat="category in categories">{{category.attributes.name}}</md-option>
+          </md-select>
+        </div>
+        <div class="products-button-row-mobile" flex-container="row" flex-align="center center">
+          <md-button type="submit" class="save-description-button save-description-button-mobile">ADD PRODUCT</button>
+        </div>
+
+        <!-- <div class="form-group">
+          <table class="product-form" style="margin-right: auto; margin-left: auto;">
+            <tr>
+              <th><input type="text" class="form-control" placeholder="Name" ng-model="name"></input></th>
+
+              <th><select name="category" id="category" ng-options="(category.attributes.name | uppercase) group by (category.content) for category in categories track by category.id"
+                ng-class="{ 'category-select': true }" class="form-control" ng-model="category" placeholder="Category">
+                <option value="">Choose Category</option>
+                </select></th>
+
+              <th><button type="submit" class="btn btn-primary">Add Product</button></th>
+            </tr>
+          </table>
+        </div> -->
+      </form>
+    </div>
+  </div>
+
+  <div class="section list" flex-container="column" flex-align="center center">
+    <md-list>
+      <md-list-item class="product" ng-repeat="product in products" ng-class="{'added-to-list': isInShoppingList(product)}">
+        <div flex-container="row" flex-item="100" flex-align="center center">
+          <div flex-container="row" flex-item="70" flex-align="start center">{{ product.attributes.name | uppercase }}</div>
+          
+          <div flex-container="row" flex-item="15" flex-align="end center">
+            <i class="material-icons icons pointer" ng-if="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
+            <i class="material-icons icons pointer" ng-if="isInShoppingList(product)" ng-click="removeFromList(product)">clear</i>
+          </div>
+
+          <div flex-container="row" flex-item="15" flex-align="end center">
+            <i class="material-icons icons pointer" ng-click="removeProduct(product.id)">delete</i>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>

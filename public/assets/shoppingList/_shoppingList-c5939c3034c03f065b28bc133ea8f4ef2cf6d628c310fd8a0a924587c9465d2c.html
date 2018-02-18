@@ -1,0 +1,42 @@
+<div flex-container="column" flex-align="center center">
+  <div class="page-title">
+    <h1>CURRENT LIST</h1>
+  </div>
+
+  <div class="section list" flex-container="column" flex-align="center center">
+    <md-list>
+      <md-list-item class="product" ng-repeat="product in products" ng-class="{'added-to-list': isInShoppingList(product)}">
+        <div flex-container="row" flex-item="100" flex-align="center center">
+          <div flex-container="row" flex-item="70" flex-align="start center">{{ product.attributes.name | uppercase }}</div>
+  
+          <div flex-container="row" flex-item="15" flex-align="end center">
+            <i class="material-icons icons pointer" ng-if="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
+            <i class="material-icons icons pointer" ng-if="isInShoppingList(product)" ng-click="removeFromList(product)">clear</i>
+          </div>
+  
+          <div flex-container="row" flex-item="15" flex-align="end center">
+            <i class="material-icons icons pointer" ng-click="removeProduct(product.id)">delete</i>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+
+<!-- <div class="custom-table">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+
+    <tr ng-class="{ 'checked-row': item.purchased }" ng-repeat="item in shoppingListItems">
+      <td ng-class="{ 'checked-off': item.purchased }">{{ item["name"] }}</td>
+      <td><button tooltip="Check Off List" ng-hide="item.purchased"
+         style="border:none; background:inherit;"
+        class="glyphicon glyphicon-unchecked" ng-click="checkOffList(item)"></button>
+        <button tooltip="Purchased" ng-show="item.purchased"
+           style="border:none; background:inherit;"
+          class="glyphicon glyphicon-ok-sign"></button></td>
+    </tr>
+  </table> -->
+</div>

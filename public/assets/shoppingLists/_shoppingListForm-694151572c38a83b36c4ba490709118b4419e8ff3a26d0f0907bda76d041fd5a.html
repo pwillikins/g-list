@@ -1,0 +1,45 @@
+<div flex-container="column" flex-align="center center">
+  <div class="page-title shopping-list-title-mobile">
+    <h1>SHOPPING LIST</h1>
+  </div>
+
+  <!-- <div class="custom-table shopping-list-items-mobile">
+      <table class=table>
+        <tr ng-repeat="item in shoppingListItems">
+          <th>{{ item["name"] | uppercase }}</th>
+          <th><button tooltip="Remove from List" style="color: red; border:none; background:white;"
+            class="glyphicon glyphicon-remove" ng-click="removeFromList(item)"></button></th>
+        </tr>
+
+        <tr>
+          <td><button ng-show="shoppingListItems.length > 0"
+            ng-click="createShoppingList()" class="btn btn-primary">Create Shopping List</button></td>
+          <td></td>
+        </tr>
+      </table>
+  </div> -->
+
+  <div class="section list" flex-container="column" flex-align="center center">
+    <md-list class="shopping-list-mobile">
+      <md-list-item class="product" ng-repeat="item in shoppingListItems">
+        <div flex-container="row" flex-item="100" flex-align="center center">
+          <div flex-container="row" flex-item="85" flex-align="start center">{{ item.name | uppercase }}</div>
+
+          <div flex-container="row" flex-item="15" flex-align="end center">
+            <i class="material-icons icons pointer" ng-click="removeFromList(item)">clear</i>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+
+  <div 
+    ng-show="shoppingListItems.length > 0" 
+    class="create-shopping-list-button-mobile"  
+    flex-container="row" 
+    flex-align="center center"
+     ng-click="createShoppingList()">
+     CREATE SHOPPING LIST
+    <!-- <md-button class="create-shopping-list-button-mobile" ng-click="createShoppingList()" class="">CREATE SHOPPING LIST</md-button> -->
+  </div>
+</div>
