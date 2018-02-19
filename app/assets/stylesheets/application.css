@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap/dist/css/bootstrap
+ 
  *= require angular-material/angular-material.css
  *= require_tree .
  *= require_self
@@ -19,7 +19,7 @@
  body {
    width: 100vw;
    height: 100vh;
-   margin-left: 15px;
+   /* margin-left: 15px; */
  }
 
  hr {
@@ -418,8 +418,26 @@ li {
   .sidenav a {font-size: 18px;}
 }
 
-/* MOBILE STYLING (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* ---------------- TABLET STYLING  ---------------- */
+@media only screen and (min-width : 600px) and (max-width : 1024px) {
+/* Styles */
+
+  .jumbotron-tablet {
+    height: 300px;
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .recipe-grid-tile-tablet {
+    top: 300px;
+  }
+
+}
+
+/* ---------------- MOBILE STYLING  ---------------- */
+@media only screen and (min-width : 320px) and (max-width : 599px) {
 /* Styles */
 
   .md-select-value.md-select-placeholder {
@@ -628,11 +646,6 @@ li {
   .description-mobile {
     font-size: 20px;
   }
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-/* Styles */
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
