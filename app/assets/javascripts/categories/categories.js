@@ -28,8 +28,10 @@ angular.module('g-list')
       var newCategory = data.data.data;
       if (!newCategory.attributes.recipe) {
         factory.categories.push(newCategory);
+        return newCategory;
       } else {
         factory.recipes.push(newCategory);
+        return newCategory;
       };
     });
   };

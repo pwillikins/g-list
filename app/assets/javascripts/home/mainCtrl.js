@@ -7,6 +7,8 @@ angular.module('g-list')
     categories.create({
       name: $scope.recipeName,
       recipe: true
+    }).then( function(newRecipe) {
+      $scope.navigateToRecipe(newRecipe.id);
     });
     $scope.recipeName = '';
   };

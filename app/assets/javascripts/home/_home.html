@@ -3,7 +3,7 @@
     
     <div flex-container="row" flex-align="center center">
       <form name="recipeForm" ng-submit="createRecipe()">
-        <div class="input-box">
+        <div class="input-box input-box-mobile">
           <md-input-container class="new-recipe-input">
             <input placeholder="Create New Recipe" name="recipeName" ng-model="recipeName" minLength="3">
             <!-- <div ng-show="recipeForm.recipeName.$dirty" ng-messages="recipeForm.recipeName.$error">
@@ -18,7 +18,7 @@
 
 <md-grid-list class="recipe-grid-tile-mobile" flex-container="column" flex-align="center center" md-cols="2" md-cols-lt-sm="1" md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-lg="5" md-cols-gt-lg="5" md-row-height="90" md-row-height-gt-sm="200px">
   <md-grid-tile flex-align="center center" class="grid-tile" ng-repeat="recipe in recipes">
-    <div flex-container="row" flex-align="center center" class="recipe-tile recipe-tile-mobile" ng-click="navigateToRecipe(recipe.id)">
+    <div flex-align="center center" class="recipe-tile recipe-tile-tablet recipe-tile-mobile" ng-click="navigateToRecipe(recipe.id)">
       <div class="recipe-name recipe-name-mobile" flex-item="65" flex-container="row" flex-align="start center">
          {{ recipe.attributes.name | uppercase }}
       </div>
