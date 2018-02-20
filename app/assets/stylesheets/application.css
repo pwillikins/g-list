@@ -420,7 +420,22 @@ li {
 
 .new-recipe-form {
   margin: 0 auto;
+  margin-top: 100px;
+  height: 40%;
+  width: 50%;
 }
+
+.new-recipe-input {
+    width: 70%;
+    margin-top: 50px;
+}
+
+md-input-container label:not(.md-container-ignore) {
+    font-weight: bold;
+    color: #46b19f;
+    font-size: 22px;
+    text-align: center;
+  }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
@@ -455,13 +470,6 @@ li {
     margin-top: 50px;
   }
 
-  md-input-container label:not(.md-container-ignore) {
-    font-weight: bold;
-    color: #46b19f;
-    font-size: 22px;
-    text-align: center;
-  }
-
 }
 
 /* ---------------- MOBILE STYLING  ---------------- */
@@ -470,7 +478,7 @@ li {
 
   .new-recipe-form-mobile {
     width: 90%;
-    height: 90%;
+    height: 50%;
   }
 
   .md-select-value.md-select-placeholder {
@@ -567,13 +575,22 @@ li {
     font-weight: 100;
   }
 
-  .recipe-title {
-    font-size: 37px;
-    margin-top: 5px;
+  .recipe-title-mobile {
+    font-size: 40px;
+    margin-top: 20px;
+  }
+
+  .recipe-description-form-mobile {
+    width: 100%;
+  }
+
+  .create-product-form-mobile {
+    width: 100%;
   }
 
   .ingredients-title {
-    font-size: 30px;
+    font-size: 35px;
+    margin-bottom: 20px;
   }
 
   .section {
@@ -594,12 +611,8 @@ li {
     width: 100%; 
   }
 
-  /* form {
-    width: 100%;
-  } */
-
   .input-box-mobile {
-    margin: 50px auto 0 auto;
+    margin-bottom: 50px;
     height: 100px;
   }
 
@@ -629,12 +642,12 @@ li {
     border-top: 1px solid #eee;
   }
 
-  md-input-container label:not(.md-container-ignore) {
+  /* md-input-container label:not(.md-container-ignore) {
     font-weight: bold;
     color: #46b19f;
     font-size: 22px;
     text-align: center;
-  }
+  } */
 
   .input-container {
     margin: 0;

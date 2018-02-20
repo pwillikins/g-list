@@ -1,14 +1,12 @@
 <div class="recipe-container" flex-container="column" flex-align="center center">
-  <div class="title recipe-title" flex-container="row" flex-align="center center">
+  <div class="title recipe-title-mobile" flex-container="row" flex-align="center center">
     {{ recipe.attributes.name | uppercase }}
   </div>
-  
-  <hr style="width: 100%">
 
   <div class="section" flex-container="column" flex-align="center center">
 
     <!-- RECIPE DESCRIPTION -->
-    <form ng-submit="saveDescription()">
+    <form class="recipe-description-form-mobile" ng-submit="saveDescription()">
       <md-input-container class="description-container">
         <label class="instructions-label">INSTRUCTIONS</label>
         <textarea class="form-control description description-mobile" placeholder="Recipe Description" ng-model="description"></textarea>
@@ -35,7 +33,7 @@
     </div>
     
     <!-- CREATE RECIPE PRODUCT --> 
-    <form name="productForm" ng-submit="createProduct()" novalidate>
+    <form class="create-product-form-mobile" name="productForm" ng-submit="createProduct()" novalidate>
       <md-input-container class="input-container">
           <input autocomplete="off" placeholder="CREATE INGREDIENT" name="name" ng-model="productName">
           <span class="errors" ng-show="productForm.name.$invalid">
@@ -45,11 +43,9 @@
     </form>
   </div>
 
-  <div class="title ingredients-title" flex-container="row" flex-align="center start">
+  <!-- <div class="title ingredients-title" flex-container="row" flex-align="center start">
     <div>INGREDIENTS</div>
-  </div>
-
-  <hr ng-show="recipeProducts.length > 0" class="recipe-ingredients-sperator">
+  </div> -->
 
   <div class="section list" flex-container="column" flex-align="center center">
     <md-list>
