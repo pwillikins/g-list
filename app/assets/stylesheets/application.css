@@ -257,11 +257,6 @@ th {
   font-size: 90px;
 }
 
-.test {
-  height: 100%;
-  width: 100%;
-}
-
 .input-box {
   height: 100%;
   width: 100%;
@@ -423,6 +418,10 @@ li {
   padding: 20px;
 }
 
+.new-recipe-form {
+  margin: 0 auto;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -445,13 +444,22 @@ li {
     top: 300px;
   }
 
-  .recipe-name-tablet {
-
-  }
-
   .new-recipe-form-tablet {
     height: 50%;
     width: 60%;
+    margin-top: 75px;
+  }
+
+  .new-recipe-input-tablet {
+    width: 80%;
+    margin-top: 50px;
+  }
+
+  md-input-container label:not(.md-container-ignore) {
+    font-weight: bold;
+    color: #46b19f;
+    font-size: 22px;
+    text-align: center;
   }
 
 }
@@ -463,7 +471,6 @@ li {
   .new-recipe-form-mobile {
     width: 90%;
     height: 90%;
-    margin: 0 auto;
   }
 
   .md-select-value.md-select-placeholder {
