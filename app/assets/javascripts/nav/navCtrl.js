@@ -1,13 +1,19 @@
 angular.module('g-list')
 .controller('NavCtrl', ['$scope', 'Auth', '$state', function($scope, Auth, $state) {
-
+  
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
-
-  Auth.currentUser().then(function(user) {
-    $scope.user = user;
-  });
-
+  
+  if(Auth.isAuthenticated()) {
+    Auth.currentUser().then(function(user) {
+      $scope.user = user;
+    });
+  } else {
+    Auth.logout().then( () => {
+      $state.go('login');
+    })
+  }
+  
   $scope.$on('devise:new-registration', function (e, user){
     $scope.user = user;
   });
@@ -43,5 +49,13 @@ angular.module('g-list')
     document.getElementById("myCanvasNav").style.width = "0%";
     document.getElementById("myCanvasNav").style.opacity = "0";
   };
+
+  $scope.showRegister = function() {
+    return location.hash.includes('login')
+  }
+
+  $scope.showLogin = function() {
+    return location.hash.includes('register')
+  }
 
 }]);
