@@ -1,0 +1,38 @@
+.login-page-container {
+    padding: 25px;
+    height: calc(100vh - 125px);
+    overflow: auto;
+    
+    .page-title {
+        text-align: center;
+    }
+    
+    .login-inputs {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .user-forms {
+        width: 300px;
+        margin-right: auto;
+        margin-left: auto;
+        
+    }
+}
+
+/* ---------------- MOBILE STYLING  ---------------- */
+// @media screen and (min-width : 320px) and (max-width : 599px) {
+@media (min-width: 320px) {
+
+    .user-forms {
+        width: 95%;
+    }
+
+    .md-button {
+        width: 100%;
+        margin: 5px 0 !important;
+    }
+}
