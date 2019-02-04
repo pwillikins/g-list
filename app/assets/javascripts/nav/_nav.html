@@ -1,12 +1,10 @@
 <div ng-controller="NavCtrl">
   <nav class="navbar header">
-    <div flex-container="row">
-      <div flex-align="start center" flex-item="20" flex-container="row">
-        <ul class="nav navbar-nav" ng-class="{'nav-buttons' : true}">
-            <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="loginPage()">Log In</button></li>
-            <li class="nav-button" ng-hide="signedIn()"><button type="button" class="btn btn-default" ng-click="registerPage()">Register</button></li>
-            <li ng-show="signedIn()"><a class="menu-icon menu-icon-mobile" ng-click="openNav()">&#9776;</a></li>
-        </ul>
+    <div flex-container="row" class="header-navbar">
+      <div flex-align="start center" flex-item="20" flex-container="row" class="left-side-nav">
+        <a ng-show="signedIn()" class="menu-icon menu-icon-mobile" ng-click="openNav()">&#9776;</a>
+        <a ng-show="!signedIn() && showRegister()" class="create-account" href="#!/register">REGISTER</a>
+        <a ng-show="!signedIn() && showLogin()" class="create-account" href="#!/login">LOGIN</a>
       </div>
       <div class="navbar-title" flex-align="end center" flex-item="80" flex-container="row">
         <a href="#!/home" class="navbar-title-text" ng-click="closeNav()">gList</a>
@@ -25,6 +23,6 @@
     <a ng-click="closeNav()" href="#!/recipes">Recipes</a>
     <a ng-click="closeNav()" href="#!/shopping_lists">Shopping Lists</a>
     <a ng-click="closeNav()" href="#!new_shopping_list">Current Shopping List</a>
-    <a ng-click="logout()">LOGOUT</a>
+    <a ng-click="logout()" class="pointer">LOGOUT</a>
   </div>
 </div>
