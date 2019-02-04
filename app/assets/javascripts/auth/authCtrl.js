@@ -13,12 +13,4 @@ angular.module('g-list')
     });
   };
 
-  $scope.navigateToRegister = () => {
-    $state.go('register');
-  }
-
-  $scope.navigateToLogin = () => {
-    $state.go('login');
-  }
-
 }]);
