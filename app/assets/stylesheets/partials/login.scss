@@ -1,5 +1,5 @@
 .login-page-container {
-    padding: 25px;
+    padding: 30px;
     height: calc(100vh - 125px);
     overflow: auto;
     
@@ -10,6 +10,16 @@
     .login-inputs {
         width: 100%;
         margin-top: 5px;
+    }
+
+    .register-link {
+        text-align: center;
+        a {
+            text-decoration: none;
+            font-family: 'Roboto-Light', sans-serif !important;
+            color: grey;
+            font-size: 13px;
+        }
     }
 }
 
@@ -28,7 +38,7 @@
 @media (min-width: 320px) {
 
     .user-forms {
-        width: 95%;
+        width: 100%;
     }
 
     .md-button {
