@@ -1,17 +1,6 @@
 angular.module('g-list', [ 'ui.router', 'templates', 'Devise', 'tooltips', 'ngMaterial', 'ngAnimate', 'ngAria', 'angularFlex' ])
-.run([ '$rootScope', '$location', 'Auth', '$state', function ($rootScope, $location, Auth, $state) {
-  // intercepts each route to handle redirecting if not authenticated
-  $rootScope.$on('$stateChangeSuccess', function (event) {
-    if (!Auth.isAuthenticated()) {
-      event.preventDefault();
-      if (!$location.path().includes('login') && !$location.path().includes('register')) {
-        $state.go('login');
-      }
-    }
-  });
-}])
 
-.config([ '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+  .config([ '$stateProvider', '$urlRouterProvider', 'AuthProvider', function ($stateProvider, $urlRouterProvider, AuthProvider) {
 
   $stateProvider
     .state('home', {
@@ -124,4 +113,17 @@ angular.module('g-list', [ 'ui.router', 'templates', 'Devise', 'tooltips', 'ngMa
     });
 
   $urlRouterProvider.otherwise('login');
-}]);
+}])
+
+  .run([ '$rootScope', '$location', 'Auth', '$state', function ($rootScope, $location, Auth, $state) {
+    // intercepts each route to handle redirecting if not authenticated
+    $rootScope.$on('$stateChangeSuccess', async function (event) {
+      const currentUser = await Auth.currentUser()
+      if (!currentUser) {
+        event.preventDefault();
+        if (!$location.path().includes('login') && !$location.path().includes('register')) {
+          $state.go('login');
+        }
+      }
+    });
+  } ])
