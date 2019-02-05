@@ -1,0 +1,30 @@
+/* ---------------- GLOBAL STYLING  ---------------- */
+.register-container {
+    padding: 25px;
+    height: calc(100vh - 125px);
+
+    .page-title {
+        text-align: center;
+    }
+
+    .login-inputs {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
+
+/* ---------------- DESKTOP STYLING  ---------------- */
+@media (min-width: 1200px) {
+
+}
+
+/* ---------------- TABLET STYLING  ---------------- */
+@media (min-width: 599px) {
+
+}
+
+/* ---------------- MOBILE STYLING  ---------------- */
+@media (min-width: 320px) {
+
+
+}
