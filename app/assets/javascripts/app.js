@@ -1,17 +1,17 @@
 angular.module('g-list', [ 'ui.router', 'templates', 'Devise', 'tooltips', 'ngMaterial', 'ngAnimate', 'ngAria', 'angularFlex' ])
-  .run([ '$rootScope', '$location', 'Auth', '$state', function ($rootScope, $location, Auth, $state) {
-    $rootScope.$on('$stateChangeSuccess', function (event) {
-      if (!Auth.isAuthenticated()) {
-        event.preventDefault();
-        if (!$location.path().includes('login') && !$location.path().includes('register')) {
-          $state.go('login');
-        }
+.run([ '$rootScope', '$location', 'Auth', '$state', function ($rootScope, $location, Auth, $state) {
+  // intercepts each route to handle redirecting if not authenticated
+  $rootScope.$on('$stateChangeSuccess', function (event) {
+    if (!Auth.isAuthenticated()) {
+      event.preventDefault();
+      if (!$location.path().includes('login') && !$location.path().includes('register')) {
+        $state.go('login');
       }
-    });
+    }
+  });
+}])
 
-  }])
-
-  .config([ '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+.config([ '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('home', {
