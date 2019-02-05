@@ -31,11 +31,30 @@
         margin-left: auto;
         
     }
+
+    .md-button {
+        width: 300px;
+        margin: 5px 0 !important;
+    }
+}
+
+/* ---------------- TABLET STYLING  ---------------- */
+@media (min-width: 600px) and (max-width: 1199px) {
+
+    .user-forms {
+        width: 300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .md-button {
+        width: 300px;
+        margin: 5px 0 !important;
+    }
 }
 
 /* ---------------- MOBILE STYLING  ---------------- */
-// @media screen and (min-width : 320px) and (max-width : 599px) {
-@media (min-width: 320px) {
+@media (min-width: 320px) and (max-width: 599px) {
 
     .user-forms {
         width: 100%;
