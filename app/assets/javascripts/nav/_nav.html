@@ -3,8 +3,7 @@
     <div flex-container="row" class="header-navbar">
       <div flex-align="start center" flex-item="20" flex-container="row" class="left-side-nav">
         <a ng-show="signedIn()" class="menu-icon menu-icon-mobile" ng-click="openNav()">&#9776;</a>
-        <a ng-show="!signedIn() && showRegister()" class="create-account" href="#!/register">REGISTER</a>
-        <a ng-show="!signedIn() && showLogin()" class="create-account" href="#!/login">LOGIN</a>
+        <i class="material-icons logo">fastfood</i>
       </div>
       <div class="navbar-title" flex-align="end center" flex-item="80" flex-container="row">
         <a href="#!/home" class="navbar-title-text" ng-click="closeNav()">gList</a>
