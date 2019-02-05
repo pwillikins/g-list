@@ -2,6 +2,7 @@
 .register-container {
     padding: 25px;
     height: calc(100vh - 125px);
+    overflow: auto;
 
     .page-title {
         text-align: center;

@@ -7,11 +7,8 @@ angular.module('g-list')
   if(Auth.isAuthenticated()) {
     Auth.currentUser().then(function(user) {
       $scope.user = user;
+      $state.go('home');
     });
-  } else {
-    Auth.logout().then( () => {
-      $state.go('login');
-    })
   }
   
   $scope.$on('devise:new-registration', function (e, user){

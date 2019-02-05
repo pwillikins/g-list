@@ -12,9 +12,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    if request.session['warden.user.user.key'][0][0].present?
+    if request.session['warden.user.user.key'].present? && request.session['warden.user.user.key'][0].present? && request.session['warden.user.user.key'][0][0].present?
       user_id = request.session['warden.user.user.key'][0][0]
       @current_user ||= User.find(user_id)
+    else 
+      @current_user = nil
     end
   end
 
