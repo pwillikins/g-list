@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <head>
   <title>gList</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,12 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="g-list">
-  <div class="row">
-    <div class="page-container">
-      <div id="myCanvasNav" class="overlay3" onclick="closeOffcanvas()"></div>
-      <div ng-include="'nav/_nav.html'" style="width: 100%;"></div>
-      <ui-view></ui-view>
-    </div>
+  <div class="page-container">
+    <div id="myCanvasNav" class="overlay3" onclick="closeOffcanvas()"></div>
+    <div ng-include="'nav/_nav.html'" style="width: 100%;"></div>
+    <ui-view></ui-view>
   </div>
 
   <script>
