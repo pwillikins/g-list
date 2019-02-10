@@ -398,11 +398,6 @@ li {
   padding: 7px 0;
 }
 
-.recipe-container {
-  width: 100%;
-  height: 100%;
-}
-
 .categories-container {
   width: 100%;
   height: 100%;
@@ -558,9 +553,9 @@ li {
     width: 85%;
   }
 
-  .list {
-    width: 100%;
-  }
+  // .list {
+  //   width: 100%;
+  // }
 
   .search-container {
     width: 100%;
@@ -579,24 +574,6 @@ li {
 
   md-input-container {
     width: 100%;
-  }
-
-  md-list {
-    width: 100%;
-    padding-bottom: 0;
-    padding-top: 0;
-  }
-
-  .list-mobile {
-    margin-top: 70px;
-  }
-
-  md-list-item.md-no-proxy, md-list-item .md-no-style {
-    padding: 0 30px;
-    border-bottom: 1px solid #eee;
-    height: 100px;
-    font-size: 22px;
-    font-weight: 200;
   }
 
   .product:first-child {

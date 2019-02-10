@@ -4,23 +4,21 @@
   </div>
 
   <div class="section" flex-container="column">
-
-    <!-- RECIPE DESCRIPTION -->
     <!-- <h2>INSTRUCTIONS</h2> -->
       <md-input-container class="description-container">
         <textarea placeholder="INSTRUCTIONS" class="form-control description" ng-change="saveDescription()" ng-model="description"></textarea>
       </md-input-container>
   </div>
 
-  <div class="section" flex-container="column">
+  <div class="section">
     <h2>INGREDIENTS</h2>
-    <div class="search-container" flex-container="row" flex-align="center end">
+    <div class="search-container" flex-container="row" flex-align="start center">
       <md-autocomplete 
         md-select-on-match="true" 
         md-no-cache="true" 
         placeholder="Search for ingredient to add or create new"
         md-search-text="searchText" 
-        ng-keypress="createNewProduct($event)"
+        ng-keypress="createProduct($event)"
         md-selected-item-change="selectedItemChange(item)"
         md-selected-item="selectedItem.name" 
         md-items="item in searchProducts(searchText)" 
@@ -48,7 +46,7 @@
     <div>INGREDIENTS</div>
   </div> -->
 
-  <div class="section list">
+  <div class="section ingredient-list">
     <md-list>
       <md-list-item  ng-repeat="product in recipeProducts" ng-class="{'added-to-list': isInShoppingList(product)}">
         <div flex-container="row" flex-item="100">

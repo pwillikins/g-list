@@ -26,42 +26,29 @@ angular.module('g-list')
     });
   };
 
-  $scope.createProduct = function () {
-    if( $scope.productName == '' ) { return; }
+  $scope.createProduct = function ($event) {
+    if ($event.target.value == '' ) { return; }
+    if ($event.key == 'Enter') {
+      const product = { name: $event.target.value };
+      product.categoryId = $scope.recipe.id;
+      product.recipe = true;
+      const validationResponse = validateProductName( product.name );
 
-    $scope.errors = {};
-    const product = { name: $scope.productName };
-    product.categoryId = $scope.recipe.id;
-    product.recipe = true;
-    const validationResponse = validateProductName( product.name );
-
-    if( validationResponse.valid ) {
-      products.create(product).then(function(response) {
-        
-        // we handle server validation errors
-        if( response.data && response.data.errors ) {
-          angular.forEach(response.data.errors, function (errors, field) {
-            $scope.productForm[ field ].$setValidity('duplicate', false);
-            $scope.errors[ field ] = errors.join(', ');
+      if( validationResponse.valid ) {
+        products.create(product).then(function(productResponse) {
+          
+          const newProduct = productResponse;
+          products.createRecipeProduct(newProduct.id, $scope.recipe.id).then(function (response) {
+            $scope.recipeProducts.push({ id: response.id, name: response.attributes.name });
+            $event.target.value = ''
           });
-        } else {
-          $scope.productForm['name'].$setValidity('duplicate', true);
-          $scope.productForm.$invalid = false;
-          $scope.productForm.$dirty = false;
+        });
 
-          const newProduct = response;
-          newProduct.name = response.attributes.name;
-          $scope.recipeProducts.push( newProduct );
-        }
-      });
-
-    } else {
-      $scope.productForm[ 'name' ].$setValidity('duplicate', false);
-      $scope.errors[ 'name' ] = validationResponse.error;
+      } else {
+        // $scope.productForm[ 'name' ].$setValidity('duplicate', false);
+        // $scope.errors[ 'name' ] = validationResponse.error;
+      }
     }
-    
-    $scope.productName = '';
-
   };
 
   validateProductName = function( input ) {
@@ -130,24 +117,11 @@ angular.module('g-list')
       const match = $scope.recipeProducts.filter(product => product.name == item.attributes.name);
       
       if( match.length == 0 ) {
-
         products.createRecipeProduct(item.id, $scope.recipe.id).then(function(response) {
           $scope.recipeProducts.push({id: response.id, name: response.attributes.name});
           $scope.selectedItem = {};
         });
-
       }
-    }
-  }
-
-  $scope.createNewProduct = function ($event) {
-    if ($event.key == 'Enter' && $event.target.value.length > 0) {
-      products.create({ name: $event.target.value}).then(function(productResponse) {
-        $event.target.value = ''
-        products.createRecipeProduct(productResponse.id, $scope.recipe.id).then(function (response) {
-          $scope.recipeProducts.push({ id: response.id, name: response.attributes.name });
-        });
-      })
     }
   }
 
