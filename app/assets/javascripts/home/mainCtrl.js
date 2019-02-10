@@ -65,6 +65,10 @@ angular.module('g-list')
     $scope.navigateToRecipe = function (id) {
       window.location = `#!/recipes/${ id }`;
     }
+
+    $scope.closeDialog = function() {
+      $mdDialog.hide()
+    }
   }
 
 }]);

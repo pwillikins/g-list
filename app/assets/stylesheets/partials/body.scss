@@ -69,9 +69,9 @@
     height: 100%;
   }
 
-  md-input-container label:not(.md-container-ignore) {
-    padding-left: 35px !important;
-  }
+  // md-input-container label:not(.md-container-ignore) {
+  //   padding-left: 35px !important;
+  // }
   
 .header {
   width: 100%;
@@ -254,17 +254,17 @@ th {
   font-size: 90px;
 }
 
-.input-box {
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  /* opacity: .6; */
-  background: url(50%-transparent-white.png);
-  background: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 8px;
-  border-radius: 3px;
-}
+// .input-box {
+//   height: 100%;
+//   width: 100%;
+//   background-color: black;
+//   /* opacity: .6; */
+//   background: url(50%-transparent-white.png);
+//   background: rgba(0, 0, 0, 0.5);
+//   text-align: center;
+//   padding: 8px;
+//   border-radius: 3px;
+// }
 
 h1, h2, h3 {
   font-weight: 200;
@@ -302,9 +302,9 @@ h1, h2, h3 {
   color: #ffffff;
 }
 
-.md-button:not([disabled]):hover {
-  background-color: #35887a;
-}
+// .md-button:not([disabled]):hover {
+//   background-color: #35887a;
+// }
 
 .md-ripple-container {
   display: none;
@@ -413,17 +413,17 @@ li {
   padding: 20px;
 }
 
-.new-recipe-form {
-  margin: 0 auto;
-  margin-top: 100px;
-  height: 40%;
-  width: 50%;
-}
+// .new-recipe-form {
+//   margin: 0 auto;
+//   margin-top: 100px;
+//   height: 40%;
+//   width: 50%;
+// }
 
-.new-recipe-input {
-    width: 70%;
-    margin-top: 50px;
-}
+// .new-recipe-input {
+//     width: 70%;
+//     margin-top: 50px;
+// }
 
 /* md-input-container label:not(.md-container-ignore) {
     font-weight: bold;
@@ -442,16 +442,16 @@ li {
 @media only screen and (min-width : 600px) and (max-width : 1024px) {
 /* Styles */
 
-  .new-recipe-form-tablet {
-    height: 50%;
-    width: 60%;
-    margin-top: 75px;
-  }
+  // .new-recipe-form-tablet {
+  //   height: 50%;
+  //   width: 60%;
+  //   margin-top: 75px;
+  // }
 
-  .new-recipe-input-tablet {
-    width: 80%;
-    margin-top: 50px;
-  }
+  // .new-recipe-input-tablet {
+  //   width: 80%;
+  //   margin-top: 50px;
+  // }
 
 }
 
@@ -522,9 +522,9 @@ li {
     margin-left: 20px;
   }
 
-  .new-recipe-input-mobile {
-    margin-top: 25px;
-  }
+  // .new-recipe-input-mobile {
+  //   margin-top: 25px;
+  // }
 
   .added-to-list {
     background-color: #46b19f;
@@ -565,11 +565,6 @@ li {
 
   md-autocomplete {
     width: 100%; 
-  }
-
-  .input-box-mobile {
-    margin-bottom: 50px;
-    height: 100px;
   }
 
   md-input-container {

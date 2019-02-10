@@ -1,7 +1,17 @@
-<form flex-container="row" flex-align="center center" class="new-recipe-form new-recipe-form-tablet new-recipe-form-mobile" name="recipeForm" ng-submit="createRecipe()">
-    <div class="input-box input-box-mobile">
-    <md-input-container class="new-recipe-input new-recipe-input-tablet">
-        <input placeholder="Create New Recipe" name="recipeName" ng-model="recipeName" minLength="3">
-    </md-input-container>
+<div class="dialog-title" flex-container="row" flex-align="start center">Create Recipe</div>
+<form 
+    flex-container="row" 
+    flex-align="center center" 
+    class="new-recipe-form" 
+    name="recipeForm" 
+    ng-submit="createRecipe()">
+    <div class="input-box">
+        <md-input-container class="new-recipe-input">
+            <input placeholder="Enter Recipe Name" name="recipeName" ng-model="recipeName" minLength="3">
+        </md-input-container>
+    </div>
+    <div class="button-row" flex-container="row" flex-align="end center">
+        <md-button class="cancel-button" flex-item="25" ng-click="closeDialog()">Cancel</md-button>
+        <md-button class="create-button" flex-item="25" type="submit">Create</md-button>
     </div>
 </form>
