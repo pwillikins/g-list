@@ -1,28 +1,29 @@
-<div class="recipe-container" flex-container="column" flex-align="center center">
+<div class="recipe-container">
   <div class="title recipe-title-mobile" flex-container="row" flex-align="center center">
     {{ recipe.attributes.name | uppercase }}
   </div>
 
-  <div class="section" flex-container="column" flex-align="center center">
+  <div class="section" flex-container="column">
 
     <!-- RECIPE DESCRIPTION -->
-    <form class="recipe-description-form-mobile" ng-submit="saveDescription()">
+    <h2>INSTRUCTIONS</h2>
       <md-input-container class="description-container">
-        <label class="instructions-label">INSTRUCTIONS</label>
-        <textarea class="form-control description description-mobile" placeholder="Recipe Description" ng-model="description"></textarea>
+        <textarea class="form-control description description-mobile" ng-change="saveDescription()" ng-model="description"></textarea>
       </md-input-container>
-      <div flex-container="row" flex-align="center center">
-        <md-button type="submit" class="save-description-button save-description-button-mobile">SAVE INSTRUCTIONS</button>
-      </div>
-    </form>
   </div>
 
-  <div class="section" flex-container="column" flex-align="center center">
+  <div class="section" flex-container="column">
 
-    <!-- SEARCH PRODUCTS -->
     <div class="search-container" flex-container="row" flex-align="center end">
-      <md-autocomplete md-select-on-match="true" md-no-cache="true" md-search-text="searchText" md-selected-item-change="selectedItemChange(item)"
-        md-selected-item="selectedItem.name" md-items="item in searchProducts(searchText)" md-item-text="item.attributes.name" md-floating-label="SEARCH INGREDIENTS">
+      <md-autocomplete 
+        md-select-on-match="true" 
+        md-no-cache="true" 
+        placeholder="Search for product or add new"
+        md-search-text="searchText" 
+        md-selected-item-change="selectedItemChange(item)"
+        md-selected-item="selectedItem.name" 
+        md-items="item in searchProducts(searchText)" 
+        md-item-text="item.attributes.name">
         <md-item-template>
           <span md-highlight-text="searchText" md-highlight-flags="^i"> {{item.attributes.name}} </span>
         </md-item-template>
@@ -32,22 +33,21 @@
       </md-autocomplete>
     </div>
     
-    <!-- CREATE RECIPE PRODUCT --> 
-    <form class="create-product-form-mobile" name="productForm" ng-submit="createProduct()" novalidate>
+    <!-- <form class="create-product-form-mobile" name="productForm" ng-submit="createProduct()" novalidate>
       <md-input-container class="input-container">
           <input autocomplete="off" placeholder="CREATE INGREDIENT" name="name" ng-model="productName">
           <span class="errors" ng-show="productForm.name.$invalid">
             <span ng-show="productForm.name.$error.duplicate">{{errors.name}}</span>
           </span>   
         </md-input-container>
-    </form>
+    </form> -->
   </div>
 
   <!-- <div class="title ingredients-title" flex-container="row" flex-align="center start">
     <div>INGREDIENTS</div>
   </div> -->
 
-  <div class="section list" flex-container="column" flex-align="center center">
+  <div class="section list">
     <md-list>
       <md-list-item  ng-repeat="product in recipeProducts" ng-class="{'added-to-list': isInShoppingList(product)}">
         <div flex-container="row" flex-item="100">
