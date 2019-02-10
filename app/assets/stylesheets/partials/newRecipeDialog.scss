@@ -1,0 +1,65 @@
+md-dialog {
+    height: 200px;
+    width: 400px;
+
+    .dialog-title {
+        padding-left: 15px;
+        height: 65px;
+        color: white;
+        font-size: 25px;
+        font-weight: 300;
+        background-color: #46b19f;
+    }
+
+    .new-recipe-form {
+      width: 100%;
+    
+        .input-box {
+            height: 100%;
+            width: 100%;
+            // background-color: black;
+            /* opacity: .6; */
+            // background: url(50%-transparent-white.png);
+            // background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 8px;
+    
+            .new-recipe-input {
+                width: 100%;
+                margin: 18px 0 0 0;
+            }
+        }
+
+        .button-row {
+            width: 100%;
+
+            .cancel-button {
+                margin: 6px 3px 6px 3px;
+                font-size: 15px;
+                font-weight: 300;
+                border-radius: 3px;
+                border: 1px solid #CCC;
+            }
+
+            .create-button {
+                margin: 6px 3px 6px 3px;
+                font-size: 15px;
+                font-weight: 400;
+                color: white;
+                background: #46b19f;
+                border-radius: 3px;
+            }
+        }
+    }
+}
+
+
+/* ---------------- TABLET STYLING  ---------------- */
+@media (min-width: 600px) and (max-width: 1199px) {
+
+}
+
+/* ---------------- MOBILE STYLING  ---------------- */
+@media (min-width: 300px) and (max-width: 599px) {
+
+}
