@@ -27,7 +27,7 @@
     cursor: pointer;
   }
 
- .material-icons {
+  .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -52,11 +52,19 @@
     font-feature-settings: 'liga';
   }
 
- .checked-off {
+  md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
+    color: #46b19f;
+  }
+
+  md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
+    background-color: #46b19f; 
+  }
+
+  .checked-off {
     text-decoration: line-through;
   }
 
- .checked-row {
+  .checked-row {
     background-color: #a0e5da;
   }
 

@@ -18,7 +18,8 @@
             <md-checkbox 
               aria-label="Checkbox No Ink" 
               ng-class="{'show-checkbox': areRecipesSelected()}" 
-              ng-model="recipe.selected">
+              ng-model="recipe.selected"
+              ng-change="selectRecipe()">
             </md-checkbox>
           </div>
           <div 

@@ -2,6 +2,18 @@
     height: 100%;
     padding: 0 30px;
 
+    .create-recipe-list-button {
+        height: 100%;
+
+        .md-button {
+            background-color: #46b19f;
+            color: white;
+            border-radius: 3px;
+            font-weight: 400;
+            padding: 5px;
+        }
+    }
+
     .left-side-nav {
         height: 100%;
 
@@ -28,4 +40,21 @@
             outline: 0;
         }
     }
+}
+
+/* ---------------- TABLET STYLING  ---------------- */
+@media (min-width: 600px) and (max-width: 1199px) {
+
+}
+
+/* ---------------- MOBILE STYLING  ---------------- */
+@media (min-width: 300px) and (max-width: 599px) {
+
+    .create-recipe-list-button {
+        .md-button {
+            font-size: 15px;
+            margin-right: 25px;
+        }
+    }
+
 }

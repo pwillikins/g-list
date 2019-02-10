@@ -3,6 +3,7 @@ angular.module('g-list')
   $scope.recipes = categories.recipes
   $scope.recipes.forEach(recipe => recipe.selected = false)
   $scope.selectedRecipes = []
+  $scope.$parent.recipeSelected = false
   
   $scope.createRecipe = function () {
     if ($scope.recipeName == '') { return; }
@@ -19,8 +20,9 @@ angular.module('g-list')
     window.location = `#!/recipes/${ id }`;
   }
 
-  $scope.selectRecipe = function (selectedRecipe) {
-    selectedRecipe.selected = !selectedRecipe.selected
+  $scope.selectRecipe = function () {
+    const recipesAreSelected = $scope.areRecipesSelected()
+    $scope.$parent.recipeSelected = recipesAreSelected
   }
 
   $scope.areRecipesSelected = function() {
@@ -31,6 +33,7 @@ angular.module('g-list')
     return show
   }
 
+  // ---------------- DIALOG FUNCTIONALITY ---------------- //
   $scope.openNewRecipeDialog = function (ev) {
     // Appending dialog to document.body to cover sidenav in docs app
     // Modal dialogs should fully cover application
