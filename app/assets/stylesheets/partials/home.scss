@@ -3,6 +3,20 @@
     height: calc(100vh - 81px);
     overflow: auto;
 
+    .md-button.md-fab {
+        top: auto;
+        right: 20px;
+        bottom: 20px;
+        left: auto;
+        position: absolute;
+        background-color: #46b19f;
+
+        .material-icons {
+            padding-top: 15px;
+            outline: none;
+        }
+    }
+
     .recipe-grid-tile {
         height: calc(198px) !important;
         
