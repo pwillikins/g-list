@@ -30,19 +30,47 @@
             margin-right: auto;
             cursor: pointer;
             outline: none;
+
+            .weekly-list-checkbox {
+                width: 100%;
+
+                md-checkbox {
+                    visibility: hidden;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                }
+            }
     
             .recipe-name {
+                outline: none;
                 margin-top: 25px;
                 font-size: 25px;
-                font-weight: 200;  
+                font-weight: 200; 
+                width: 100%; 
+            }
+
+            .recipe-description {
+                outline: none;
+                font-size: 18px;
+                font-weight: 100;
+                margin-top: 20px;
+                width: 100%;
             }
         }
     
         .recipe-tile:hover {
             box-shadow: 0 1px 5px 1px #CCC;
+
+            md-checkbox {
+                visibility: visible;
+            }
         }
     }
 
+}
+
+.show-checkbox {
+    visibility: visible !important;
 }
 
 
@@ -71,17 +99,26 @@
                 display: flex;
                 align-items: flex-start;
 
+                md-checkbox {
+                    visibility: visible !important;
+                }
+
+                .recipe-description {
+                    margin-top: 0;
+                    font-size: 18px;
+                    font-weight: 100;
+                    height: 100%;
+                }
+
                 .recipe-name {
                     margin-top: 0;
-                    padding-left: 10px;
                     font-size: 24px;
                     font-weight: 200;
                     height: 100%;
-                    display: flex;
-                    place-content: flex-start !important;
                 }
             }
         }
     }
+
 
 }
