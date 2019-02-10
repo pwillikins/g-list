@@ -1,5 +1,6 @@
 angular.module('g-list')
-.controller('RecipeCtrl', ['$scope', 'recipe', 'categories', 'products', function($scope, recipe, categories, products) {
+  .controller('RecipeCtrl', [ '$scope', 'recipe', 'categories', 'products', 
+    function ($scope, recipe, categories, products) {
 
   $scope.recipe = recipe;
   $scope.error = '';
@@ -8,15 +9,10 @@ angular.module('g-list')
   products.getAll();
   $scope.allProducts = products.products;
 
-
   if( localStorage.items && localStorage.items.length > 0 ) {
-
     $scope.currentShoppingList = JSON.parse( localStorage.items );
-
   } else {
-
     $scope.currentShoppingList = [];
-
   }
 
   $scope.saveDescription = function() {
@@ -32,47 +28,36 @@ angular.module('g-list')
 
   $scope.createProduct = function () {
     if( $scope.productName == '' ) { return; }
-    $scope.errors = {};
 
-    var product = { name: $scope.productName };
+    $scope.errors = {};
+    const product = { name: $scope.productName };
     product.categoryId = $scope.recipe.id;
     product.recipe = true;
-    var validationResponse = validateProductName( product.name );
+    const validationResponse = validateProductName( product.name );
 
     if( validationResponse.valid ) {
-
       products.create(product).then(function(response) {
         
         // we handle server validation errors
         if( response.data && response.data.errors ) {
-          for( var key in response.data.errors ) {
-            
-            angular.forEach(response.data.errors, function (errors, field) {
-              $scope.productForm[ field ].$setValidity('duplicate', false);
-              $scope.errors[ field ] = errors.join(', ');
-            });
-  
-          }
-  
+          angular.forEach(response.data.errors, function (errors, field) {
+            $scope.productForm[ field ].$setValidity('duplicate', false);
+            $scope.errors[ field ] = errors.join(', ');
+          });
         } else {
-
           $scope.productForm['name'].$setValidity('duplicate', true);
           $scope.productForm.$invalid = false;
           $scope.productForm.$dirty = false;
 
-          var newProduct = response;
+          const newProduct = response;
           newProduct.name = response.attributes.name;
           $scope.recipeProducts.push( newProduct );
-  
         }
-        
       });
 
     } else {
-
       $scope.productForm[ 'name' ].$setValidity('duplicate', false);
       $scope.errors[ 'name' ] = validationResponse.error;
-
     }
     
     $scope.productName = '';
@@ -80,7 +65,7 @@ angular.module('g-list')
   };
 
   validateProductName = function( input ) {
-    var response = {
+    const response = {
       error: 'Product Already Exists',
       valid: true
     };
@@ -99,34 +84,25 @@ angular.module('g-list')
   }
 
   $scope.removeProduct = function( productId ) {
-    
     products.removeRecipeProduct($scope.recipe.id, productId );
     $scope.recipeProducts = $scope.recipeProducts.filter( ( product ) => product.id != productId );
-
   };
 
   $scope.isInShoppingList = function(product) {
     exists = false
     for( i = 0; i < $scope.currentShoppingList.length; i++ ) {
-
       if( $scope.currentShoppingList[i].id == product.id ) {
-
         exists = true;
-
       }
-
     };
 
     return exists;
-
   };
 
   $scope.addToShoppingList = function( product ) {
-
     product.added = true;
     $scope.currentShoppingList.push( product );
     localStorage.setItem( 'items', JSON.stringify( $scope.currentShoppingList ) );
-
   };
 
   $scope.removeFromList = function( product ) {
@@ -135,10 +111,10 @@ angular.module('g-list')
   };
 
   $scope.searchProducts = function( input ) {    
-    var found = [];
+    const found = [];
     if( input.length > 2 ) {
       
-      for( var product of $scope.allProducts ) { 
+      for( const product of $scope.allProducts ) { 
         if( product.attributes.name.toLowerCase().includes( input.toLowerCase() ) ) {
           found.push( product );
         }
@@ -150,9 +126,8 @@ angular.module('g-list')
   }
 
   $scope.selectedItemChange = function (item) {
-    
     if( item ) {
-      var match = $scope.recipeProducts.filter((product) => product.name == item.attributes.name);
+      const match = $scope.recipeProducts.filter(product => product.name == item.attributes.name);
       
       if( match.length == 0 ) {
 
@@ -165,4 +140,16 @@ angular.module('g-list')
     }
   }
 
-}]);
+  $scope.createNewProduct = function ($event) {
+    if ($event.key == 'Enter' && $event.target.value.length > 0) {
+      products.create({ name: $event.target.value}).then(function(productResponse) {
+        $event.target.value = ''
+        products.createRecipeProduct(productResponse.id, $scope.recipe.id).then(function (response) {
+          $scope.recipeProducts.push({ id: response.id, name: response.attributes.name });
+        });
+      })
+    }
+  }
+
+}])
+

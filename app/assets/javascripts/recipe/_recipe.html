@@ -1,25 +1,26 @@
 <div class="recipe-container">
-  <div class="title recipe-title-mobile" flex-container="row" flex-align="center center">
+  <div class="recipe-title" flex-container="row" flex-align="center center">
     {{ recipe.attributes.name | uppercase }}
   </div>
 
   <div class="section" flex-container="column">
 
     <!-- RECIPE DESCRIPTION -->
-    <h2>INSTRUCTIONS</h2>
+    <!-- <h2>INSTRUCTIONS</h2> -->
       <md-input-container class="description-container">
-        <textarea class="form-control description description-mobile" ng-change="saveDescription()" ng-model="description"></textarea>
+        <textarea placeholder="INSTRUCTIONS" class="form-control description" ng-change="saveDescription()" ng-model="description"></textarea>
       </md-input-container>
   </div>
 
   <div class="section" flex-container="column">
-
+    <h2>INGREDIENTS</h2>
     <div class="search-container" flex-container="row" flex-align="center end">
       <md-autocomplete 
         md-select-on-match="true" 
         md-no-cache="true" 
-        placeholder="Search for product or add new"
+        placeholder="Search for ingredient to add or create new"
         md-search-text="searchText" 
+        ng-keypress="createNewProduct($event)"
         md-selected-item-change="selectedItemChange(item)"
         md-selected-item="selectedItem.name" 
         md-items="item in searchProducts(searchText)" 
@@ -27,9 +28,9 @@
         <md-item-template>
           <span md-highlight-text="searchText" md-highlight-flags="^i"> {{item.attributes.name}} </span>
         </md-item-template>
-        <md-not-found>
+        <!-- <md-not-found>
           <span class="has-error">No Product Found!!!</span>
-        </md-not-found>
+        </md-not-found> -->
       </md-autocomplete>
     </div>
     
