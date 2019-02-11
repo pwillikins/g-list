@@ -10,7 +10,7 @@ angular.module('g-list')
   } else {
     $scope.shoppingListItems = [];
   };
-
+  
   $scope.removeFromList = function(product) {
     index = $scope.shoppingListItems.indexOf(product);
     if(index != -1) {

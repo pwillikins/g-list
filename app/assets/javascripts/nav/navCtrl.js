@@ -123,14 +123,15 @@ angular.module('g-list')
       $scope.currentShoppingList = $scope.currentShoppingList.concat(
         $scope.propagatedProducts.filter(product => product.selected)
       )
-
-      localStorage.setItem('items', JSON.stringify($scope.removeDuplicates($scope.currentShoppingList)))
+      
+      const list = $scope.removeDuplicates($scope.currentShoppingList, 'id')
+      localStorage.setItem('items', JSON.stringify(list))
       $scope.closeDialog()
-      $scope.navigateToRecipeLists()
+      $scope.navigateToShoppingLists()
     }
 
-    $scope.navigateToRecipeLists = function (id) {
-      window.location = '#!/recipe_lists';
+    $scope.navigateToShoppingLists = function (id) {
+      window.location = '#!/new_shopping_list';
     }
 
     $scope.closeDialog = function () {
@@ -143,7 +144,6 @@ angular.module('g-list')
         return arr.map(mapObj => mapObj[ prop ]).indexOf(obj[ prop ]) === pos;
       });
     }
-
   }
 
 }]);
