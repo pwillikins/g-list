@@ -11,7 +11,7 @@
   </div>
 
   <div class="section">
-    <h2>INGREDIENTS</h2>
+    <h2>INGREDIENTS ({{recipeProducts.length}})</h2>
     <div class="search-container" flex-container="row" flex-align="start center">
       <md-autocomplete 
         md-select-on-match="true" 
@@ -31,20 +31,7 @@
         </md-not-found> -->
       </md-autocomplete>
     </div>
-    
-    <!-- <form class="create-product-form-mobile" name="productForm" ng-submit="createProduct()" novalidate>
-      <md-input-container class="input-container">
-          <input autocomplete="off" placeholder="CREATE INGREDIENT" name="name" ng-model="productName">
-          <span class="errors" ng-show="productForm.name.$invalid">
-            <span ng-show="productForm.name.$error.duplicate">{{errors.name}}</span>
-          </span>   
-        </md-input-container>
-    </form> -->
   </div>
-
-  <!-- <div class="title ingredients-title" flex-container="row" flex-align="center start">
-    <div>INGREDIENTS</div>
-  </div> -->
 
   <div class="ingredient-list">
     <md-list>
@@ -52,14 +39,11 @@
         <div flex-container="row" flex-item="100">
           <div flex-container="row" flex-item="60" flex-align="start center">{{ product.name | uppercase }}</div>
           <div flex-container="row" flex-item="20" flex-align="end center">
-            
               <i class="material-icons icons pointer" ng-if="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
               <!-- <md-tooltip md-direction="top">ADD</md-tooltip> -->
             
-            
               <i class="material-icons icons pointer" ng-if="isInShoppingList(product)" ng-click="removeFromList(product)">clear</i>
               <!-- <md-tooltip md-direction="top">REMOVE</md-tooltip> -->
-            
           </div>
           <div flex-container="row" flex-item="20" flex-align="end center">
             <span>

@@ -1,8 +1,8 @@
 angular.module('g-list')
-  .controller('MainCtrl', [ '$scope', 'categories', '$mdDialog', function ($scope, categories, $mdDialog){
+  .controller('MainCtrl', [ '$scope', 'categories', '$mdDialog', 'recipeLists', function ($scope, categories, $mdDialog, recipeLists){
   $scope.recipes = categories.recipes
   $scope.recipes.forEach(recipe => recipe.selected = false)
-  $scope.selectedRecipes = []
+  $scope.$parent.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
   $scope.$parent.recipeSelected = false
   
   $scope.createRecipe = function () {
@@ -23,6 +23,7 @@ angular.module('g-list')
   $scope.selectRecipe = function () {
     const recipesAreSelected = $scope.areRecipesSelected()
     $scope.$parent.recipeSelected = recipesAreSelected
+    $scope.$parent.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
   }
 
   $scope.areRecipesSelected = function() {

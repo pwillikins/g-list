@@ -37,11 +37,8 @@ angular.module('g-list')
       if( validationResponse.valid ) {
         products.create(product).then(function(productResponse) {
           
-          const newProduct = productResponse;
-          products.createRecipeProduct(newProduct.id, $scope.recipe.id).then(function (response) {
-            $scope.recipeProducts.push({ id: response.id, name: response.attributes.name });
-            $event.target.value = ''
-          });
+          $scope.recipeProducts.push({ id: productResponse.id, name: productResponse.attributes.name });
+          $event.target.value = ''
         });
 
       } else {

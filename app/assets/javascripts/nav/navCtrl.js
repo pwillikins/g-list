@@ -1,9 +1,16 @@
 angular.module('g-list')
-.controller('NavCtrl', ['$scope', 'Auth', '$state', function($scope, Auth, $state) {
+  .controller('NavCtrl', [ '$scope', 'Auth', '$state', '$mdDialog', 
+    function ($scope, Auth, $state, $mdDialog) {
   
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
   $scope.showCreateButton = false
+  $scope.isDialogOpen = false
+  $scope.currentShoppingList = []
+
+  if (localStorage.items && localStorage.items.length > 0) {
+    $scope.currentShoppingList = JSON.parse(localStorage.items);
+  }
   
   // we set a parent scope object that we $watch for changes
   $scope.$watch('$parent.recipeSelected', function () {
@@ -47,5 +54,96 @@ angular.module('g-list')
     document.getElementById("myCanvasNav").style.width = "0%";
     document.getElementById("myCanvasNav").style.opacity = "0";
   };
+
+  $scope.removeDuplicates = function (myArr, prop) {
+    return myArr.filter((obj, pos, arr) => {
+      return arr.map(mapObj => mapObj[ prop ]).indexOf(obj[ prop ]) === pos;
+    });
+  }
+
+  $scope.buildPropagatedList = function () {
+    let propagatedProducts = []
+    $scope.$parent.selectedRecipes.forEach(selectedRecipe =>
+      propagatedProducts = propagatedProducts.concat(selectedRecipe.attributes.products)
+    )
+
+    return $scope.removeDuplicates(propagatedProducts, 'id')
+  }
+
+  $scope.isInShoppingList = function (product) {
+    exists = false
+    for (i = 0; i < $scope.currentShoppingList.length; i++) {
+      if ($scope.currentShoppingList[ i ].id == product.id) {
+        exists = true;
+      }
+    };
+
+    return exists;
+  };
+
+  // ---------------- DIALOG FUNCTIONALITY ---------------- //
+  $scope.openBuildListDialog = function (ev) {
+    const propagatedProducts = $scope.buildPropagatedList()
+    propagatedProducts.forEach(product => {
+      const isInList = $scope.isInShoppingList(product)
+      if (isInList) {
+        product.selected = true
+      }
+    })
+    $scope.isDialogOpen = true
+
+    // Appending dialog to document.body to cover sidenav in docs app
+    // Modal dialogs should fully cover application
+    // to prevent interaction outside of dialog
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'recipeLists/_buildListDialog.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      locals: { data: propagatedProducts },
+      clickOutsideToClose: true
+    })
+    .then(function () {
+      $scope.isDialogOpen = false
+      $scope.showCreateButton = false
+    }, function () {
+      $scope.status = 'You cancelled the dialog.';
+    });
+  };
+
+  function DialogController($scope, $mdDialog, data) {
+    $scope.propagatedProducts = data
+    $scope.currentShoppingList = []
+
+    if (localStorage.items && localStorage.items.length > 0) {
+      $scope.currentShoppingList = JSON.parse(localStorage.items);
+    }
+
+    $scope.buildList = function () {
+      $scope.currentShoppingList = $scope.currentShoppingList.concat(
+        $scope.propagatedProducts.filter(product => product.selected)
+      )
+
+      localStorage.setItem('items', JSON.stringify($scope.removeDuplicates($scope.currentShoppingList)))
+      $scope.closeDialog()
+      $scope.navigateToRecipeLists()
+    }
+
+    $scope.navigateToRecipeLists = function (id) {
+      window.location = '#!/recipe_lists';
+    }
+
+    $scope.closeDialog = function () {
+      $mdDialog.hide()
+      $scope.isDialogOpen = false
+    }
+
+    $scope.removeDuplicates = function (myArr, prop) {
+      return myArr.filter((obj, pos, arr) => {
+        return arr.map(mapObj => mapObj[ prop ]).indexOf(obj[ prop ]) === pos;
+      });
+    }
+
+  }
 
 }]);
