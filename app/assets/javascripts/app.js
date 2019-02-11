@@ -101,6 +101,28 @@ angular.module('g-list', [ 'ui.router', 'templates', 'Devise', 'tooltips', 'ngMa
       }
     })
 
+    .state('recipeLists', {
+      url: '/recipe_lists',
+      templateUrl: 'recipeLists/_recipeLists.html',
+      controller: 'RecipeListsCtrl',
+      resolve: {
+        postPromise: [ 'recipeLists', function (recipeLists) {
+          return recipeLists.getAll();
+        } ]
+      }
+    })
+
+    .state('recipeList', {
+      url: '/recipe_lists/{id}',
+      templateUrl: 'recipeList/_recipeList.html',
+      controller: 'RecipeListCtrl',
+      resolve: {
+        recipeList: [ '$stateParams', 'recipeLists', function ($stateParams, recipeLists) {
+          return recipeLists.get($stateParams.id);
+        } ]
+      }
+    })
+
     .state('posts', {
       url: '/posts/{id}',
       templateUrl: 'posts/_posts.html',
