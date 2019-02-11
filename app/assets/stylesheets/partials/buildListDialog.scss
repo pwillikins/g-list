@@ -1,0 +1,63 @@
+.build-list {
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+
+    > div {
+        min-height: calc(100vh - 363px);
+        overflow-y: auto;
+
+        md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
+            color: rgb(63,81,181);
+        }
+
+        md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
+            background-color: rgb(63,81,181); 
+        }
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    h4 {
+        padding: 0 25px;
+    }
+
+    .product-checkbox {
+        margin-left: 25px;
+    }
+
+    .button-row {
+        width: 100%;
+        height: 50px;
+
+        .cancel-button {
+            margin: 6px 3px 6px 3px;
+            font-size: 15px;
+            font-weight: 300;
+            border-radius: 3px;
+            border: 1px solid #CCC;
+        }
+
+        .create-button {
+            margin: 6px 3px 6px 3px;
+            font-size: 15px;
+            font-weight: 400;
+            color: white;
+            background: #46b19f;
+            border-radius: 3px;
+        }
+    }
+}
+
+
+/* ---------------- TABLET STYLING  ---------------- */
+@media (min-width: 600px) and (max-width: 1199px) {
+
+}
+
+/* ---------------- MOBILE STYLING  ---------------- */
+@media (min-width: 300px) and (max-width: 599px) {
+
+}
