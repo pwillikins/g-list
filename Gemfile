@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -25,6 +25,8 @@ gem 'angular_rails_csrf'
 gem 'devise'
 
 gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'sprockets', '~>3.7.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
