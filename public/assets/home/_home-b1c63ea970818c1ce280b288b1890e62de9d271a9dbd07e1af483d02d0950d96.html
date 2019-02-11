@@ -1,0 +1,44 @@
+<div class="home-container">
+    <md-button class="md-fab" aria-label="FAB">
+      <i class="material-icons pointer" ng-click="openNewRecipeDialog()">add</i>
+      <md-tooltip md-direction="top">Create Recipe</md-tooltip>
+    </md-button>
+
+    <md-grid-list 
+      class="recipe-grid-list" 
+      md-cols-xs="1" 
+      md-cols-sm="3" 
+      md-cols-gt-sm="4" 
+      md-row-height="90"
+      md-row-height-gt-xs="200">
+    
+      <md-grid-tile class="recipe-grid-tile" ng-repeat="recipe in recipes">
+        <div flex-align="center center" flex-container="column" class="recipe-tile">
+          <div flex-container="row" flex-item="25" class="weekly-list-checkbox">
+            <md-checkbox 
+              aria-label="Checkbox No Ink" 
+              ng-class="{'show-checkbox': areRecipesSelected()}" 
+              ng-model="recipe.selected"
+              ng-change="selectRecipe()">
+            </md-checkbox>
+          </div>
+          <div 
+            class="recipe-name" 
+            flex-item="40" 
+            flex-container="row" 
+            flex-align="center center" 
+            ng-click="navigateToRecipe(recipe.id)">
+            {{ recipe.attributes.name | uppercase }}
+          </div>
+          <div 
+            class="recipe-description" 
+            flex-item="35" 
+            flex-container="row" 
+            flex-align="center center" 
+            ng-click="navigateToRecipe(recipe.id)">
+            {{ recipe.attributes.products.length }} INGREDIENTS
+          </div>
+        </div>
+      </md-grid-tile>
+    </md-grid-list>
+</div>
