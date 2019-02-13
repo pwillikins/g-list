@@ -1,9 +1,9 @@
-<div flex-container="column" flex-align="center center">
-  <div class="page-title page-title-mobile">
-    <h1>CURRENT LIST</h1>
+<div class="shopping-list-container">
+  <div class="page-title">
+    <h1>CURRENT LIST - {{currentList.attributes.name}}</h1>
   </div>
 
-  <div class="section list" flex-container="column" flex-align="center center">
+  <div class="list-items" flex-container="column" flex-align="center center">
     <md-list class="list-mobile">
       <md-list-item class="product" ng-repeat="item in shoppingListItems" ng-class="{ 'checked-row': item.purchased }">
 

@@ -1,0 +1,33 @@
+.shopping-list-container {
+    background-color: white;
+    padding: 0 25px;
+    height: calc(100vh - 75px);
+    overflow: auto;
+    
+    .list-items {
+        width: 100%;
+        background-color: white;
+    
+        md-list {
+            width: 100%;
+        }
+    }
+}
+
+    /* ---------------- TABLET STYLING  ---------------- */
+@media (min-width: 599px) {
+
+}
+
+/* ---------------- MOBILE STYLING  ---------------- */
+@media (min-width: 300px) {
+
+    .page-title {
+        text-align: center;
+        top: 70px;
+        background-color: white;
+        width: 100%;
+        z-index: 1;
+    }
+
+}
