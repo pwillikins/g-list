@@ -5,17 +5,6 @@ angular.module('g-list')
   $scope.$parent.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
   $scope.$parent.recipeSelected = false
   
-  $scope.createRecipe = function () {
-    if ($scope.recipeName == '') { return; }
-    categories.create({
-      name: $scope.recipeName,
-      recipe: true
-    }).then( function(newRecipe) {
-      $scope.navigateToRecipe(newRecipe.id);
-    })
-    $scope.recipeName = '';
-  }
-
   $scope.removeRecipe = function (id) {
     categories.deleteRecipe(id);
     $scope.recipes = $scope.recipes.filter(recipe => recipe.id != id)
@@ -49,6 +38,7 @@ angular.module('g-list')
         templateUrl: 'home/_newRecipeDialog.html',
         parent: angular.element(document.body),
         targetEvent: ev,
+        locals: {recipes: $scope.recipes},
         clickOutsideToClose: true
       })
       .then(function (answer) {
@@ -58,17 +48,18 @@ angular.module('g-list')
       });
   };
 
-  function DialogController($scope, $mdDialog) {
+  function DialogController($scope, $mdDialog, recipes) {
     $scope.createRecipe = function () {
       if ($scope.recipeName == '') { return; }
       categories.create({
         name: $scope.recipeName,
         recipe: true
       }).then(function (newRecipe) {
-        $scope.navigateToRecipe(newRecipe.id);
+        // $scope.navigateToRecipe(newRecipe.id);
+        recipes.push(newRecipe)
         $mdDialog.hide()
       });
-      $scope.recipeName = '';
+      $scope.recipeName = ''
     };
 
     $scope.navigateToRecipe = function (id) {
