@@ -12,9 +12,14 @@ angular.module('g-list')
       recipe: true
     }).then( function(newRecipe) {
       $scope.navigateToRecipe(newRecipe.id);
-    });
+    })
     $scope.recipeName = '';
-  };
+  }
+
+  $scope.removeRecipe = function (id) {
+    categories.deleteRecipe(id);
+    $scope.recipes = $scope.recipes.filter(recipe => recipe.id != id)
+  }
 
   $scope.navigateToRecipe = function (id) {
     window.location = `#!/recipes/${ id }`;

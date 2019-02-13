@@ -55,5 +55,14 @@ angular.module('g-list')
     });
   };
 
+  factory.deleteRecipe = function(id) {
+    return $http.delete('/categories/' + id + '.json').then(function() {
+      var updateRecipes = factory.recipes.filter(function(element) {
+        return element.id !== id;
+      });
+      angular.copy(updateRecipes, factory.recipes);
+    });
+  };
+
   return factory;
 }]);
