@@ -32,7 +32,12 @@ angular.module('g-list')
   }
 
   $scope.isInShoppingList = function (product) {
-    return $scope.currentShoppingList.indexOf(product) > -1
+    let exists = false
+    const foundItem = $scope.currentShoppingList.find(listItem => listItem.id == product.id)
+    if (foundItem) {
+      exists = !exists
+    }
+    return exists
   };
 
   $scope.$on('devise:new-registration', function (e, user) {
@@ -80,13 +85,14 @@ angular.module('g-list')
     $scope.currentShoppingList = []
     if (localStorage['items']) {
       $scope.currentShoppingList = JSON.parse(localStorage.items);
+      $scope.currentShoppingList.forEach(product => product.selected = false)
     }
 
     const propagatedProducts = $scope.buildPropagatedList()
     propagatedProducts.forEach(product => {
       product.selected = $scope.isInShoppingList(product)
     })
-
+    
     // Appending dialog to document.body to cover sidenav in docs app
     // Modal dialogs should fully cover application
     // to prevent interaction outside of dialog
