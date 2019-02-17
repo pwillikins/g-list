@@ -6,7 +6,7 @@
     .md-button.md-fab {
         top: auto;
         right: 20px;
-        bottom: 20px;
+        bottom: 30px;
         left: auto;
         position: absolute;
         background-color: #46b19f;
@@ -86,13 +86,15 @@
 }
 
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
 
 }
 
 /* ---------------- TABLET STYLING  ---------------- */
-@media (min-width: 600px) and (max-width: 1199px) {
-
+@media (min-width: 600px) and (max-width: 1024px) {
+    .weekly-list-checkbox {
+        visibility: visible !important;
+    }
 }
 
 /* ---------------- MOBILE STYLING  ---------------- */
