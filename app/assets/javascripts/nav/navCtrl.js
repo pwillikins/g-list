@@ -5,7 +5,6 @@ angular.module('g-list')
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
   $scope.showCreateButton = false
-  $scope.isDialogOpen = false
   $scope.currentShoppingList = []
 
   if (localStorage.items && localStorage.items.length > 0) {
@@ -104,10 +103,9 @@ angular.module('g-list')
       clickOutsideToClose: true
     })
     .then(function () {
-      $scope.isDialogOpen = false
-      $scope.showCreateButton = false
+      
     }, function () {
-      $scope.status = 'You cancelled the dialog.';
+      $scope.showCreateButton = false
     });
   };
 
@@ -136,7 +134,6 @@ angular.module('g-list')
 
     $scope.closeDialog = function () {
       $mdDialog.hide()
-      $scope.isDialogOpen = false
     }
 
     $scope.removeDuplicates = function (myArr, prop) {

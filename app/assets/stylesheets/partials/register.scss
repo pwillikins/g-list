@@ -22,6 +22,11 @@
             font-size: 13px;
         }
     }
+
+    .md-button {
+        width: 300px;
+        margin: 5px 0 !important;
+    }
 }
 
 /* ---------------- DESKTOP STYLING  ---------------- */
@@ -37,5 +42,8 @@
 /* ---------------- MOBILE STYLING  ---------------- */
 @media (min-width: 300px) {
 
+    .md-button {
+        width: 100%;
+    }
 
 }

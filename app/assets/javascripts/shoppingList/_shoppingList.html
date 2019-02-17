@@ -4,7 +4,7 @@
   </div>
 
   <div class="list-items" flex-container="column" flex-align="center center">
-    <md-list class="list-mobile">
+    <md-list>
       <md-list-item class="product" ng-repeat="item in shoppingListItems" ng-class="{ 'checked-row': item.purchased }">
 
         <div flex-container="row" flex-item="100" flex-align="center center">
@@ -14,7 +14,7 @@
           </div>
   
           <div flex-container="row" flex-item="15" flex-align="end center">
-            <i class="material-icons icons pointer" ng-if="item.purchased">undo</i>
+            <i class="material-icons icons pointer" ng-if="item.purchased">check</i>
             <i class="material-icons icons pointer" ng-if="!item.purchased" ng-click="checkOffList(item)">check_box_outline_blank</i>
           </div>
 

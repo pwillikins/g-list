@@ -25,10 +25,10 @@ angular.module('g-list')
     }
     shoppingLists.create(params).then(function(data) {
       shoppingLists.shoppingLists.push(data.data.data);
+      $scope.shoppingListItems = [];
+      localStorage.clear();
       redirect(data.data.data.id);
     });
-    $scope.shoppingListItems = [];
-    localStorage.clear();
   };
 
   redirect = function(id) {
@@ -39,5 +39,10 @@ angular.module('g-list')
   $scope.removeList = function(id) {
     shoppingLists.deleteList(id);
   };
+
+  $scope.clearList = function() {
+    $scope.shoppingListItems = []
+    localStorage.items = JSON.stringify($scope.shoppingListItems);
+  }
 
 }]);

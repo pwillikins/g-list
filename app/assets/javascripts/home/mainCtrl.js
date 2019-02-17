@@ -3,23 +3,22 @@ angular.module('g-list')
   $scope.recipes = categories.recipes
   $scope.recipes.forEach(recipe => recipe.selected = false)
   $scope.$parent.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
-  $scope.$parent.recipeSelected = false
   
   $scope.removeRecipe = function (id) {
     categories.deleteRecipe(id);
     $scope.recipes = $scope.recipes.filter(recipe => recipe.id != id)
   }
-
+  
   $scope.navigateToRecipe = function (id) {
     window.location = `#!/recipes/${ id }`;
   }
-
+  
   $scope.selectRecipe = function () {
     const recipesAreSelected = $scope.areRecipesSelected()
     $scope.$parent.recipeSelected = recipesAreSelected
     $scope.$parent.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
   }
-
+  
   $scope.areRecipesSelected = function() {
     let show = false
     show = $scope.recipes.some(recipe => {
@@ -27,7 +26,7 @@ angular.module('g-list')
     })
     return show
   }
-
+  
   // ---------------- DIALOG FUNCTIONALITY ---------------- //
   $scope.openNewRecipeDialog = function (ev) {
     // Appending dialog to document.body to cover sidenav in docs app

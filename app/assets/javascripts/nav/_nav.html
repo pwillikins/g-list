@@ -9,7 +9,7 @@
         flex-container="row" 
         flex-align="center center" 
         class="create-recipe-list-button" 
-        ng-if="showCreateButton && !isDialogOpen">
+        ng-if="showCreateButton">
         <md-button class="md-raised md-primary" ng-click="openBuildListDialog()">Create Recipe List</md-button>
       </div>
       <div class="navbar-title" flex-align="end center" flex-item="20" flex-container="row">
@@ -22,7 +22,7 @@
     <a class="closebtn" ng-click="closeNav()">&times;</a>
     <a ng-click="closeNav()" href="#!/home">Home</a>
     <a ng-click="closeNav()" href="#!/products">Products</a>
-    <a ng-click="closeNav()" href="#!/categories">Categories</a>
+    <!-- <a ng-click="closeNav()" href="#!/categories">Categories</a> -->
     <a ng-click="closeNav()" href="#!/recipes">Recipes</a>
     <a ng-click="closeNav()" href="#!/shopping_lists">Shopping Lists</a>
     <a ng-click="closeNav()" href="#!new_shopping_list">Current Shopping List</a>

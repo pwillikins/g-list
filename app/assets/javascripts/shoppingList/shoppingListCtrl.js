@@ -9,8 +9,7 @@ angular.module('g-list')
     item.purchased = true;
     item.shopping_list_id = $scope.currentList.id;
     shoppingLists.updateItem(item).then(function(response) {
-      $scope.currentList = response;
-      // $scope.shoppingListItems = $scope.currentList.attributes.products;
+      $scope.currentList = response.data.data;
     });
   };
 
