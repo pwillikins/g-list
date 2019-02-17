@@ -4,6 +4,7 @@ angular.module('g-list')
   $scope.newTitle = 'Create Shopping List';
   $scope.title = 'Shopping List History';
   $scope.shoppingLists = shoppingLists.shoppingLists;
+  $scope.$parent.shoppingListCleared = false
 
   if (localStorage.items && localStorage.items.length > 0) {
     $scope.shoppingListItems = JSON.parse(localStorage.items);
@@ -42,7 +43,8 @@ angular.module('g-list')
 
   $scope.clearList = function() {
     $scope.shoppingListItems = []
-    localStorage.items = JSON.stringify($scope.shoppingListItems);
+    localStorage.setItem('items', JSON.stringify($scope.shoppingListItems))
+    $scope.$parent.shoppingListCleared = true
   }
 
 }]);

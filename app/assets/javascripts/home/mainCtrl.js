@@ -3,6 +3,7 @@ angular.module('g-list')
   $scope.recipes = categories.recipes
   $scope.recipes.forEach(recipe => recipe.selected = false)
   $scope.$parent.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
+  $scope.$parent.recipeSelected = false
   
   $scope.removeRecipe = function (id) {
     categories.deleteRecipe(id);
@@ -15,16 +16,18 @@ angular.module('g-list')
   
   $scope.selectRecipe = function () {
     const recipesAreSelected = $scope.areRecipesSelected()
-    $scope.$parent.recipeSelected = recipesAreSelected
+    if ($scope.$parent.recipeSelected != recipesAreSelected) {
+      $scope.$parent.recipeSelected = recipesAreSelected
+    }
     $scope.$parent.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
   }
   
   $scope.areRecipesSelected = function() {
-    let show = false
-    show = $scope.recipes.some(recipe => {
+    let anySelected = false
+    anySelected = $scope.recipes.some(recipe => {
       return recipe.selected
     })
-    return show
+    return anySelected
   }
   
   // ---------------- DIALOG FUNCTIONALITY ---------------- //
