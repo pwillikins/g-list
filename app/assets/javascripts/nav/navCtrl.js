@@ -77,7 +77,10 @@ angular.module('g-list')
 
   // ---------------- DIALOG FUNCTIONALITY ---------------- //
   $scope.openBuildListDialog = function (ev) {
-    $scope.currentShoppingList = JSON.parse(localStorage.items);
+    $scope.currentShoppingList = []
+    if (localStorage['items']) {
+      $scope.currentShoppingList = JSON.parse(localStorage.items);
+    }
 
     const propagatedProducts = $scope.buildPropagatedList()
     propagatedProducts.forEach(product => {
