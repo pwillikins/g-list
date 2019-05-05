@@ -1,0 +1,28 @@
+<div class="shopping-list-form-container">
+  <div class="page-title">
+    <h1>SHOPPING LIST</h1>
+  </div>
+
+  <div class="list-items" flex-container="column" flex-align="center center">
+    <md-list>
+      <md-list-item class="product" ng-repeat="item in shoppingListItems track by item.id">
+        <div flex-container="row" flex-item="100" flex-align="center center">
+          <div flex-container="row" flex-item="85" flex-align="start center">{{ item.name | uppercase }}</div>
+
+          <div flex-container="row" flex-item="15" flex-align="end center">
+            <i class="material-icons icons pointer" ng-click="removeFromList(item)">clear</i>
+            <md-tooltip md-direction="top">REMOVE</md-tooltip>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>
+
+<div 
+  class="button-row"
+  flex-container="row" 
+  flex-align="end">
+  <md-button class="clear-shopping-list-button md-raised" ng-click="clearList()">CLEAR LIST</md-button>
+  <md-button ng-disabled="shoppingListItems.length == 0" class="create-shopping-list-button md-raised md-primary" ng-click="createShoppingList()" class="">CREATE</md-button>
+</div>

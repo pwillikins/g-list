@@ -1,0 +1,17 @@
+<div class="dialog-title" flex-container="row" flex-align="center center">Create Product</div>
+<form 
+    flex-container="row" 
+    flex-align="center center" 
+    class="new-recipe-form" 
+    name="productForm"
+    ng-submit="createProduct()">
+    <div class="input-box">
+        <md-input-container class="new-recipe-input">
+            <input placeholder="Enter Product Name" name="productName" ng-model="productName" minLength="2">
+        </md-input-container>
+    </div>
+    <div class="button-row" flex-container="row" flex-align="end center">
+        <md-button class="cancel-button" ng-click="closeDialog()">Cancel</md-button>
+        <md-button class="create-button" type="submit">Create</md-button>
+    </div>
+</form>

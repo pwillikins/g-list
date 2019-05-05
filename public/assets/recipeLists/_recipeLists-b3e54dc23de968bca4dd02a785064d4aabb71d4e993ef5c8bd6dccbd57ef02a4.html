@@ -1,0 +1,20 @@
+<div class="shopping-lists-container">
+    <div class="page-title page-title-mobile">
+        <h1>Weekly Recipe Lists</h1>
+    </div>
+
+    <div class="list-items" flex-container="column" flex-align="center center">
+        <md-list>
+            <md-list-item class="product" ng-repeat="list in recipeLists">
+                <div flex-container="row" flex-item="100" flex-align="center center">
+                    <a href="#!/recipe_lists/{{list['id']}}" flex-container="row" flex-item="85" flex-align="start center">{{
+                        list.attributes.name | uppercase }}</a>
+
+                    <div flex-container="row" flex-item="15" flex-align="end center">
+                        <i class="material-icons icons pointer" ng-click="removeList(list.id)">clear</i>
+                    </div>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+</div>
