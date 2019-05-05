@@ -16,6 +16,7 @@
 
     .left-side-nav {
         height: 100%;
+        flex-flow: unset !important;
 
         .logo {
             color: #46b19f;
@@ -33,6 +34,7 @@
 
     .navbar-title {
         height: 100%;
+        flex-flow: unset !important;
 
         .navbar-title-text {
             font-size: 24px;

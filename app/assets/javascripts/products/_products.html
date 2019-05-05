@@ -1,32 +1,11 @@
 <div class="products-container">
-  <div class="product-form-mobile" flex-container="column" flex-align="center center">
-    <div flex-container="row" flex-align="center center">
-      <h1>PRODUCTS</h1>
-    </div>
+  <md-button class="md-fab" aria-label="FAB" ng-click="openNewProductDialog()">
+    <i class="material-icons pointer">add</i>
+    <md-tooltip md-direction="top">Create Product</md-tooltip>
+  </md-button>
+  <h1>PRODUCTS</h1>
 
-    <div class="products-form-section" flex-container="column" flex-item="100" flex-align="center center">
-      <form ng-submit="createProduct()">
-        
-        <md-input-container>
-          <label>PRODUCT NAME</label>
-          <input ng-model="name">
-        </md-input-container>
-
-        <div flex-container="row" flex-align="center center">
-          <md-select placeholder="Select Category" name="category" id="category" ng-model="category">
-            <md-option ng-value="category" ng-repeat="category in categories">{{category.attributes.name}}</md-option>
-          </md-select>
-        </div>
-
-        <div class="products-button-row-mobile" flex-container="row" flex-align="center center">
-          <md-button type="submit" class="save-description-button save-description-button-mobile">ADD PRODUCT</button>
-        </div>
-
-      </form>
-    </div>
-  </div>
-
-  <div class="section list" flex-container="column" flex-align="center center">
+  <div class="list" flex-container="column" flex-align="center center">
     <md-list>
       <md-list-item class="product" ng-repeat="product in products" ng-class="{'added-to-list': isInShoppingList(product)}">
         <div flex-container="row" flex-item="100" flex-align="center center">

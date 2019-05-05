@@ -10,6 +10,10 @@
         margin: 20px 0;
     }
 
+    md-input-container.md-input-focused label:not(.md-no-float), md-input-container.md-input-has-placeholder label:not(.md-no-float), md-input-container.md-input-has-value label:not(.md-no-float) {
+        margin-bottom: 5px;
+    }
+
     .section {
         width: 100%;
         border-bottom: 1px solid #CCC;
@@ -17,6 +21,7 @@
         .search-container {
             height: 60px;
             margin: 5px 0 15px 20px;
+            flex-flow: unset !important;
 
             md-autocomplete {
                 width: 325px;
@@ -25,10 +30,11 @@
 
         .description-container {
             width: 100%;
+            border: 1px solid #CCC;
+            border-radius: 5px;
     
             .description {
                 width: 100%;
-                border-radius: 3px;
                 box-shadow: none;
                 background-color: inherit;
                 font-weight: 300;

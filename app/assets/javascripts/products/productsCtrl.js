@@ -1,5 +1,6 @@
 angular.module('g-list')
-.controller('ProductsCtrl', ['$scope', 'products', 'categories', 'shoppingLists', function($scope, products, categories, shoppingLists) {
+  .controller('ProductsCtrl', [ '$scope', 'products', 'categories', '$mdDialog',
+    function ($scope, products, categories, $mdDialog) {
 
   $scope.title = 'Products';
   $scope.products = products.products;
@@ -19,16 +20,16 @@ angular.module('g-list')
     };
   };
 
-  $scope.createProduct = function() {
-    var product = { name: $scope.name }
-    if ($scope.name == '') { return; }
-    if ($scope.category) {
-      product.categoryId = $scope.category.id;
-    }
-    products.create(product);
-    $scope.name = '';
-    $scope.category = '';
-  };
+  // $scope.createProduct = function() {
+  //   var product = { name: $scope.name }
+  //   if ($scope.name == '') { return; }
+  //   if ($scope.category) {
+  //     product.categoryId = $scope.category.id;
+  //   }
+  //   products.create(product);
+  //   $scope.name = '';
+  //   $scope.category = '';
+  // };
 
   $scope.removeProduct = function(id) {
     products.deleteProduct(id);
@@ -59,5 +60,44 @@ angular.module('g-list')
     $scope.currentShoppingList = $scope.currentShoppingList.filter( ( object ) => object.id != product.id );
     localStorage.items = JSON.stringify($scope.currentShoppingList);
   };
+
+
+
+  // ---------------- DIALOG FUNCTIONALITY ---------------- //
+  $scope.openNewProductDialog = function (ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    // Modal dialogs should fully cover application
+    // to prevent interaction outside of dialog
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'products/_newProductDialog.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      // locals: { recipes: $scope.recipes },
+      clickOutsideToClose: true
+    })
+      .then(function (answer) {
+        $scope.status = 'You said the information was "' + answer + '".';
+      }, function () {
+        $scope.status = 'You cancelled the dialog.';
+      });
+  };
+
+  function DialogController($scope, $mdDialog) {
+    $scope.createProduct = function () {
+      var product = { name: $scope.name }
+      if ($scope.name == '') { return; }
+      // if ($scope.category) {
+      //   product.categoryId = $scope.category.id;
+      // }
+      products.create(product);
+      $scope.name = '';
+      $scope.category = '';
+    };
+
+    $scope.closeDialog = function () {
+      $mdDialog.hide()
+    }
+  }
 
 }]);

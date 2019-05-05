@@ -6,11 +6,10 @@ class RecipeListsController < ApplicationController
   end
 
   def create
-    byebug
     recipe_list = RecipeList.create(name: "Weekly List - (#{Time.now})", user_id: current_user.id)
     if params[:recipes].present?
       params[:recipes].each do |recipe|
-        recipe_list.recipe_list_items << RecipeListItem.create(recipe_id: recipe['id'], recipe_list_id: recipe_list.id)
+        recipe_list.recipe_list_items << RecipeListItem.create(category_id: recipe['id'], recipe_list_id: recipe_list.id)
       end
     end
     render json: recipe_list

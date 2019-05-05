@@ -1,13 +1,13 @@
 angular.module('g-list')
 .factory('recipeLists', [ '$http', function ($http) {
     factory = {
-        recipes: [],
         recipeLists: []
     };
 
     factory.getAll = function () {
+        factory.recipeLists = []
         return $http.get('/recipe_lists.json').then(function (response) {
-            angular.copy(response.data.data, factory.recipeLists)
+            angular.copy(response.data.data, factory.recipeLists);
         });
     };
 

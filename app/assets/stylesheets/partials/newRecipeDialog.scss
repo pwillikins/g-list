@@ -1,25 +1,22 @@
 md-dialog {
-    height: 200px;
+    height: 225px;
     width: 400px;
 
     .dialog-title {
+        flex-flow: unset !important;
         height: 65px;
-        color: white;
+        color: rgb(155, 153, 153);
         font-size: 25px;
         font-weight: 300;
-        background-color: #46b19f;
     }
 
     .new-recipe-form {
       width: 100%;
+      height: 100%;
     
         .input-box {
-            height: 100%;
+            height: calc(100% - 65px);
             width: 100%;
-            // background-color: black;
-            /* opacity: .6; */
-            // background: url(50%-transparent-white.png);
-            // background: rgba(0, 0, 0, 0.5);
             text-align: center;
             padding: 8px;
     
@@ -37,7 +34,7 @@ md-dialog {
                 font-size: 15px;
                 font-weight: 300;
                 border-radius: 3px;
-                border: 1px solid #CCC;
+                border: 1px solid rgb(155, 153, 153);
             }
 
             .create-button {

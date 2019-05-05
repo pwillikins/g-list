@@ -4,10 +4,9 @@
   </div>
 
   <div class="section" flex-container="column">
-    <!-- <h2>INSTRUCTIONS</h2> -->
-      <md-input-container class="description-container">
-        <textarea placeholder="Enter the recipe instructions here" class="form-control description" ng-change="saveDescription()" ng-model="description"></textarea>
-      </md-input-container>
+    <md-input-container class="description-container">
+      <textarea placeholder="Enter the recipe instructions here" class="form-control description" ng-change="saveDescription()" ng-model="description"></textarea>
+    </md-input-container>
   </div>
 
   <div class="section" flex-container="row">
@@ -33,7 +32,6 @@
     </div>
   </div>
 
-  <div>{{}}</div>
   <div class="ingredient-list">
     <md-list>
       <md-list-item  ng-repeat="product in recipeProducts" ng-class="{'added-to-list': isInShoppingList(product)}">

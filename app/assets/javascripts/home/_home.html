@@ -1,6 +1,6 @@
 <div class="home-container">
-    <md-button class="md-fab" aria-label="FAB">
-      <i class="material-icons pointer" ng-click="openNewRecipeDialog()">add</i>
+    <md-button class="md-fab" aria-label="FAB" ng-click="openNewRecipeDialog()">
+      <i class="material-icons pointer">add</i>
       <md-tooltip md-direction="top">Create Recipe</md-tooltip>
     </md-button>
 
@@ -14,15 +14,15 @@
     
       <md-grid-tile class="recipe-grid-tile" ng-repeat="recipe in recipes">
         <div flex-align="center center" flex-container="column" class="recipe-tile">
-          <div flex-container="row" flex-item="25" class="weekly-list-checkbox">
-            <div class="checkbox" ng-class="{'show-checkbox': areRecipesSelected()}" flex-item="25" flex-container="column">
+          <div flex-container="row" class="weekly-list-checkbox">
+            <div class="checkbox" ng-class="{'show-checkbox': areRecipesSelected()}" flex-container="row" flex-align="start center" flex-item="50">
               <md-checkbox 
                 aria-label="Checkbox No Ink"
                 ng-model="recipe.selected"
                 ng-change="selectRecipe()">
               </md-checkbox>
             </div>
-            <div class="menu-button" flex-align="center end" flex-item="75" flex-container="column">
+            <div class="menu-button" flex-container="row" flex-align="end center" flex-item="50">
               <i class="material-icons" ng-click="removeRecipe(recipe.id)">delete</i>
             </div>
           </div>
