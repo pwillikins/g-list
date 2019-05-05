@@ -20,17 +20,6 @@ angular.module('g-list')
     };
   };
 
-  // $scope.createProduct = function() {
-  //   var product = { name: $scope.name }
-  //   if ($scope.name == '') { return; }
-  //   if ($scope.category) {
-  //     product.categoryId = $scope.category.id;
-  //   }
-  //   products.create(product);
-  //   $scope.name = '';
-  //   $scope.category = '';
-  // };
-
   $scope.removeProduct = function(id) {
     products.deleteProduct(id);
   };
@@ -61,8 +50,6 @@ angular.module('g-list')
     localStorage.items = JSON.stringify($scope.currentShoppingList);
   };
 
-
-
   // ---------------- DIALOG FUNCTIONALITY ---------------- //
   $scope.openNewProductDialog = function (ev) {
     // Appending dialog to document.body to cover sidenav in docs app
@@ -75,8 +62,7 @@ angular.module('g-list')
       targetEvent: ev,
       // locals: { recipes: $scope.recipes },
       clickOutsideToClose: true
-    })
-      .then(function (answer) {
+    }).then(function (answer) {
         $scope.status = 'You said the information was "' + answer + '".';
       }, function () {
         $scope.status = 'You cancelled the dialog.';
@@ -85,14 +71,11 @@ angular.module('g-list')
 
   function DialogController($scope, $mdDialog) {
     $scope.createProduct = function () {
-      var product = { name: $scope.name }
-      if ($scope.name == '') { return; }
-      // if ($scope.category) {
-      //   product.categoryId = $scope.category.id;
-      // }
+      var product = { name: $scope.productName }
+      if ($scope.productName == '') { return; }
       products.create(product);
-      $scope.name = '';
-      $scope.category = '';
+      $scope.productName = '';
+      $scope.closeDialog()
     };
 
     $scope.closeDialog = function () {
