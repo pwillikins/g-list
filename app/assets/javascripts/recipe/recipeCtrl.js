@@ -2,17 +2,17 @@ angular.module('g-list')
   .controller('RecipeCtrl', [ '$scope', 'recipe', 'categories', 'products', 
     function ($scope, recipe, categories, products) {
 
-  $scope.recipe = recipe;
-  $scope.error = '';
-  $scope.description = $scope.recipe.attributes.description;
-  $scope.recipeProducts = $scope.recipe.attributes.products;
-  products.getAll();
-  $scope.allProducts = products.products;
+  $scope.recipe = recipe
+  $scope.error = ''
+  $scope.description = $scope.recipe.attributes.description
+  $scope.recipeProducts = $scope.recipe.attributes.products
+  products.getAll()
+  $scope.allProducts = products.products
+  $scope.currentShoppingList = []
 
-  if( localStorage.items && localStorage.items.length > 0 ) {
-    $scope.currentShoppingList = JSON.parse( localStorage.items );
-  } else {
-    $scope.currentShoppingList = [];
+  const items = localStorage[`userShoppingList-${localStorage.userId}`]
+  if(items && items.length > 0) {
+    $scope.currentShoppingList = JSON.parse(items)
   }
 
   $scope.saveDescription = function() {
@@ -74,8 +74,8 @@ angular.module('g-list')
 
   $scope.isInShoppingList = function(product) {
     exists = false
-    for( i = 0; i < $scope.currentShoppingList.length; i++ ) {
-      if( $scope.currentShoppingList[i].id == product.id ) {
+    for(i = 0; i < $scope.currentShoppingList.length; i++) {
+      if($scope.currentShoppingList[i].id == product.id) {
         exists = true;
       }
     };
@@ -83,24 +83,24 @@ angular.module('g-list')
     return exists;
   };
 
-  $scope.addToShoppingList = function( product ) {
+  $scope.addToShoppingList = function(product) {
     product.added = true;
-    $scope.currentShoppingList.push( product );
-    localStorage.setItem( 'items', JSON.stringify( $scope.currentShoppingList ) );
+    $scope.currentShoppingList.push(product);
+    localStorage.setItem(`userShoppingList-${product.user_id}`, JSON.stringify($scope.currentShoppingList));
   };
 
-  $scope.removeFromList = function( product ) {
-    $scope.currentShoppingList = $scope.currentShoppingList.filter( ( object ) => object.id != product.id );
-    localStorage.items = JSON.stringify( $scope.currentShoppingList );
+  $scope.removeFromList = function(product) {
+    $scope.currentShoppingList = $scope.currentShoppingList.filter(object => object.id !== product.id );
+    localStorage[`userShoppingList-${localStorage.userId}`] = JSON.stringify($scope.currentShoppingList);
   };
 
-  $scope.searchProducts = function( input ) {    
+  $scope.searchProducts = function(input) {    
     const found = [];
-    if( input.length > 2 ) {
+    if(input.length > 2) {
       
-      for( const product of $scope.allProducts ) { 
-        if( product.attributes.name.toLowerCase().includes( input.toLowerCase() ) ) {
-          found.push( product );
+      for(const product of $scope.allProducts) { 
+        if( product.attributes.name.toLowerCase().includes(input.toLowerCase()) ) {
+          found.push(product);
         }
       }
     }

@@ -5,7 +5,13 @@
 
   <div class="section" flex-container="column">
     <md-input-container class="description-container">
-      <textarea placeholder="Enter the recipe instructions here" class="form-control description" ng-change="saveDescription()" ng-model="description"></textarea>
+      <textarea 
+        placeholder="Enter the recipe instructions here" 
+        class="form-control description" 
+        ng-change="saveDescription()" 
+        ng-model-options='{ debounce: 1000 }'
+        ng-model="description">
+      </textarea>
     </md-input-container>
   </div>
 

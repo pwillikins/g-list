@@ -5,7 +5,6 @@ angular.module('g-list')
     };
 
     factory.getAll = function () {
-        factory.recipeLists = []
         return $http.get('/recipe_lists.json').then(function (response) {
             angular.copy(response.data.data, factory.recipeLists);
         });

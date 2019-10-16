@@ -2,15 +2,15 @@ angular.module('g-list')
   .controller('ProductsCtrl', [ '$scope', 'products', 'categories', '$mdDialog',
     function ($scope, products, categories, $mdDialog) {
 
-  $scope.title = 'Products';
-  $scope.products = products.products;
-  $scope.categories = categories.allCategories;
+  $scope.title = 'Products'
+  $scope.products = products.products
+  $scope.categories = categories.allCategories
+  $scope.currentShoppingList = []
 
-  if (localStorage.items && localStorage.items.length > 0) {
-    $scope.currentShoppingList = JSON.parse(localStorage.items);
-  } else {
-    $scope.currentShoppingList = [];
-  };
+  const items = localStore[`userShoppingList-${localStorage.userId}`]
+  if (items && items.length > 0) {
+    $scope.currentShoppingList = JSON.parse(items);
+  }
 
   for (i = 0; i < $scope.categories.length; i++) {
     if ($scope.categories[i].attributes.recipe) {
@@ -30,7 +30,8 @@ angular.module('g-list')
       name: product.attributes.name
     }
     $scope.currentShoppingList.push(newProductFormat);
-    localStorage.setItem('items', JSON.stringify($scope.currentShoppingList));
+
+    localStorage.setItem(`userShoppingList-${localStorage.userId}`, JSON.stringify($scope.currentShoppingList));
   };
 
   $scope.isInShoppingList = function(product) {
@@ -46,8 +47,8 @@ angular.module('g-list')
   };
 
   $scope.removeFromList = function(product) {
-    $scope.currentShoppingList = $scope.currentShoppingList.filter( ( object ) => object.id != product.id );
-    localStorage.items = JSON.stringify($scope.currentShoppingList);
+    $scope.currentShoppingList = $scope.currentShoppingList.filter(object => object.id != product.id);
+    localStorage[`userShoppingList-${localStorage.userId}`] = JSON.stringify($scope.currentShoppingList);
   };
 
   // ---------------- DIALOG FUNCTIONALITY ---------------- //

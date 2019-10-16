@@ -1,4 +1,8 @@
 <div class="home-container">
+    <md-button class="md-fab create-recipe-list" ng-if="recipeSelected" aria-label="FAB" ng-click="openBuildListDialog()">
+      <i class="material-icons pointer">note_add</i>
+      <md-tooltip md-direction="top">Create Recipe List</md-tooltip>
+    </md-button>
     <md-button class="md-fab" aria-label="FAB" ng-click="openNewRecipeDialog()">
       <i class="material-icons pointer">add</i>
       <md-tooltip md-direction="top">Create Recipe</md-tooltip>
@@ -14,18 +18,25 @@
     
       <md-grid-tile class="recipe-grid-tile" ng-repeat="recipe in recipes">
         <div flex-align="center center" flex-container="column" class="recipe-tile">
-          <div flex-container="row" class="weekly-list-checkbox">
-            <div class="checkbox" ng-class="{'show-checkbox': areRecipesSelected()}" flex-container="row" flex-align="start center" flex-item="50">
+          <!-- Tile Actions: Checkbox & Remove Icon -->
+          <div flex-container="row" class="tile-actions" flex-item="40">
+            <div 
+              class="checkbox" 
+              flex-container="row" 
+              ng-class="{'show-checkbox': areRecipesSelected()}" 
+              flex-align="start center" 
+              flex-item="50">
               <md-checkbox 
                 aria-label="Checkbox No Ink"
                 ng-model="recipe.selected"
                 ng-change="selectRecipe()">
               </md-checkbox>
             </div>
-            <div class="menu-button" flex-container="row" flex-align="end center" flex-item="50">
+            <div class="remove-icon" flex-container="row" flex-align="end center" flex-item="50">
               <i class="material-icons" ng-click="removeRecipe(recipe.id)">delete</i>
             </div>
           </div>
+
           <div 
             class="recipe-name" 
             flex-item="40" 
@@ -36,11 +47,12 @@
           </div>
           <div 
             class="recipe-description" 
-            flex-item="35" 
+            flex-item="20" 
             flex-container="row" 
-            flex-align="center center" 
+            flex-align="end end" 
             ng-click="navigateToRecipe(recipe.id)">
-            {{ recipe.attributes.products.length }} INGREDIENTS
+            <span>Ingredients: {{ recipe.attributes.products.length }}</span>
+            <!-- {{ recipe.attributes.products.length }} INGREDIENTS -->
           </div>
         </div>
       </md-grid-tile>

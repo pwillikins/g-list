@@ -1,33 +1,34 @@
 <md-dialog class="build-list">
-    <div>
-        <h2>Build Your Shopping List</h2>
-        <h4>We've gathered all the ingredients from the recipes you selected.  Make your selections here to build your shopping list.</h4>
-        <md-grid-list 
-            class="product-grid-list" 
-            md-cols-xs="1" 
-            md-cols-gt-xs="2" 
-            md-row-height="75"
-            md-row-height-gt-xs="75">
+    <form ng-submit="createRecipeList()" name="recipeListForm">
+        <div>
+            <h2>Create Your Shopping List</h2>
+            <div class="sub-header">We've gathered all the ingredients from the recipes you selected.  Make your selections here to build your shopping list.</div>
+            <div class="product-grid-list">
+                <md-grid-list 
+                    md-cols-xs="1" 
+                    md-cols-gt-xs="2" 
+                    md-row-height="75"
+                    md-row-height-gt-xs="75">
 
-            <md-grid-tile class="product-grid-tile" ng-repeat="product in propagatedProducts">
-                <div flex-container="row" flex-item="100" flex-align="start center" class="product-checkbox">
-                    <md-checkbox 
-                        aria-label="Checkbox No Ink" 
-                        ng-model="product.selected"
-                        ng-change="selectProduct()">
-                        {{product.name}}
-                    </md-checkbox>
-                </div>
-            </md-grid-tile>
-        </md-grid-list>
-    </div>
+                    <md-grid-tile class="product-grid-tile" ng-repeat="product in propagatedProducts">
+                        <div flex-container="row" flex-item="100" flex-align="start center" class="product-checkbox">
+                            <md-checkbox 
+                                aria-label="Checkbox No Ink" 
+                                ng-model="product.selected"
+                                ng-change="selectProduct()">
+                                {{product.name}}
+                            </md-checkbox>
+                        </div>
+                    </md-grid-tile>
+                </md-grid-list>
+            </div>
+        </div>
 
-    <footer>
-        <md-toolbar class="md-scroll-shrink">
+        <footer>
             <div layout="row" layout-align="center center" flex>
                 <md-button class="cancel-button" ng-click="closeDialog()">Cancel</md-button>
-                <md-button class="create-button" ng-click="buildList()">Build List</md-button>
+                <md-button class="create-button" type="submit">Create</md-button>
             </div>
-        </md-toolbar>
-    </footer>
+        </footer>
+    </form>
 </md-dialog>

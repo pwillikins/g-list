@@ -8,8 +8,11 @@ angular.module('g-list', [ 'ui.router', 'templates', 'Devise', 'tooltips', 'ngMa
       templateUrl: 'home/_home.html',
       controller: 'MainCtrl',
       resolve: {
-        postPromise: [ 'categories', function (categories) {
-          return categories.getAll();
+        postPromise: [ 'categories', 'recipeLists', '$q', function (categories, recipeLists, $q) {
+          return $q.all({
+            categories: categories.getAll(),
+            recipeLists: recipeLists.getAll()
+          });
         }]
       }
     })
@@ -146,6 +149,11 @@ angular.module('g-list', [ 'ui.router', 'templates', 'Devise', 'tooltips', 'ngMa
         event.preventDefault();
         if (!$location.path().includes('login') && !$location.path().includes('register')) {
           $state.go('login');
+        }
+      } else {
+        localStorage.setItem('userId', currentUser.id)
+        if (!localStorage[ `userShoppingList-${ currentUser.id }`]) {
+          localStorage.setItem(`userShoppingList-${ currentUser.id }`, JSON.stringify([]))
         }
       }
     });
