@@ -1,5 +1,5 @@
 class RecipeListsController < ApplicationController
-  before_filter :authenticate_user!, only: [:create, :update]
+  before_action :authenticate_user!, only: [:create, :update]
 
   def index
     respond_with RecipeList.where(user_id: current_user.id)

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: :create
 
   def index
     respond_with Product.where(user_id: current_user.id)
