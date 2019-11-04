@@ -1,0 +1,31 @@
+<div class="products-container">
+  <div class="product-header" flex-container="row" flex-align="center center">
+    <div class="title">
+      <h1>PRODUCTS</h1>
+    </div>
+    <div>
+      <i class="material-icons add-product-icon pointer" ng-click="openNewProductDialog()">add_circle</i>
+    </div>
+  </div>
+
+  <div class="list" flex-container="column" flex-align="center center">
+    <md-list>
+      <md-list-item class="product" ng-repeat="product in products" ng-class="{'added-to-list': isInShoppingList(product)}">
+        <div flex-container="row" flex-item="100" flex-align="center center">
+          <div flex-item="10" flex-container="row" flex-align="start center">
+            <md-checkbox 
+              aria-label="Checkbox No Ink" 
+              ng-model="product.selected" 
+              ng-change="selectProduct(product)">
+            </md-checkbox>
+          </div>
+          <div class="product-detail" flex-container="row" flex-item="70" flex-align="start center">{{ product.attributes.name | uppercase }}</div>
+          
+          <div class="product-detail" flex-container="row" flex-item="15" flex-align="end center">
+            <i class="material-icons icons pointer" ng-click="removeProduct(product.id)">delete</i>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>
