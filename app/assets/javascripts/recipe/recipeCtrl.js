@@ -110,12 +110,6 @@ angular.module('g-list')
   }
 
   $scope.addToShoppingList = function(product) {
-    // newProductFormat = {
-    //   id: product.id,
-    //   name: product.attributes.name,
-    //   portion: product.portion ? product.portion : '',
-    //   category: $scope.recipe.id
-    // }
     $scope.currentShoppingList.push(product)
     localStorage.setItem(`userShoppingList-${product.user_id}`, JSON.stringify($scope.currentShoppingList))
   }
