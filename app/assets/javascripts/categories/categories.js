@@ -16,7 +16,6 @@ angular.module('g-list')
       for (index = 0; index < categoriesResponse.length; index ++) {
         if (categoriesResponse[index].attributes.recipe) {
           factory.recipes.push(categoriesResponse[index]);
-          console.log('recipes', factory.recipes)
         } else {
           factory.categories.push(categoriesResponse[index]);
         };
@@ -34,6 +33,23 @@ angular.module('g-list')
         factory.recipes.push(newCategory);
         return newCategory;
       };
+    });
+  };
+
+  factory.upload = function(id, file) {
+    var data = new FormData();
+    data.append('file', file)
+    const req = {
+      method: 'PUT',
+      url: `/categories/${id}`,
+      headers: {
+        'Content-Type': undefined
+      },
+      data: data
+    }
+
+    return $http(req).then(function(data) {
+      return data
     });
   };
 

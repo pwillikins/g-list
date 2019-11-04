@@ -3,13 +3,67 @@
     padding: 0 25px;
     height: calc(100vh - 75px);
     overflow: auto;
-    
+
     .list-items {
         width: 100%;
         background-color: white;
     
-        md-list {
+        table {
+            position: relative;
             width: 100%;
+            border-collapse: collapse;
+
+            th, td {
+                border-bottom: 1px solid #CCC;
+            }
+
+            th {
+                text-align: left;
+                position: sticky;
+                top: 0;
+                background-color: white;
+            }
+
+            tr {
+                height: 50px;
+            }
+
+            tr:last-child td {
+                border-bottom: none !important;
+            }
+
+            td:last-child {
+                text-align: end;
+            }
+
+            .check-off {
+                text-align: end
+            }
+
+            .portion {
+                width: 100px;
+            }
+            
+            .comment {
+                width: 225px;
+                padding-left: 15px;
+            }
+
+            .item-name {
+                padding-left: 15px;
+            }
+
+            .icons {
+                padding-right: 20px;
+            }
+        }
+
+        .inner-row {
+            margin-bottom: 10px;
+        }
+
+        .checked-row {
+            background-color: #a3d2f4;
         }
     }
 

@@ -1,22 +1,27 @@
 <div class="products-container">
-  <md-button class="md-fab" aria-label="FAB" ng-click="openNewProductDialog()">
-    <i class="material-icons pointer">add</i>
-    <md-tooltip md-direction="top">Create Product</md-tooltip>
-  </md-button>
-  <h1>PRODUCTS</h1>
+  <div class="product-header" flex-container="row" flex-align="center center">
+    <div class="title">
+      <h1>PRODUCTS</h1>
+    </div>
+    <div>
+      <i class="material-icons add-product-icon pointer" ng-click="openNewProductDialog()">add_circle</i>
+    </div>
+  </div>
 
   <div class="list" flex-container="column" flex-align="center center">
     <md-list>
       <md-list-item class="product" ng-repeat="product in products" ng-class="{'added-to-list': isInShoppingList(product)}">
         <div flex-container="row" flex-item="100" flex-align="center center">
-          <div flex-container="row" flex-item="70" flex-align="start center">{{ product.attributes.name | uppercase }}</div>
-          
-          <div flex-container="row" flex-item="15" flex-align="center center">
-            <i class="material-icons icons pointer" ng-if="!isInShoppingList(product)" ng-click="addToShoppingList(product)">add</i>
-            <i class="material-icons icons pointer" ng-if="isInShoppingList(product)" ng-click="removeFromList(product)">clear</i>
+          <div flex-item="10" flex-container="row" flex-align="start center">
+            <md-checkbox 
+              aria-label="Checkbox No Ink" 
+              ng-model="product.selected" 
+              ng-change="selectProduct(product)">
+            </md-checkbox>
           </div>
-
-          <div flex-container="row" flex-item="15" flex-align="end center">
+          <div class="product-detail" flex-container="row" flex-item="70" flex-align="start center">{{ product.attributes.name | uppercase }}</div>
+          
+          <div class="product-detail" flex-container="row" flex-item="15" flex-align="end center">
             <i class="material-icons icons pointer" ng-click="removeProduct(product.id)">delete</i>
           </div>
         </div>

@@ -48,5 +48,9 @@ angular.module('g-list')
         document.getElementById("myCanvasNav").style.width = "0%"
         document.getElementById("myCanvasNav").style.opacity = "0"
       }
+
+      $scope.navItemSelected = function(location) {
+        return window.location.href.includes(location)
+      }
     }
   ])

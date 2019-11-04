@@ -14,9 +14,29 @@ class ProductsController < ApplicationController
   end
 
   def create_categorization
-    if params[:categoryId].present?
-      cat = Categorization.create( product_id: params[:productId], category_id: params[:categoryId] )
-      respond_with Product.find(params[:productId])
+    begin
+      if params[:categoryId].present?
+        product = Product.find(params[:productId])
+        cat = Categorization.create(product_id: params[:productId], category_id: params[:categoryId], portion: product.portion)
+        respond_with product
+      else
+        respond_with {}
+      end
+    rescue => ex
+      print ex
+    end
+  end
+
+  def update_categorization
+    param = params[:productId]
+    if param[:categoryId].present? && param[:productId].present? && param[:portion].present?
+      cat = Categorization.where(
+        category_id: param[:categoryId], 
+        product_id: param[:productId]
+      )
+      cat[0].portion = param[:portion]
+      cat[0].save
+      render json: cat[0]
     else
       respond_with {}
     end
@@ -32,10 +52,7 @@ class ProductsController < ApplicationController
     if params[:categoryId].present? && params[:productId].present?
       cat = Categorization.where(product_id: params[:productId], category_id: params[:categoryId])
       respond_with cat[0].destroy
-      # respond_with {}
     end
-    
-    
   end
 
   private

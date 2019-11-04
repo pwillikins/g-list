@@ -28,6 +28,8 @@ gem 'active_model_serializers'
 
 gem 'sprockets', "~> 3.7.2"
 
+gem "aws-sdk-s3", require: false
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

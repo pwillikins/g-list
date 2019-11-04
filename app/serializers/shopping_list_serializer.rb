@@ -1,5 +1,5 @@
 class ShoppingListSerializer < ActiveModel::Serializer
-  attributes :id, :name, :products
+  attributes :id, :name, :timestamp, :products
 
   def products
     updated_products = []
@@ -10,12 +10,19 @@ class ShoppingListSerializer < ActiveModel::Serializer
           updated_products << {
             purchased: sli.purchased,
             name: product.name,
-            id: product.id
+            id: product.id,
+            portion: sli.portion,
+            comment: sli.comment
           }
         end
       end
     end
     updated_products
+  end
+
+  def timestamp 
+    created_at = object.try(:created_at)
+    created_at
   end
 
 end

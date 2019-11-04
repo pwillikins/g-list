@@ -54,6 +54,22 @@ GEM
     angular_rails_csrf (4.0.0)
       railties (>= 3, < 7)
     arel (9.0.0)
+    aws-eventstream (1.0.3)
+    aws-partitions (1.224.0)
+    aws-sdk-core (3.68.1)
+      aws-eventstream (~> 1.0, >= 1.0.2)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.24.0)
+      aws-sdk-core (~> 3, >= 3.61.1)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.49.0)
+      aws-sdk-core (~> 3, >= 3.61.1)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.1.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
@@ -79,6 +95,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    jmespath (1.4.0)
     jsonapi-renderer (0.2.2)
     loofah (2.3.0)
       crass (~> 1.0.2)
@@ -180,6 +197,7 @@ DEPENDENCIES
   active_model_serializers
   angular-rails-templates
   angular_rails_csrf
+  aws-sdk-s3
   byebug
   devise
   jbuilder

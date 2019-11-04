@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,111 +10,132 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190218002549) do
+ActiveRecord::Schema.define(version: 2019_11_04_032106) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",                        null: false
-    t.integer  "user_id"
-    t.boolean  "recipe",      default: false
+    t.string "name", null: false
+    t.integer "user_id"
+    t.boolean "recipe", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description"
+    t.text "description"
   end
 
   create_table "categorizations", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "category_id"
+    t.integer "product_id"
+    t.integer "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "portion"
+    t.index ["category_id"], name: "index_categorizations_on_category_id"
+    t.index ["product_id"], name: "index_categorizations_on_product_id"
   end
 
-  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
-  add_index "categorizations", ["product_id"], name: "index_categorizations_on_product_id"
-
   create_table "category_products", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "category_id"
+    t.integer "product_id"
+    t.integer "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "portion"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "body"
-    t.integer  "upvotes"
-    t.integer  "post_id"
+    t.string "body"
+    t.integer "upvotes"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-
   create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.string   "link"
-    t.integer  "upvotes"
+    t.string "title"
+    t.string "link"
+    t.integer "upvotes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string "name", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer "user_id"
+    t.string "portion"
   end
 
   create_table "recipe_list_items", force: :cascade do |t|
-    t.integer  "category_id"
-    t.integer  "recipe_list_id"
+    t.integer "category_id"
+    t.integer "recipe_list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["recipe_list_id"], name: "index_recipe_list_items_on_recipe_list_id"
   end
 
-  add_index "recipe_list_items", ["recipe_list_id"], name: "index_recipe_list_items_on_recipe_list_id"
-
   create_table "recipe_lists", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
+    t.integer "user_id"
   end
 
   create_table "shopping_list_items", force: :cascade do |t|
-    t.integer  "product_id"
-    t.integer  "shopping_list_id"
+    t.integer "product_id"
+    t.integer "shopping_list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "purchased",        default: false
+    t.boolean "purchased", default: false
+    t.string "portion"
+    t.string "comment"
+    t.index ["shopping_list_id"], name: "index_shopping_list_items_on_shopping_list_id"
   end
 
-  add_index "shopping_list_items", ["shopping_list_id"], name: "index_shopping_list_items_on_shopping_list_id"
-
   create_table "shopping_lists", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "total_spent"
+    t.integer "user_id"
+    t.integer "total_spent"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
+    t.string "username"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

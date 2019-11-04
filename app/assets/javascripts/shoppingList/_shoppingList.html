@@ -1,27 +1,37 @@
 <div class="shopping-list-container">
   <div class="page-title">
-    <h1>CURRENT LIST - {{currentList.attributes.name}}</h1>
+    <h1>Shopping List - <span class="date">{{date}}</span></h1>
   </div>
 
   <div class="list-items" flex-container="column" flex-align="center center">
-    <md-list>
-      <md-list-item class="product" ng-repeat="item in shoppingListItems track by item.id" ng-class="{ 'checked-row': item.purchased }">
-
-        <div flex-container="row" flex-item="100" flex-align="center center">
-
-          <div ng-class="{ 'checked-off': item.purchased }" flex-container="row" flex-item="70" flex-align="start center">
-            {{ item.name | uppercase }}
-          </div>
-  
-          <div flex-container="row" flex-item="15" flex-align="end center">
-            <i class="material-icons icons pointer" ng-if="item.purchased">check</i>
-            <i class="material-icons icons pointer" ng-if="!item.purchased" ng-click="checkOffList(item)">check_box_outline_blank</i>
-          </div>
-
-        </div>
-
-      </md-list-item>
-    </md-list>
+    <table>
+      <thead>
+        <tr>
+          <th class="portion">Portion</th>
+          <th class="item-name">Name</th>
+          <th class="item-name">Comment</th>
+          <th class="check-off">Check Off</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-class="{ 'checked-off': item.purchased }" ng-repeat="item in shoppingListItems track by item.id">
+          <td class="item-info">
+            {{ item.portion }}
+          </td>
+          <td class="item-name">{{ item.name | uppercase }}</td>
+          <td class="comment">
+            {{ item.comment }}
+          </td>
+          <td>
+            <i 
+              class="material-icons icons pointer" 
+              ng-click="checkOffList(item)">
+              {{ item.purchased ? 'check_box' : 'check_box_outline_blank' }}
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>

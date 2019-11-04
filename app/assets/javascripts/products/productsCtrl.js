@@ -7,7 +7,7 @@ angular.module('g-list')
   $scope.categories = categories.allCategories
   $scope.currentShoppingList = []
 
-  const items = localStore[`userShoppingList-${localStorage.userId}`]
+  const items = localStorage[`userShoppingList-${localStorage.userId}`]
   if (items && items.length > 0) {
     $scope.currentShoppingList = JSON.parse(items);
   }
@@ -17,22 +17,23 @@ angular.module('g-list')
       $scope.categories[i].content = 'Recipe';
     } else {
       $scope.categories[i].content = 'Category';
-    };
-  };
+    }
+  }
 
   $scope.removeProduct = function(id) {
-    products.deleteProduct(id);
-  };
+    products.deleteProduct(id)
+  }
 
   $scope.addToShoppingList = function(product) {
     newProductFormat = {
       id: product.id,
-      name: product.attributes.name
+      name: product.attributes.name,
+      portion: ''
     }
     $scope.currentShoppingList.push(newProductFormat);
 
-    localStorage.setItem(`userShoppingList-${localStorage.userId}`, JSON.stringify($scope.currentShoppingList));
-  };
+    localStorage.setItem(`userShoppingList-${localStorage.userId}`, JSON.stringify($scope.currentShoppingList))
+  }
 
   $scope.isInShoppingList = function(product) {
     exists = false
@@ -43,13 +44,25 @@ angular.module('g-list')
         }
       };
     };
-    return exists;
-  };
-
+    return exists
+  }
+  
   $scope.removeFromList = function(product) {
-    $scope.currentShoppingList = $scope.currentShoppingList.filter(object => object.id != product.id);
-    localStorage[`userShoppingList-${localStorage.userId}`] = JSON.stringify($scope.currentShoppingList);
-  };
+    $scope.currentShoppingList = $scope.currentShoppingList.filter(object => object.id != product.id)
+    localStorage[`userShoppingList-${localStorage.userId}`] = JSON.stringify($scope.currentShoppingList)
+  }
+
+  $scope.selectProduct = function (product) {
+    if (product.selected) {
+      $scope.addToShoppingList(product)
+    } else {
+      $scope.removeFromList(product)
+    }
+  }
+
+  $scope.products.forEach(product => {
+    product.selected = $scope.isInShoppingList(product)
+  })
 
   // ---------------- DIALOG FUNCTIONALITY ---------------- //
   $scope.openNewProductDialog = function (ev) {

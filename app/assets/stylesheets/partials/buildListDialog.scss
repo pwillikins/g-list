@@ -1,54 +1,72 @@
 .build-list {
     height: 400px;
-    width: 400px;
+    width: 600px;
     overflow: hidden;
 
     form {
         overflow: hidden;
     }
 
+    md-input-container {
+        margin: 0;
+    }
+
     .product-grid-list {
-        height: calc(100vh - 433px) !important;
+        height: calc(100vh - 260px) !important;
         overflow: auto;
+
+        .product-grid-tile {
+            margin-top: 25px;
+        }
+
+        .product-checkbox {
+            margin-left: 25px;
+            width: 100%;
+
+            md-checkbox {
+                margin-bottom: 8px;
+            }
+        }
+
+        .portion {
+            width: 90px;
+            height: 30px;
+            border-radius: 3px;
+            border: 1px solid #CCC;
+        }
     }
 
     .sub-header {
         font-size: 12px;
         color: #b2b0b0;
         font-weight: 500;
-        padding: 0 25px;
+        padding: 0 25px 15px 25px;
     }
 
-    h2 {
+    h1 {
         text-align: center;
     }
 
-    .product-checkbox {
-        margin-left: 25px;
+
+
+    button {
+        height: 50px;
     }
 
-    footer {
-        bottom: 0px;
-        position: fixed;
-        width: 100%;
-        background-color: white;
+    .cancel-button {
+        margin: 6px 3px 6px 3px;
+        font-size: 15px;
+        font-weight: 500;
+        border-radius: 3px;
+    }
 
-        .cancel-button {
-            margin: 6px 3px 6px 3px;
-            font-size: 15px;
-            font-weight: 300;
-            border-radius: 3px;
-            border: 1px solid #CCC;
-        }
-
-        .create-button {
-            margin: 6px 3px 6px 3px;
-            font-size: 15px;
-            font-weight: 400;
-            color: white;
-            background: #46b19f;
-            border-radius: 3px;
-        }
+    .create-button {
+        margin: 6px 3px 6px 3px;
+        font-size: 15px;
+        font-weight: 500;
+        color: white;
+        background: #55b0f2;
+        border-radius: 3px;
     }
 }
 

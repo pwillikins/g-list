@@ -2,21 +2,21 @@
   <nav class="navbar header">
     <div flex-container="row" class="header-navbar">
       <div flex-align="start center" flex-item="20" flex-container="row" class="left-side-nav">
-        <i class="material-icons logo" ng-click="openNav()">fastfood</i>
+        <i class="material-icons logo pointer" ng-click="openNav()">fastfood</i>
       </div>
       <div class="navbar-title" flex-align="end center" flex-item="20" flex-container="row">
-        <a href="#!/home" class="navbar-title-text">gList</a>
+        <a href="#!/home" class="navbar-title-text pointer">gList</a>
       </div>
     </div>
   </nav>
 
   <div id="mySidenav" class="sidenav">
     <a class="closebtn" ng-click="closeNav()">&times;</a>
-    <a ng-click="closeNav()" href="#!/home">Recipes</a>
-    <a ng-click="closeNav()" href="#!/products">Ingredients</a>
-    <a ng-click="closeNav()" href="#!/recipe_lists">Past Recipe Lists</a>
-    <a ng-click="closeNav()" href="#!/shopping_lists">Past Shopping Lists</a>
-    <a ng-click="closeNav()" href="#!new_shopping_list">Current Shopping List</a>
-    <a ng-click="logout()" class="pointer">Logout</a>
+    <a class="link" ng-class="{'nav-item-selected': navItemSelected('home')}" ng-click="closeNav()" href="#!/home">Recipes</a>
+    <a class="link" ng-class="{'nav-item-selected': navItemSelected('products')}" ng-click="closeNav()" href="#!/products">Products</a>
+    <a class="link" ng-class="{'nav-item-selected': navItemSelected('recipe_lists')}" ng-click="closeNav()" href="#!/recipe_lists">Recent Recipe Lists</a>
+    <a class="link" ng-class="{'nav-item-selected': navItemSelected('shopping_lists')}" ng-click="closeNav()" href="#!/shopping_lists">Recent Shopping Lists</a>
+    <a class="link" ng-class="{'nav-item-selected': navItemSelected('new_shopping_list')}" ng-click="closeNav()" href="#!new_shopping_list">Shopping List</a>
+    <a class="link pointer" ng-click="logout()">Logout</a>
   </div>
 </div>

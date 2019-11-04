@@ -1,12 +1,13 @@
 md-dialog {
     height: 225px;
     width: 400px;
+    padding: 20px;
 
     .dialog-title {
         flex-flow: unset !important;
         height: 65px;
         color: rgb(155, 153, 153);
-        font-size: 25px;
+        font-size: 35px;
         font-weight: 300;
     }
 
@@ -17,7 +18,7 @@ md-dialog {
         .input-box {
             height: calc(100% - 65px);
             width: 100%;
-            text-align: center;
+            // text-align: center;
             padding: 8px;
     
             .new-recipe-input {
@@ -32,17 +33,16 @@ md-dialog {
             .cancel-button {
                 margin: 6px 3px 6px 3px;
                 font-size: 15px;
-                font-weight: 300;
+                font-weight: 500;
                 border-radius: 3px;
-                border: 1px solid rgb(155, 153, 153);
             }
 
             .create-button {
                 margin: 6px 3px 6px 3px;
                 font-size: 15px;
-                font-weight: 400;
+                font-weight: 500;
                 color: white;
-                background: #46b19f;
+                background: #55b0f2;
                 border-radius: 3px;
             }
         }

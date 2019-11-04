@@ -1,3 +1,7 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes :name
+  attributes :name, :portion
+
+  def portion
+    portion = object.try(:portion)
+  end
 end

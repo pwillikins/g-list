@@ -14,6 +14,13 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    category = Category.find(params[:id])
+    if params[:file].present?
+      category.cover_image.attach(params[:file])
+      category.save
+      render json: category
+    end
+
     if params[:description].present?
       category = Category.find(params[:id])
       category.description = params[:description]
@@ -31,7 +38,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :recipe)
+    params.require(:category).permit(:name, :recipe, image: [])
   end
 
 end

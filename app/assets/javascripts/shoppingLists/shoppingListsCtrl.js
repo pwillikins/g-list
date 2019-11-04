@@ -1,5 +1,5 @@
 angular.module('g-list')
-.controller('ShoppingListsCtrl', ['$scope', 'shoppingLists', function($scope, shoppingLists) {
+  .controller('ShoppingListsCtrl', [ '$scope', 'shoppingLists', '$mdToast', function ($scope, shoppingLists, $mdToast) {
 
   $scope.newTitle = 'Create Shopping List'
   $scope.title = 'Shopping List History'
@@ -11,13 +11,15 @@ angular.module('g-list')
   const items = localStorage[`userShoppingList-${$scope.userId}`]
   if (items && items.length > 0) {
     $scope.shoppingListItems = JSON.parse(localStorage[`userShoppingList-${$scope.userId}`])
+    // $scope.shoppingListItems.forEach(item => item['comment'] = '')
   }
   
   $scope.removeFromList = function(product) {
     index = $scope.shoppingListItems.indexOf(product)
     if(index != -1) {
-	     $scope.shoppingListItems.splice(index, 1)
+      $scope.shoppingListItems.splice(index, 1)
       localStorage[`userShoppingList-${localStorage.userId}`] = JSON.stringify($scope.shoppingListItems)
+      toastMessage('Item Removed!')
     }
   }
 
@@ -26,6 +28,7 @@ angular.module('g-list')
       products: $scope.shoppingListItems
     }
     shoppingLists.create(params).then(function(data) {
+      toastMessage('Shopping List Saved!')
       shoppingLists.shoppingLists.push(data.data.data)
       $scope.shoppingListItems = []
       localStorage.clear()
@@ -38,14 +41,38 @@ angular.module('g-list')
     window.location.href = url
   }
 
-  $scope.removeList = function(id) {
-    shoppingLists.deleteList(id)
-  }
-
   $scope.clearList = function() {
     $scope.shoppingListItems = []
     localStorage.setItem(`userShoppingList-${$scope.userId}`, JSON.stringify([]))
     $scope.$parent.shoppingListCleared = true
+    toastMessage('Shopping List Cleared!')
+  }
+
+  $scope.updateItem = function(evt, item, property) {
+    const value = evt.target.value
+    if (event.code === 'Enter') {
+      const foundItem = $scope.shoppingListItems.find(listItem => {
+        if (item.category) {
+          if (item.id == listItem.id && item.category == listItem.category) {
+            return listItem
+          }
+        } else if (item.id == listItem.id) {
+          return listItem
+        }
+      })
+
+      if (foundItem) {
+        foundItem[property] = value
+        localStorage.setItem(`userShoppingList-${ $scope.userId }`, JSON.stringify($scope.shoppingListItems))
+        toastMessage('Item Updated!')
+      } else {
+        toastMessage('Error Updating item - Item Not Found!')
+      }
+    }
+  }
+
+  toastMessage = function(message) {
+    $mdToast.show($mdToast.simple().textContent(message))
   }
 
 }])

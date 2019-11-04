@@ -11,6 +11,12 @@
         md-list {
             width: 100%;
         }
+
+        md-list-item.md-no-proxy, md-list-item .md-no-style {
+            border-bottom: 1px solid #eee;
+            font-weight: 300;
+            padding-top: 15px;
+        }
     }
 }
 

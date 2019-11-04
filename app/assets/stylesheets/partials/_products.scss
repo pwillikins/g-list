@@ -2,32 +2,41 @@
     height: 100%;
     width: 100%;
 
-    h1 {
+    .product-header {
         text-align: center;
-    }
-    
 
-    .md-button.md-fab {
-        top: auto;
-        right: 20px;
-        bottom: 15px;
-        left: auto;
-        position: absolute;
-        background-color: #46b19f;
+        .title {
+            width: 200px;
+            h1 {
+                text-align: center;
+            }
+        }
 
-        .material-icons {
-            padding-top: 15px;
+        .add-product-icon {
+            color: #55b0f2;
+            font-size: 35px !important;
+            margin-top: 4px;
             outline: none;
         }
     }
+
     .list {
-        border-top: 1px solid #CCC;
-        height: calc(100% - 245px);
+        height: calc(100% - 155px);
         overflow: scroll;
+
+        .product-detail {
+            margin-bottom: 15px;
+        }
         
         md-list {
             width: 100%;
             height: 100%;
+        }
+
+        md-list-item.md-no-proxy, md-list-item .md-no-style {
+            border-bottom: 1px solid #eee;
+            font-weight: 300;
+            padding-top: 15px;
         }
     }
 

@@ -7,9 +7,10 @@
     ng-submit="createRecipe()">
     <div class="input-box">
         <md-input-container class="new-recipe-input">
-            <input placeholder="Enter Recipe Name" name="recipeName" ng-model="recipeName" minLength="3">
+            <input placeholder="Recipe Name" name="recipeName" ng-model="recipeName" minLength="3">
         </md-input-container>
     </div>
+
     <div class="button-row" flex-container="row" flex-align="end center">
         <md-button class="cancel-button" ng-click="closeDialog()">Cancel</md-button>
         <md-button class="create-button" type="submit">Create</md-button>

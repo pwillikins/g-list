@@ -1,4 +1,6 @@
+Rails.application.routes.default_url_options[:host] = "localhost:3000"
 Rails.application.routes.draw do
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   resources :products
 
   post '/recipe/products' => 'products#create_categorization'
+  put '/recipe/products' => 'products#update_categorization'
   post '/categorizations' => 'products#remove_recipe_product'
   resources :categories
   resources :shopping_lists

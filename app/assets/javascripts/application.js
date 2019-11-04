@@ -8,4 +8,5 @@
 //= require angular-animate
 //= require angular-material
 //= require angular-flex
+//= require activestorage
 //= require_tree .

@@ -1,8 +1,7 @@
 .home-container {
-    // width: 100%;
     height: calc(100vh - 81px);
     overflow: auto;
-    padding: 0 20px;
+    padding: 20px;
 
     h1 {
         padding: 0 7px;
@@ -15,7 +14,8 @@
         bottom: 30px;
         left: auto;
         position: absolute;
-        background-color: #46b19f;
+        // background-color: #46b19f;
+        background-color: #55b0f2;
 
         .material-icons {
             padding-top: 15px;
@@ -24,7 +24,8 @@
     }
 
     .md-button.md-fab:hover {
-        background-color: #46b19f;
+        // background-color: #46b19f;
+        background-color: #55b0f2;
     }
 
     .create-recipe-list {
@@ -37,64 +38,91 @@
     }
 
     .recipe-grid-tile {
-        height: calc(198px) !important;
+        height: calc(300px) !important;
         
         .recipe-tile {
             text-align: center;
-            height: 175px;
+            height: 300px;
             width: 95%;
             border: 1px solid #CCC;
             border-radius: 3px;
             cursor: pointer;
             outline: none;
 
-            .tile-actions {
+            .img-container {
+                height: 100%;
                 width: 100%;
-                visibility: hidden;
+                outline: none;
 
-                .checkbox {
-                    md-checkbox {
-                        margin-left: 10px;
-                        margin-top: 10px;
+                .image {
+                    height: 100%;
+                    width: 100%;
+                    
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 2px;
                     }
                 }
 
-                .remove-icon {
-                    i {
-                        outline: none;
-                        color: #7e7878;
-                        font-size: 22px !important;
-                        margin-right: 10px;
-                        margin-top: 10px;
-                    }
+                .missing-icon {
+                    font-size: 165px !important;
+                    -webkit-text-stroke: 7px white;
+                    color: #dbdbdb;
+                    padding: 10px;
                 }
+
             }
-    
+
             .recipe-name {
                 outline: none;
                 font-size: 25px;
                 font-weight: 200; 
                 width: 98%; 
+                place-content: center !important;
             }
 
             .recipe-description {
                 outline: none;
                 width: 100%;
 
+                
+                .number-of-ingredients {
+                    color: #55b0f2;
+                }
+
+                .actions {
+                    visibility: hidden;
+
+                    .remove-icon {
+                        font-size: 20px !important;
+                        color: rgba(0,0,0,0.54);
+                    }
+    
+                    md-checkbox {
+                        margin-bottom: 0;
+                        margin-left: 7px;
+                    }
+                }
+
                 span {
-                    font-size: 12px;
+                    font-size: 13px;
                     color: #b2b0b0;
                     font-weight: 500;
-                    padding-right: 10px;
-                    padding-top: 15px;
+                    padding-right: 3px;
+                    padding-top: 10px;
                 }
             }
+        }
+
+        .recipe-tile-selected {
+            border: 2px solid #55b0f2;
         }
     
         .recipe-tile:hover {
             box-shadow: 0 1px 5px 1px #CCC;
 
-            .tile-actions {
+            .actions {
                 visibility: visible;
             }
         }
@@ -113,43 +141,48 @@
 
 /* ---------------- TABLET STYLING  ---------------- */
 @media (min-width: 600px) and (max-width: 1024px) {
-    .tile-actions {
+    .actions {
         visibility: visible !important;
     }
 }
 
 /* ---------------- MOBILE STYLING  ---------------- */
 @media (min-width: 300px) and (max-width: 599px) {
-    .recipe-grid-list {
-        height: calc(100vh - 76px) !important;
-        padding-top: 85px;
+    .home-container {
+        height: calc(100vh - 115px) !important;
         
-        .recipe-grid-tile {
-            width: 98% !important;
-            margin-top: -80px !important;
-            position: relative;
+        .recipe-grid-list {
+            height: calc(100vh - 76px) !important;
             
-            .recipe-tile {
-                height: 100%;
-                display: flex;
-                align-items: flex-start;
-
-                .tile-actions {
-                    visibility: visible !important;
-                }
-
-                .recipe-description {
-                    margin-top: 0;
-                    font-size: 18px;
-                    font-weight: 100;
+            .recipe-grid-tile {
+                width: 98% !important;
+                margin-top: 10px !important;
+                position: relative;
+                left: 0;
+                
+                .recipe-tile {
                     height: 100%;
-                }
-
-                .recipe-name {
-                    margin-top: 0;
-                    font-size: 24px;
-                    font-weight: 200;
-                    height: 100%;
+                    display: flex;
+                    align-items: flex-start;
+    
+                    .actions {
+                        visibility: visible !important;
+                    }
+    
+                    .recipe-description {
+                        margin-top: 0;
+                        font-size: 18px;
+                        font-weight: 100;
+                        height: 100%;
+                    }
+    
+                    .recipe-name {
+                        margin-top: 0;
+                        font-size: 24px;
+                        font-weight: 200;
+                        height: 100%;
+                        place-content: center;
+                    }
                 }
             }
         }
