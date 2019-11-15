@@ -1,4 +1,4 @@
-class Categorizations < ActiveRecord::Migration
+class Categorizations < ActiveRecord::Migration[5.2]
   def change
     create_table :categorizations do |t|
       t.belongs_to :product, index: true

@@ -37,16 +37,16 @@ ActiveRecord::Schema.define(version: 2019_11_04_032106) do
     t.string "name", null: false
     t.integer "user_id"
     t.boolean "recipe", default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "description"
   end
 
   create_table "categorizations", force: :cascade do |t|
     t.integer "product_id"
     t.integer "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "portion"
     t.index ["category_id"], name: "index_categorizations_on_category_id"
     t.index ["product_id"], name: "index_categorizations_on_product_id"
@@ -55,9 +55,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_032106) do
   create_table "category_products", force: :cascade do |t|
     t.integer "product_id"
     t.integer "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string "portion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -79,17 +78,17 @@ ActiveRecord::Schema.define(version: 2019_11_04_032106) do
 
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "portion"
   end
 
   create_table "recipe_list_items", force: :cascade do |t|
     t.integer "category_id"
     t.integer "recipe_list_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_recipe_list_items_on_category_id"
     t.index ["recipe_list_id"], name: "index_recipe_list_items_on_recipe_list_id"
   end
 
@@ -103,18 +102,19 @@ ActiveRecord::Schema.define(version: 2019_11_04_032106) do
   create_table "shopping_list_items", force: :cascade do |t|
     t.integer "product_id"
     t.integer "shopping_list_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "purchased", default: false
     t.string "portion"
     t.string "comment"
+    t.index ["product_id"], name: "index_shopping_list_items_on_product_id"
     t.index ["shopping_list_id"], name: "index_shopping_list_items_on_shopping_list_id"
   end
 
   create_table "shopping_lists", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "total_spent"
   end
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_032106) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -1,4 +1,4 @@
-class CreateShoppingListItems < ActiveRecord::Migration
+class CreateShoppingListItems < ActiveRecord::Migration[5.2]
   def change
     create_table :shopping_list_items do |t|
       t.belongs_to :products
