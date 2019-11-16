@@ -1,23 +1,31 @@
 angular.module('g-list')
-.controller('AuthCtrl', ['$scope', '$state', 'Auth', function($scope, $state, Auth){
+.controller('AuthCtrl', ['$scope', '$state', 'Auth', '$mdToast', function($scope, $state, Auth, $mdToast) {
 
   $scope.login = function() {
     Auth.login($scope.user).then(function(){
       if($scope.user) {
         $scope.setLocalStorageUser()
       }
-      $state.go('home');
-    });
-  };
+      $mdToast.show($mdToast.simple().textContent('Logged in Successfully!'))
+      $state.go('home')
+    })
+    .catch(function(ex) {
+      $mdToast.show($mdToast.simple().textContent(ex.data.error))
+    })
+  }
 
   $scope.register = function() {
     Auth.register($scope.user).then(function() {
       if ($scope.user) {
         $scope.setLocalStorageUser()
       }
-      $state.go('home');
-    });
-  };
+      $mdToast.show($mdToast.simple().textContent('Sign Up Successful!'))
+      $state.go('home')
+    })
+    .catch(function(ex) {
+      $mdToast.show($mdToast.simple().textContent(ex.data.error))
+    })
+  }
 
   $scope.setLocalStorageUser = async function() {
     localStorage.clear()
@@ -26,4 +34,4 @@ angular.module('g-list')
     localStorage.setItem(`userShoppingList-${user.id}`, JSON.stringify([]))
   }
 
-}]);
+}])
