@@ -20,8 +20,6 @@ class CategorySerializer < ActiveModel::Serializer
     image_url = ''
     if object.cover_image.attached?
       path = rails_blob_path(object.cover_image.blob, only_path: true)
-      # temp solution until we set the default_url_options in config
-      # will only work locally
       if Rails.env == 'development'
         image_url = "http://localhost:3000#{path}"
       end
@@ -32,9 +30,5 @@ class CategorySerializer < ActiveModel::Serializer
 
     end
     image_url
-  end
-
-  def categorization
-    object
   end
 end
