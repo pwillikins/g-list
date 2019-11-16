@@ -3,14 +3,18 @@ class CategorySerializer < ActiveModel::Serializer
   attributes :name, :products, :recipe, :description, :cover
 
   def products
-    object.categorizations.map do |cat|
-      product = {
-        id: cat.product.id,
-        name: cat.product.name,
-        portion: cat.portion,
-        category: object.id
-      }
-      product
+    if object && object.categorizations
+      object.categorizations.map do |cat|
+        product = {
+          id: cat.product.id,
+          name: cat.product.name,
+          portion: cat.portion,
+          category: object.id
+        }
+        product
+      end
+    else
+      []
     end
   end
 

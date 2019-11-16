@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     begin
       if params[:categoryId].present?
         product = Product.find(params[:productId])
-        cat = Categorization.create(product_id: params[:productId], category_id: params[:categoryId], portion: product.portion)
+        cat = Categorization.create(product_id: params[:productId], category_id: params[:categoryId])
         respond_with product
       else
         respond_with {}
