@@ -3,8 +3,8 @@ class CategorySerializer < ActiveModel::Serializer
   attributes :name, :products, :recipe, :description, :cover
 
   def products
-    if object && object.categorizations
-      object.categorizations.map do |cat|
+    object.categorizations.collect do |cat|
+      if cat && cat.product
         product = {
           id: cat.product.id,
           name: cat.product.name,
@@ -13,8 +13,6 @@ class CategorySerializer < ActiveModel::Serializer
         }
         product
       end
-    else
-      []
     end
   end
 
