@@ -23,7 +23,8 @@
     </div>
 
     <div class="image-container"
-         flex-item="50">
+         flex-item="50"
+         flex-align="center center">
       <div>
         <img ng-src="{{ recipe.attributes.cover }}" />
       </div>
@@ -108,7 +109,7 @@
                    ng-keydown="updatePortion($event, product)">
           </td>
           <td class="product-name">{{ product.name | uppercase }}</td>
-          <td>
+          <td class="remove-icon">
             <i class="material-icons icons pointer"
                ng-click="removeProduct(product.id)">delete</i>
           </td>

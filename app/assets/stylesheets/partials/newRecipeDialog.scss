@@ -1,6 +1,6 @@
 md-dialog {
-    height: 225px;
-    width: 400px;
+    height: 275px;
+    width: 475px;
     padding: 20px;
 
     .dialog-title {
@@ -18,8 +18,7 @@ md-dialog {
         .input-box {
             height: calc(100% - 65px);
             width: 100%;
-            // text-align: center;
-            padding: 8px;
+            padding: 30px;
     
             .new-recipe-input {
                 width: 100%;
@@ -29,6 +28,8 @@ md-dialog {
 
         .button-row {
             width: 100%;
+            place-content: center flex-end !important;
+            padding-right: 35px;
 
             .cancel-button {
                 margin: 6px 3px 6px 3px;
