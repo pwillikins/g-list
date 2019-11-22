@@ -49,19 +49,11 @@
         align-items: center;
         display: flex;
 
-        > div {
-          height: 400px;
-          width: auto;
-          // width: 400px;
+        img {
+          max-height: 99%;
+          max-width: 99%;
+          border-radius: 3px;
           margin: 0 auto;
-          display: flex;
-          align-items: center;
-          
-          img {
-            height: 99%;
-            width: 99%;
-            border-radius: 3px;
-          }
         }
       }
     }
