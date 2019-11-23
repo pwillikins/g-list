@@ -24994,11 +24994,11 @@ md-toolbar {
 .navbar-title-text {
   font-weight: bold;
   font-size: 24px;
-  color: #46b19f;
+  color: #fb956d;
 }
 
 a:hover, a:focus {
-  color: #46b19f;
+  color: #fb956d;
   text-decoration: none;
 }
 
@@ -25021,7 +25021,7 @@ a:hover, a:focus {
   float: right;
   margin-top: 10px;
   margin-right: 10px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: #ffffff;
   cursor: pointer;
   border: none;
@@ -25045,7 +25045,7 @@ a:hover, a:focus {
 }
 
 .menu-icon:hover {
-  color: #46b19f;
+  color: #fb956d;
 }
 
 .product-name-input {
@@ -25104,7 +25104,7 @@ th {
 .save-description-button {
   margin-left: 25px;
   margin-top: 10px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   border: none;
   border-radius: 3px;
   height: 35px;
@@ -25187,7 +25187,7 @@ th {
 .create-recipe {
   height: 50px;
   width: 200px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: #ffffff;
 }
 

@@ -1,11 +1,13 @@
 angular.module('g-list')
-  .controller('ProductsCtrl', [ '$scope', 'products', 'categories', '$mdDialog',
-    function ($scope, products, categories, $mdDialog) {
+  .controller('ProductsCtrl', [ '$scope', 'products', 'categories', '$mdDialog', '$mdMenu',
+    function ($scope, products, categories, $mdDialog, $mdMenu) {
 
   $scope.title = 'Products'
   $scope.products = products.products
+  $scope.filteredProducts = [...$scope.products]
   $scope.categories = categories.allCategories
   $scope.currentShoppingList = []
+  $scope.sortOption = 'Custom'
 
   const items = localStorage[`userShoppingList-${localStorage.userId}`]
   if (items && items.length > 0) {
@@ -97,4 +99,53 @@ angular.module('g-list')
     }
   }
 
+  $scope.searchProducts = function(event) {
+    console.log('event', event)
+    const input = event.target.value
+    if (input && input.length) {
+      console.log('$scope.prod', $scope.products)
+      $scope.filteredProducts = $scope.products.filter(prod => prod.attributes.name.includes(input))
+    } else {
+      $scope.filteredProducts = $scope.products
+    }
+  }
+
+  $scope.sort = function(direction) {
+    property = 'name'
+    if (direction === 'asc') {
+      $scope.sortOption = 'Name Asc'
+    } else if (direction === 'desc') {
+      $scope.sortOption = 'Name Desc'
+    } else {
+      $scope.sortOption = 'Custom'
+    }
+    
+    if (direction !== 'custom') {
+      $scope.filteredProducts = $scope.filteredProducts.sort(function(a, b) {
+        if (a.attributes[property] && b.attributes[property]) {
+          var prop_a = a.attributes[property].toString().toLowerCase()
+          var prop_b = b.attributes[property].toString().toLowerCase()
+  
+          if (!!Number(a.attributes[property])) prop_a = Number(a.attributes[property])
+          if (!!Number(b.attributes[property])) prop_b = Number(b.attributes[property])
+  
+          if (direction == 'asc') {
+            if (prop_a < prop_b) return -1
+  
+            if (prop_a > prop_b) return 1
+  
+            return 0
+          } else {
+            if (prop_a > prop_b) return -1
+  
+            if (prop_a < prop_b) return 1
+  
+            return 0
+          }
+        }
+      })
+    } else {
+      $scope.filteredProducts = $scope.products
+    }
+  }
 }]);

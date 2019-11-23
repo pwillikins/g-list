@@ -18195,12 +18195,12 @@ hr {
 
 /* line 56, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
-  color: #46b19f;
+  color: #fb956d;
 }
 
 /* line 60, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
-  background-color: #46b19f;
+  background-color: #fb956d;
 }
 
 /* line 64, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
@@ -18262,7 +18262,7 @@ md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-ico
   float: right;
   margin-top: 21px;
   margin-right: 20px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: #ffffff;
   cursor: pointer;
   border: none;
@@ -18290,7 +18290,7 @@ md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-ico
 
 /* line 142, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 .menu-icon:hover {
-  color: #46b19f;
+  color: #fb956d;
 }
 
 /* line 146, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
@@ -18372,7 +18372,7 @@ th {
 .save-description-button {
   margin-left: 25px;
   margin-top: 10px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   border: none;
   border-radius: 3px;
   height: 35px;
@@ -18416,7 +18416,7 @@ h1, h2, h3 {
 .create-recipe {
   height: 50px;
   width: 200px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: #ffffff;
 }
 
@@ -18435,7 +18435,7 @@ md-input-container label {
   margin: 0 5px !important;
   border-radius: 3px;
   font-size: 12px;
-  background-color: #46b19f !important;
+  background-color: #fb956d !important;
   color: white !important;
   font-family: 'Roboto-Light', sans-serif !important;
 }
@@ -18458,12 +18458,12 @@ md-input-container {
 
 /* line 326, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-  border-color: #46b19f;
+  border-color: #fb956d;
 }
 
 /* line 330, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 md-input-container:not(.md-input-invalid).md-input-focused label {
-  color: #46b19f;
+  color: #fb956d;
   font-size: 26px;
   font-weight: 200;
 }
@@ -18552,7 +18552,7 @@ li {
 
 /* md-input-container label:not(.md-container-ignore) {
     font-weight: bold;
-    color: #46b19f;
+    color: #fb956d;
     font-size: 22px;
     text-align: center;
   } */
@@ -18661,7 +18661,7 @@ li {
 
   /* md-input-container label:not(.md-container-ignore) {
     font-weight: bold;
-    color: #46b19f;
+    color: #fb956d;
     font-size: 22px;
     text-align: center;
   } */
@@ -19037,7 +19037,7 @@ li {
   font-size: 15px;
   font-weight: 400;
   color: white;
-  background: #46b19f;
+  background: #fb956d;
   border-radius: 3px;
 }
 
@@ -19076,7 +19076,7 @@ li {
   bottom: 30px;
   left: auto;
   position: absolute;
-  background-color: #46b19f;
+  background-color: #fb956d;
 }
 /* line 14, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/home.scss */
 .home-container .md-button.md-fab .material-icons {
@@ -19272,7 +19272,7 @@ li {
 }
 /* line 8, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/nav.scss */
 .header-navbar .create-recipe-list-button .md-button {
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: white;
   border-radius: 3px;
   font-weight: 400;
@@ -19284,7 +19284,7 @@ li {
 }
 /* line 20, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/nav.scss */
 .header-navbar .left-side-nav .logo {
-  color: #46b19f;
+  color: #fb956d;
   cursor: pointer;
   outline: none;
 }
@@ -19293,7 +19293,7 @@ li {
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  color: #46b19f;
+  color: #fb956d;
 }
 /* line 34, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/nav.scss */
 .header-navbar .navbar-title {
@@ -19302,7 +19302,7 @@ li {
 /* line 37, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/nav.scss */
 .header-navbar .navbar-title .navbar-title-text {
   font-size: 24px;
-  color: #46b19f;
+  color: #fb956d;
   outline: 0;
 }
 
@@ -19331,7 +19331,7 @@ md-dialog .dialog-title {
   color: white;
   font-size: 25px;
   font-weight: 300;
-  background-color: #46b19f;
+  background-color: #fb956d;
 }
 /* line 13, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/newRecipeDialog.scss */
 md-dialog .new-recipe-form {
@@ -19368,7 +19368,7 @@ md-dialog .new-recipe-form .button-row .create-button {
   font-size: 15px;
   font-weight: 400;
   color: white;
-  background: #46b19f;
+  background: #fb956d;
   border-radius: 3px;
 }
 
@@ -19418,7 +19418,7 @@ md-dialog .new-recipe-form .button-row .create-button {
 }
 /* line 43, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/recipe.scss */
 .recipe-container .ingredient-list .added-to-list {
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: white;
   font-weight: 400 !important;
 }
@@ -19610,7 +19610,7 @@ md-dialog .new-recipe-form .button-row .create-button {
 }
 /* line 37, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/shoppingListForm.scss */
 .button-row .create-shopping-list-button {
-  background-color: #46b19f !important;
+  background-color: #fb956d !important;
   color: white;
 }
 
@@ -19716,12 +19716,12 @@ hr {
 
 /* line 55, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
-  color: #46b19f;
+  color: #fb956d;
 }
 
 /* line 59, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
-  background-color: #46b19f;
+  background-color: #fb956d;
 }
 
 /* line 63, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
@@ -19783,7 +19783,7 @@ md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-ico
   float: right;
   margin-top: 21px;
   margin-right: 20px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: #ffffff;
   cursor: pointer;
   border: none;
@@ -19811,7 +19811,7 @@ md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-ico
 
 /* line 141, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 .menu-icon:hover {
-  color: #46b19f;
+  color: #fb956d;
 }
 
 /* line 145, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
@@ -19893,7 +19893,7 @@ th {
 .save-description-button {
   margin-left: 25px;
   margin-top: 10px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   border: none;
   border-radius: 3px;
   height: 35px;
@@ -19937,7 +19937,7 @@ h1, h2, h3 {
 .create-recipe {
   height: 50px;
   width: 200px;
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: #ffffff;
 }
 
@@ -19956,7 +19956,7 @@ md-input-container label {
   margin: 0 5px !important;
   border-radius: 3px;
   font-size: 12px;
-  background-color: #46b19f !important;
+  background-color: #fb956d !important;
   color: white !important;
   font-family: 'Roboto-Light', sans-serif !important;
 }
@@ -19979,12 +19979,12 @@ md-input-container {
 
 /* line 325, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
-  border-color: #46b19f;
+  border-color: #fb956d;
 }
 
 /* line 329, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/body.scss */
 md-input-container:not(.md-input-invalid).md-input-focused label {
-  color: #46b19f;
+  color: #fb956d;
   font-size: 26px;
   font-weight: 200;
 }
@@ -20073,7 +20073,7 @@ li {
 
 /* md-input-container label:not(.md-container-ignore) {
     font-weight: bold;
-    color: #46b19f;
+    color: #fb956d;
     font-size: 22px;
     text-align: center;
   } */
@@ -20182,7 +20182,7 @@ li {
 
   /* md-input-container label:not(.md-container-ignore) {
     font-weight: bold;
-    color: #46b19f;
+    color: #fb956d;
     font-size: 22px;
     text-align: center;
   } */
@@ -20559,7 +20559,7 @@ li {
   font-size: 15px;
   font-weight: 400;
   color: white;
-  background: #46b19f;
+  background: #fb956d;
   border-radius: 3px;
 }
 
@@ -20598,7 +20598,7 @@ li {
   bottom: 30px;
   left: auto;
   position: absolute;
-  background-color: #46b19f;
+  background-color: #fb956d;
 }
 /* line 14, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/home.scss */
 .home-container .md-button.md-fab .material-icons {
@@ -20794,7 +20794,7 @@ li {
 }
 /* line 8, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/nav.scss */
 .header-navbar .create-recipe-list-button .md-button {
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: white;
   border-radius: 3px;
   font-weight: 400;
@@ -20806,7 +20806,7 @@ li {
 }
 /* line 20, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/nav.scss */
 .header-navbar .left-side-nav .logo {
-  color: #46b19f;
+  color: #fb956d;
   cursor: pointer;
   outline: none;
 }
@@ -20815,7 +20815,7 @@ li {
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  color: #46b19f;
+  color: #fb956d;
 }
 /* line 34, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/nav.scss */
 .header-navbar .navbar-title {
@@ -20824,7 +20824,7 @@ li {
 /* line 37, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/nav.scss */
 .header-navbar .navbar-title .navbar-title-text {
   font-size: 24px;
-  color: #46b19f;
+  color: #fb956d;
   outline: 0;
 }
 
@@ -20853,7 +20853,7 @@ md-dialog .dialog-title {
   color: white;
   font-size: 25px;
   font-weight: 300;
-  background-color: #46b19f;
+  background-color: #fb956d;
 }
 /* line 13, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/newRecipeDialog.scss */
 md-dialog .new-recipe-form {
@@ -20890,7 +20890,7 @@ md-dialog .new-recipe-form .button-row .create-button {
   font-size: 15px;
   font-weight: 400;
   color: white;
-  background: #46b19f;
+  background: #fb956d;
   border-radius: 3px;
 }
 
@@ -20940,7 +20940,7 @@ md-dialog .new-recipe-form .button-row .create-button {
 }
 /* line 43, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/recipe.scss */
 .recipe-container .ingredient-list .added-to-list {
-  background-color: #46b19f;
+  background-color: #fb956d;
   color: white;
   font-weight: 400 !important;
 }
@@ -21132,7 +21132,7 @@ md-dialog .new-recipe-form .button-row .create-button {
 }
 /* line 37, /Users/pwillikins/workspace/g-list/g-list/app/assets/stylesheets/partials/shoppingListForm.scss */
 .button-row .create-shopping-list-button {
-  background-color: #46b19f !important;
+  background-color: #fb956d !important;
   color: white;
 }
 

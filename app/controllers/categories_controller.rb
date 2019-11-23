@@ -21,16 +21,16 @@ class CategoriesController < ApplicationController
       render json: category
     end
 
-    if params[:description].present?
+    if category_params[:description]
       category = Category.find(params[:id])
-      category.description = params[:description]
+      category.description = category_params[:description]
       category.save
       render json: category
     end
   end
 
   def destroy
-    category = Category.find(params[:id])
+    category = Category.find(category_params[:id])
     category.destroy
     respond_with {}
   end
@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :recipe, image: [])
+    params.require(:category).permit(:name, :recipe, :description, image: [])
   end
 
 end

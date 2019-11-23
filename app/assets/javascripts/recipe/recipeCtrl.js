@@ -48,12 +48,12 @@ angular.module('g-list')
     }
   }
 
-  $scope.saveDescription = function() {
-    if( $scope.description == '' ) { return; }
-    
+  $scope.saveDescription = function(evt) {
+    if (!$scope.description) $scope.description = ''
     categories.addDescription($scope.recipe.id, {
       description: $scope.description
     }).then(function(response) {
+      console.log('recipe response', response.data.data)
       $scope.recipe = response.data.data;
       $scope.description = $scope.recipe.attributes.description;
       $mdToast.show($mdToast.simple().textContent('Instructions Updated!'))
