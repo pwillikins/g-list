@@ -3,21 +3,87 @@
     width: 100%;
 
     .product-header {
-        text-align: center;
+      height:100px;
+      text-align: center;
+      padding: 15px;
 
-        .title {
-            width: 200px;
-            h1 {
-                text-align: center;
-            }
-        }
+      .add-product-button {
+        margin-left: 15px;
+        border-radius: 3px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        padding: 0;
 
         .add-product-icon {
-            color: #55b0f2;
-            font-size: 35px !important;
-            margin-top: 4px;
-            outline: none;
+          color: rgba(0,0,0,0.54);
+          font-size: 25px !important;
+          outline: none;
+          margin:0 auto;
         }
+      }
+
+      .sort-field {
+        width: 130px;
+        height: 30px;
+        border: 1px solid #CCC;
+        border-radius: 3px;
+        margin-left: 15px;
+
+        .sort-name {
+          width: 98px;
+          height: 100%;
+          padding-top: 5px;
+          color: rgba(0,0,0,0.54);
+        }
+
+        .sort-action-icon {
+          width: 30px;
+          height: 100%;
+          border-left: 1px solid #CCC;
+
+          .md-button.md-icon-button {
+            margin: 0;
+            padding: 0 8px 5px 0;
+          }
+
+          .sort-dropdown {
+            color: rgba(0,0,0,0.54);
+          }
+        }
+      }
+
+      .search-field {
+        border: 1px solid #CCC;
+        border-radius: 3px;
+        height: 30px;
+        margin-left: 15px;
+
+        md-input-container {
+          margin: 0;
+
+          .md-input {
+            border: none;
+            height: 25px;
+          }
+
+          label {
+            text-align: left;
+            padding-bottom: 4px;
+            color: rgba(0,0,0,0.54);
+          }
+        }
+
+        md-input-container:not(.md-input-invalid).md-input-focused {
+          .md-input {
+            border: none;
+          }
+          label {
+            display: none;
+          }
+        } 
+      }
     }
 
     .list {
@@ -26,6 +92,10 @@
 
         .product-detail {
             margin-bottom: 15px;
+        }
+
+        .remove-icon {
+          color: rgba(0,0,0,0.54);
         }
         
         md-list {

@@ -1,55 +1,63 @@
-.header-navbar {
-    height: 100%;
-    padding: 0 30px;
+.navbar {
+  box-shadow: 0px -1px 4px 1px;
+  border: none;
 
-    .create-recipe-list-button {
-        height: 100%;
+  .header-navbar {
+      height: 100%;
+      padding: 0 30px;
+      background-color: #fb956d;
 
-        .md-button {
-            background-color: #46b19f;
-            color: white;
-            border-radius: 3px;
-            font-weight: 400;
-            padding: 5px;
-        }
-    }
+      .create-recipe-list-button {
+          height: 100%;
 
-    .left-side-nav {
-        height: 100%;
-        flex-flow: unset !important;
+          .md-button {
+              background-color: #fb956d;
+              color: white;
+              border-radius: 3px;
+              font-weight: 400;
+              padding: 5px;
+          }
+      }
 
-        .logo {
-            color: #55b0f2;
-            cursor: pointer;
-            outline: none;
-        }
+      .left-side-nav {
+          height: 100%;
+          flex-flow: unset !important;
 
-        .create-account {
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            color: #55b0f2;
-        }
-    }
+          .logo {
+              color: white;
+              cursor: pointer;
+              outline: none;
+              font-size: 32px !important;
+          }
 
-    .navbar-title {
-        height: 100%;
-        flex-flow: unset !important;
+          .create-account {
+              text-decoration: none;
+              font-size: 18px;
+              font-weight: bold;
+              color: #fb956d;
+          }
+      }
 
-        .navbar-title-text {
-            font-size: 24px;
-            color: #55b0f2;
-            outline: 0;
-        }
-    }
+      .navbar-title {
+          height: 100%;
+          flex-flow: unset !important;
+
+          .navbar-title-text {
+              font-size: 24px;
+              color: white;
+              outline: 0;
+              text-decoration: none;
+          }
+      }
+    } 
 }
 
 .nav-item-selected {
-    color: #55b0f2 !important;
+    color: #fb956d !important;
 }
 
 .md-button.md-primary.md-raised:not([disabled]):hover {
-    background-color: #55b0f2;
+    background-color: #fb956d;
 }
 
 /* ---------------- TABLET STYLING  ---------------- */

@@ -25,6 +25,8 @@
                 position: sticky;
                 top: 0;
                 background-color: white;
+                color: #a7a5a5;
+                font-weight: 500;
             }
 
             tr {
@@ -89,7 +91,7 @@
         .item-count-container {
             width: 100px;
             height: 30px;
-            background-color: #55b0f2;
+            background-color: #fb956d;
             border-radius: 13px;
             
             .item-count {
@@ -116,7 +118,7 @@
     }
 
     .create-shopping-list-button {
-        background-color: #55b0f2 !important;
+        background-color: #fb956d !important;
         color: white;
     }
 
@@ -143,11 +145,12 @@
     }
 
     .portion {
-        width: 65px !important;
+        width: 100px !important;
     }
 
     .comment {
-        width: 150px !important;
+      display: none;
+      // width: 110px !important;
     }
 
     .button-row {
@@ -170,9 +173,9 @@
         }
 
         .md-button {
-            width: 125px;
+            width: 100px;
             height: 60px;
-            margin: 0 2px;
+            margin: 0 5px;
         }
     }
 

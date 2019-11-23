@@ -14,7 +14,7 @@
     bottom: 30px;
     left: auto;
     position: absolute;
-    background-color: #55b0f2;
+    background-color: #fb956d;
 
     .material-icons {
       padding-top: 15px;
@@ -23,7 +23,7 @@
   }
 
   .md-button.md-fab:hover {
-    background-color: #55b0f2;
+    background-color: #fb956d;
   }
 
   .create-recipe-list {
@@ -100,7 +100,7 @@
           padding-top: 15px;
 
           .number-of-ingredients {
-            color: #55b0f2;
+            color: #fb956d;
           }
         }
 
@@ -127,7 +127,7 @@
     }
 
     .recipe-tile-selected {
-      border: 2px solid #55b0f2;
+      border: 2px solid #fb956d;
     }
 
     .recipe-tile:hover {
