@@ -1,0 +1,67 @@
+<div class="shopping-list-form-container">
+  <div class="page-title">
+    <h1>SHOPPING LIST</h1>
+  </div>
+
+  <div class="list-items"
+       flex-container="column"
+       flex-align="center center">
+    <table ng-if="shoppingListItems && shoppingListItems.length">
+      <thead>
+        <tr>
+          <th class="portion">Portion</th>
+          <th class="item-name">Name</th>
+          <th class="item-name comment">Comment</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in shoppingListItems track by item.id">
+          <td class="portion">
+            <input type="text"
+                   ng-model="item.portion"
+                   ng-model-options="{ debounce: 500 }"
+                   ng-change="updateItem(item, 'portion')">
+          </td>
+          <td class="item-name">{{ item.name | uppercase }}</td>
+          <td class="comment">
+            <input type="text"
+                   ng-model="item.comment"
+                   ng-model-options="{ debounce: 500 }"
+                   ng-keydown="updateItem(item, 'comment')">
+          </td>
+          <td>
+            <i class="material-icons icons pointer"
+               ng-click="removeFromList(item)">
+              clear
+              <md-tooltip md-direction="left">REMOVE</md-tooltip>
+            </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="button-row"
+     flex-container="row"
+     flex-align="end">
+  <div class="inner-left"
+       flex-item="65"
+       flex-align="start">
+    <div class="item-count-container">
+      <div class="item-count">{{ shoppingListItems.length }} Item(s) </div>
+    </div>
+  </div>
+  <div class="buttons"
+       flex-container="row"
+       flex-item="35"
+       flex-align="end">
+    <md-button class="clear-shopping-list-button"
+               ng-click="clearList()">CLEAR</md-button>
+    <md-button ng-disabled="shoppingListItems.length == 0"
+               class="create-shopping-list-button md-raised md-primary"
+               ng-click="createShoppingList()"
+               class="">CREATE</md-button>
+  </div>
+</div>
