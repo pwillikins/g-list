@@ -20,14 +20,14 @@
           <td class="portion">
             <input type="text"
                    ng-model="item.portion"
-                   ng-model-options="{ debounce: 500 }"
+                   ng-model-options="{ debounce: 1000 }"
                    ng-change="updateItem(item, 'portion')">
           </td>
           <td class="item-name">{{ item.name | uppercase }}</td>
           <td class="comment">
             <input type="text"
                    ng-model="item.comment"
-                   ng-model-options="{ debounce: 500 }"
+                   ng-model-options="{ debounce: 1000 }"
                    ng-keydown="updateItem(item, 'comment')">
           </td>
           <td>

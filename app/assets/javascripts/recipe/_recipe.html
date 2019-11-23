@@ -99,7 +99,7 @@
             <td class="portion">
               <input type="text"
                      ng-model="product.portion"
-                     ng-model-options='{ debounce: 500 }'
+                     ng-model-options='{ debounce: 1000 }'
                      ng-change="updatePortion(product)">
             </td>
             <td class="product-name">{{ product.name | uppercase }}</td>
