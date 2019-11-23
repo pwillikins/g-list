@@ -48,26 +48,23 @@ angular.module('g-list')
     toastMessage('Shopping List Cleared!')
   }
 
-  $scope.updateItem = function(evt, item, property) {
-    const value = evt.target.value
-    if (event.code === 'Enter') {
-      const foundItem = $scope.shoppingListItems.find(listItem => {
-        if (item.category) {
-          if (item.id == listItem.id && item.category == listItem.category) {
-            return listItem
-          }
-        } else if (item.id == listItem.id) {
+  $scope.updateItem = function(item, property) {
+    const foundItem = $scope.shoppingListItems.find(listItem => {
+      if (item.category) {
+        if (item.id == listItem.id && item.category == listItem.category) {
           return listItem
         }
-      })
-
-      if (foundItem) {
-        foundItem[property] = value
-        localStorage.setItem(`userShoppingList-${ $scope.userId }`, JSON.stringify($scope.shoppingListItems))
-        toastMessage('Item Updated!')
-      } else {
-        toastMessage('Error Updating item - Item Not Found!')
+      } else if (item.id == listItem.id) {
+        return listItem
       }
+    })
+
+    if (foundItem) {
+      foundItem[property] = item[property]
+      localStorage.setItem(`userShoppingList-${ $scope.userId }`, JSON.stringify($scope.shoppingListItems))
+      toastMessage('Item Updated!')
+    } else {
+      toastMessage('Error Updating item - Item Not Found!')
     }
   }
 

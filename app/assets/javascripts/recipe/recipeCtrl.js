@@ -63,7 +63,7 @@ angular.module('g-list')
   $scope.createProduct = function ($event) {
     if ($event.target.value == '' ) { return; }
     if ($event.key == 'Enter') {
-      const product = { name: $event.target.value };
+      const product = { name: $event.target.value, categoryId: $scope.recipe.id };
       const validationResponse = validateProductName( product.name );
 
       if( validationResponse.valid ) {
@@ -168,11 +168,10 @@ angular.module('g-list')
     }
   }
 
-  $scope.updatePortion = function(event, product) {
-    if (event.code === 'Enter' && event.target.value.length > 0) {
+  $scope.updatePortion = function(product) {
+    if (product.portion.length) {
       // update portion
-      const portion = event.target.value
-      const requestParams = {productId: product.id, categoryId: $scope.recipe.id, portion: portion}
+      const requestParams = {productId: product.id, categoryId: $scope.recipe.id, portion: product.portion}
       products.updateRecipeProduct(requestParams).then(function(response) {
         $mdToast.show($mdToast.simple().textContent('Portion Updated!'))
       })
