@@ -1,0 +1,87 @@
+<div class="home-container">
+  <md-button class="md-fab create-recipe-list"
+             ng-if="recipeSelected"
+             aria-label="FAB"
+             ng-click="buildList()">
+    <i class="material-icons pointer">note_add</i>
+    <md-tooltip md-direction="left">Build Shopping List</md-tooltip>
+  </md-button>
+  <md-button class="md-fab"
+             aria-label="FAB"
+             ng-click="openNewRecipeDialog()">
+    <i class="material-icons pointer">add</i>
+    <md-tooltip md-direction="left">Create Recipe</md-tooltip>
+  </md-button>
+
+  <h1>Recipe Library - {{recipes.length}} Recipes</h1>
+
+  <div class="grid-list-container">
+    <md-grid-list class="recipe-grid-list"
+                  md-cols-xs="1"
+                  md-cols-sm="3"
+                  md-cols-gt-sm="5"
+                  md-row-height-gt-xs="525">
+
+      <md-grid-tile class="recipe-grid-tile"
+                    ng-repeat="recipe in recipes">
+        <div flex-align="center center"
+             flex-container="column"
+             class="recipe-tile"
+             ng-class="{'recipe-tile-selected': recipe.selected}">
+          <div flex-item="5"
+               flex-container="row"
+               flex-align="end end"
+               class="actions">
+            <md-checkbox ng-class="{'show-checkbox': recipeSelected}"
+                         aria-label="Checkbox No Ink"
+                         ng-model="recipe.selected"
+                         ng-change="selectRecipe()">
+            </md-checkbox>
+          </div>
+          <div flex-item="65"
+               class="img-container"
+               ng-click="navigateToRecipe(recipe.id)">
+            <div class="image">
+              <img ng-if="recipe.attributes.cover"
+                   ng-src="{{recipe.attributes.cover}}"
+                   alt="">
+              <i class="material-icons missing-icon"
+                 ng-if="!recipe.attributes.cover">wallpaper</i>
+            </div>
+          </div>
+
+          <div class="recipe-name"
+               flex-item="20"
+               flex-container="row"
+               ng-click="navigateToRecipe(recipe.id)">
+            {{ recipe.attributes.name | uppercase }}
+          </div>
+          <div class="recipe-description"
+               flex-item="10"
+               flex-container="row"
+               flex-align="end end">
+            <div flex-item="50"
+                 flex-container="row"
+                 flex-align="start end"
+                 class="bottom-actions">
+              <!-- <md-checkbox ng-class="{'show-checkbox': recipeSelected}"
+                           aria-label="Checkbox No Ink"
+                           ng-model="recipe.selected"
+                           ng-change="selectRecipe()">
+              </md-checkbox> -->
+              <i class="material-icons remove-icon"
+                 ng-click="removeRecipe(recipe.id)">delete</i>
+            </div>
+            <div flex-item="50"
+                 flex-container="row"
+                 class="ingredients"
+                 flex-align="end end">
+              <span>Ingredients: <span class="number-of-ingredients"> {{ recipe.attributes.products.length }}
+                </span></span>
+            </div>
+          </div>
+        </div>
+      </md-grid-tile>
+    </md-grid-list>
+  </div>
+</div>
