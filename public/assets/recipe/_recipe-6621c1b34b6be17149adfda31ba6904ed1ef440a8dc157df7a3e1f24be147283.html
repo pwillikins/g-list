@@ -1,0 +1,115 @@
+<div class="recipe-container">
+
+  <div class="top-header-section"
+       flex-container="row">
+    <div class="image-container">
+      <img ng-src="{{ recipe.attributes.cover }}" />
+    </div>
+
+    <div flex-container="column"
+         class="recipe-info">
+      <div class="recipe-title"
+           flex-container="row"
+           flex-align="center center">
+        {{ recipe.attributes.name | uppercase }}
+      </div>
+
+      <div class="upload-section">
+        <p class="upload-title">Update Cover Image</p>
+        <div flex-container="row"
+             class="file-upload-content">
+          <div flex-container="row">
+            <md-button class="file-select-button md-raised md-primary"
+                       ng-if="!fileUpload"
+                       ng-click="selectFile()">Select File</md-button>
+            <md-button class="file-select-button file-selected md-raised md-primary"
+                       ng-if="fileUpload"
+                       ng-click="onUpload()">Upload</md-button>
+          </div>
+          <div flex-container="row">
+            <div ng-if="fileUpload"
+                 class="file-name">{{fileUpload.name}}</div>
+            <i ng-if="fileUpload"
+               class="material-icons clear-upload pointer"
+               ng-click="clearUpload()">clear</i>
+          </div>
+        </div>
+        <input name="upload"
+               id="upload_input"
+               class="file-select"
+               type="file"
+               file-model="fileUpload" />
+      </div>
+    </div>
+  </div>
+
+  <md-divider></md-divider>
+
+  <div class="recipe-instructions-section">
+    <h2>Recipe Instructions</h2>
+    <md-input-container class="description-container">
+      <textarea class="form-control description"
+                ng-change="saveDescription($event)"
+                ng-model-options='{ debounce: 1000 }'
+                ng-model="description">
+          </textarea>
+    </md-input-container>
+  </div>
+
+  <md-divider></md-divider>
+
+  <div class="ingredient-list-section">
+    <h2>{{recipeProducts.length ? recipeProducts.length : ''}} Ingredients</h2>
+    <div class="search-container">
+      <md-autocomplete md-select-on-match="true"
+                       md-no-cache="true"
+                       placeholder="Search for ingredients to add or create new"
+                       md-search-text="searchText"
+                       ng-keypress="createProduct($event)"
+                       md-selected-item-change="selectedItemChange(item)"
+                       md-selected-item="selectedItem.name"
+                       md-items="item in searchProducts(searchText)"
+                       md-item-text="item.attributes.name">
+        <md-item-template>
+          <span md-highlight-text="searchText"
+                md-highlight-flags="^i"> {{item.attributes.name}} </span>
+        </md-item-template>
+      </md-autocomplete>
+    </div>
+
+    <div class="ingredient-list"
+         ng-if="recipeProducts.length">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Portion</th>
+            <th class="product-name">Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product in recipeProducts">
+            <td class="checkbox">
+              <md-checkbox aria-label="Checkbox No Ink"
+                           ng-model="product.selected"
+                           ng-change="selectProduct(product)">
+              </md-checkbox>
+            </td>
+            <td class="portion">
+              <input type="text"
+                     ng-model="product.portion"
+                     ng-model-options='{ debounce: 1000 }'
+                     ng-change="updatePortion(product)">
+            </td>
+            <td class="product-name">{{ product.name | uppercase }}</td>
+            <td class="remove-icon">
+              <i class="material-icons icons pointer"
+                 ng-click="removeProduct(product.id)">delete</i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
