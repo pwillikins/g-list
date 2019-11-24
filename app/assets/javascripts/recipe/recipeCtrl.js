@@ -53,7 +53,6 @@ angular.module('g-list')
     categories.addDescription($scope.recipe.id, {
       description: $scope.description
     }).then(function(response) {
-      console.log('recipe response', response.data.data)
       $scope.recipe = response.data.data;
       $scope.description = $scope.recipe.attributes.description;
       $mdToast.show($mdToast.simple().textContent('Instructions Updated!'))

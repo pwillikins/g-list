@@ -208,6 +208,10 @@
         height: auto;
         margin-bottom: 0;
 
+        .image-container {
+          width: 100%;
+        }
+
         .recipe-info {
           padding: 15px 0 0 0;
           
@@ -215,7 +219,6 @@
             margin: 0 !important;
           }
         }
-
       }
 
       .search-container {
