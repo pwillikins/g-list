@@ -63,6 +63,52 @@
     background-color: #fb956d;
 }
 
+/* The navigation menu links */
+.sidenav {
+
+  .link {
+    text-decoration: none;
+    font-size: 19px;
+    color: #818181;
+    transition: 0.3s;
+    display: flex;
+
+    .link-title {
+      padding-left: 15px;
+      padding-top: 2px;
+    }
+  }
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus {
+  color: #000000;
+
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+  text-align: center;
+  padding: 7px 0;
+}
+
+md-list {
+
+  md-list-item {
+    border-bottom: 1px solid #CCC;
+  }
+}
+
 /* ---------------- TABLET STYLING  ---------------- */
 @media (min-width: 600px) and (max-width: 1199px) {
 
