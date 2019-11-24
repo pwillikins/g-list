@@ -120,4 +120,7 @@
 /* ---------------- MOBILE STYLING  ---------------- */
 @media (min-width: 300px) and (max-width: 599px) {
 
+  .product-header {
+    height: auto !important;
+  }
 }

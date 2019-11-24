@@ -15,22 +15,23 @@ class CategoriesController < ApplicationController
 
   def update
     category = Category.find(params[:id])
+    print "File Upload: #{params[:file]}"
     if params[:file].present?
       category.cover_image.attach(params[:file])
       category.save
       render json: category
     end
 
-    if category_params[:description]
+    if params[:description]
       category = Category.find(params[:id])
-      category.description = category_params[:description]
+      category.description = params[:description]
       category.save
       render json: category
     end
   end
 
   def destroy
-    category = Category.find(category_params[:id])
+    category = Category.find(params[:id])
     category.destroy
     respond_with {}
   end

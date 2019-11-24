@@ -34,9 +34,14 @@ angular.module('g-list')
 
   $scope.onUpload = () => {
     categories.upload($scope.recipe.id, $scope.fileUpload).then(function(response) {
+      console.log('Upload Complete: ', response.data.data)
       $scope.recipe = response.data.data
       $scope.fileUpload = undefined
       $mdToast.show($mdToast.simple().textContent('Cover Image Updated!'))
+    })
+    .catch(function(ex) {
+      console.log('Upload Error: ', ex)
+      $mdToast.show($mdToast.simple().textContent('Error Uploading Cover Image'))
     })
   }
 
