@@ -26,27 +26,66 @@
        class="sidenav">
     <a class="closebtn"
        ng-click="closeNav()">&times;</a>
-    <a class="link"
-       ng-class="{'nav-item-selected': navItemSelected('home')}"
-       ng-click="closeNav()"
-       href="#!/home">Recipes</a>
-    <a class="link"
-       ng-class="{'nav-item-selected': navItemSelected('products')}"
-       ng-click="closeNav()"
-       href="#!/products">Products</a>
+    <md-list>
+      <md-list-item>
+        <a class="link"
+           flex-container="row"
+           ng-class="{'nav-item-selected': navItemSelected('home')}"
+           ng-click="closeNav()"
+           href="#!/home">
+          <div>
+            <i class="material-icons link-icon pointer">restaurant</i>
+          </div>
+          <div class="link-title">Recipes</div>
+        </a>
+      </md-list-item>
+      <md-list-item>
+        <a class="link"
+           flex-container="row"
+           ng-class="{'nav-item-selected': navItemSelected('products')}"
+           ng-click="closeNav()"
+           href="#!/products">
+          <div>
+            <i class="material-icons link-icon pointer">fastfood</i>
+          </div>
+          <div class="link-title">Products</div>
+        </a>
+      </md-list-item>
+      <md-list-item>
+        <a class="link"
+           ng-class="{'nav-item-selected': navItemSelected('shopping_lists')}"
+           ng-click="closeNav()"
+           href="#!/shopping_lists">
+          <div>
+            <i class="material-icons link-icon pointer">list</i>
+          </div>
+          <div class="link-title">Past Shopping Lists</div>
+        </a>
+      </md-list-item>
+      <md-list-item>
+        <a class="link"
+           ng-class="{'nav-item-selected': navItemSelected('new_shopping_list')}"
+           ng-click="closeNav()"
+           href="#!new_shopping_list">
+          <div>
+            <i class="material-icons link-icon pointer">list_alt</i>
+          </div>
+          <div class="link-title">Shopping List</div>
+        </a>
+      </md-list-item>
+      <md-list-item>
+        <a class="link pointer"
+           ng-click="logout()">
+          <div>
+            <i class="material-icons link-icon pointer">backspace</i>
+          </div>
+          <div class="link-title">Logout</div>
+        </a>
+      </md-list-item>
+    </md-list>
     <!-- <a class="link"
        ng-class="{'nav-item-selected': navItemSelected('recipe_lists')}"
        ng-click="closeNav()"
        href="#!/recipe_lists">Recent Recipe Lists</a> -->
-    <a class="link"
-       ng-class="{'nav-item-selected': navItemSelected('shopping_lists')}"
-       ng-click="closeNav()"
-       href="#!/shopping_lists">Recent Shopping Lists</a>
-    <a class="link"
-       ng-class="{'nav-item-selected': navItemSelected('new_shopping_list')}"
-       ng-click="closeNav()"
-       href="#!new_shopping_list">Shopping List</a>
-    <a class="link pointer"
-       ng-click="logout()">Logout</a>
   </div>
 </div>

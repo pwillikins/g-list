@@ -36,10 +36,10 @@ angular.module('g-list')
       // ----------------- Sidenav Functionality ----------------- //
       $scope.openNav = function () {
         if ($scope.signedIn()) {
-          document.getElementById("mySidenav").style.width = "250px"
+          document.getElementById("mySidenav").style.width = "300px"
           document.getElementById("myCanvasNav").style.width = "100%"
           document.getElementById("myCanvasNav").style.opacity = "0.8"
-          document.getElementById("myCanvasNav").style.marginLeft = "250px"
+          document.getElementById("myCanvasNav").style.marginLeft = "300px"
         }
       }
 
