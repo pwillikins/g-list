@@ -348,38 +348,6 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   transition: 0.1s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
-/* The navigation menu links */
-.sidenav .link {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 19px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-  border-bottom: 1px solid #CCC;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
-  color: #000000;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  cursor: pointer;
-}
-
-li {
-  list-style: none;
-  text-align: center;
-  padding: 7px 0;
-}
-
 .categories-container {
   width: 100%;
   height: 100%;
@@ -395,25 +363,6 @@ li {
   padding: 20px;
 }
 
-// .new-recipe-form {
-//   margin: 0 auto;
-//   margin-top: 100px;
-//   height: 40%;
-//   width: 50%;
-// }
-
-// .new-recipe-input {
-//     width: 70%;
-//     margin-top: 50px;
-// }
-
-/* md-input-container label:not(.md-container-ignore) {
-    font-weight: bold;
-    color: #fb956d;
-    font-size: 22px;
-    text-align: center;
-  } */
-
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -423,17 +372,6 @@ li {
 /* ---------------- TABLET STYLING  ---------------- */
 @media only screen and (min-width : 600px) and (max-width : 1024px) {
 /* Styles */
-
-  // .new-recipe-form-tablet {
-  //   height: 50%;
-  //   width: 60%;
-  //   margin-top: 75px;
-  // }
-
-  // .new-recipe-input-tablet {
-  //   width: 80%;
-  //   margin-top: 50px;
-  // }
 
 }
 
@@ -450,45 +388,9 @@ li {
     font-size: 20px;
   }
 
-  // .page-title-mobile {
-  //   text-align: center;
-  //   position: fixed;
-  //   top: 70px;
-  //   background-color: white;
-  //   width: 100%;
-  //   z-index: 1;
-  // }
-
-  // .create-shopping-list-button {
-  //   width: 100%;
-  //   height: 100px;
-  //   background-color: #fb956d;
-  //   position: fixed;
-  //   color: white;
-  //   font-size: 20px;
-  //   font-weight: 400;
-  //   bottom: 0;
-  // }
-
-  // .recipe-description-mobile {
-  //   margin-top: 0;
-  //   font-size: 18px;
-  //   padding-right: 5px;
-  //   font-weight: 100;
-  //   height: 100%;
-  // }
-
-  // .products-form-section {
-  //   width: 85%;
-  // }
-
   md-select {
     width: 100%;
   }
-
-  // .products-button-row-mobile {
-  //   margin-bottom: 20px;
-  // }
 
   .category-form-section-mobile {
     width: 85%;
@@ -503,16 +405,6 @@ li {
   .menu-icon-mobile {
     margin-left: 20px;
   }
-
-  // .new-recipe-input-mobile {
-  //   margin-top: 25px;
-  // }
-
-
-  /* .title {
-    width: 85%;
-    font-weight: 100;
-  } */
 
   .recipe-description-form-mobile {
     width: 100%;
@@ -579,14 +471,6 @@ li {
     z-index: 100;
     background-color: #ffffff;
   }
-
-  // .description-container {
-  //   margin-bottom: 0;
-  // }
-
-  // .description-mobile {
-  //   font-size: 20px;
-  // }
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
@@ -607,8 +491,6 @@ li {
   opacity: 0.4 !important;
   transition: opacity .3s;
 }
-
-
 
 /* ------------------ TOOLTIP -----------------------*/
 
