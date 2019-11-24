@@ -39,15 +39,18 @@
       }
 
       .navbar-title {
-          height: 100%;
-          flex-flow: unset !important;
+        height: 100%;
+        flex-flow: unset !important;
 
-          .navbar-title-text {
-              font-size: 24px;
-              color: white;
-              outline: 0;
-              text-decoration: none;
-          }
+        .navbar-title-text {
+          font-size: 24px;
+          color: white;
+          outline: 0;
+          text-decoration: none;
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
       }
     } 
 }
