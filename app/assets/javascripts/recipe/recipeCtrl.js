@@ -1,6 +1,7 @@
 angular.module('g-list')
   .controller('RecipeCtrl', [ '$scope', 'recipe', 'categories', 'products', '$mdToast', 
     function ($scope, recipe, categories, products, $mdToast) {
+  $scope.loading = false
   $scope.recipe = recipe
   $scope.error = ''
   $scope.description = $scope.recipe.attributes.description
@@ -33,14 +34,17 @@ angular.module('g-list')
   })
 
   $scope.onUpload = () => {
+    $scope.loading = true
     categories.upload($scope.recipe.id, $scope.fileUpload).then(function(response) {
       console.log('Upload Complete: ', response.data.data)
       $scope.recipe = response.data.data
       $scope.fileUpload = undefined
+      $scope.loading = false
       $mdToast.show($mdToast.simple().textContent('Cover Image Updated!'))
     })
     .catch(function(ex) {
       console.log('Upload Error: ', ex)
+      $scope.loading = false
       $mdToast.show($mdToast.simple().textContent('Error Uploading Cover Image'))
     })
   }

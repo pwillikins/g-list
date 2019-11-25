@@ -145,7 +145,7 @@ angular.module('g-list')
         }
       })
     } else {
-      $scope.filteredProducts = $scope.products
+      $scope.filteredProducts = [...$scope.products]
     }
   }
 }]);

@@ -1,6 +1,9 @@
-<div class="shopping-list-container">
+<md-progress-linear md-mode="indeterminate"
+                    ng-if="loading"></md-progress-linear>
+<div class="shopping-list-container"
+     ng-if="!loading">
   <div class="page-title">
-    <h1>Shopping List - <span class="date">{{date}}</span></h1>
+    <h1>{{ currentList.attributes.timestamp | date:'fullDate' }}</h1>
   </div>
 
   <div class="list-items"

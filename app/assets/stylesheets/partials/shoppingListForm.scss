@@ -1,5 +1,5 @@
 .shopping-list-form-container {
-    height: calc(100vh - 150px);
+    height: calc(100vh - 152px);
     background-color: white;
     padding: 0 25px;
     overflow: auto;
@@ -136,7 +136,7 @@
 /* ---------------- MOBILE STYLING  ---------------- */
 @media (min-width: 300px) and (max-width: 599px) {
     .shopping-list-form-container {
-        height: calc(100vh - 150px);
+        height: calc(100vh - 176px);
     }
 
     .icons {

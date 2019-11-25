@@ -1,46 +1,49 @@
 <div class="products-container">
+  <md-button class="md-fab create-recipe-list"
+             aria-label="FAB"
+             ng-click="openNewProductDialog()">
+    <i class="material-icons pointer">add</i>
+    <md-tooltip md-direction="left">Create Product</md-tooltip>
+  </md-button>
   <div class="product-header"
-       flex-container="row"
-       flex-align="start center">
+       flex-container="column"
+       flex-align="start start">
     <h1>PRODUCTS</h1>
-    <div class="search-field">
-      <md-input-container>
-        <input placeholder="Search Products"
-               ng-keypress="searchProducts($event)"
-               name="productName">
-      </md-input-container>
-    </div>
-    <div class="sort-field"
-         flex-container="row">
-      <div class="sort-name">{{sortOption}}</div>
-      <div class="sort-action-icon pointer">
-        <md-menu md-position-mode="left bottom">
-          <md-button ng-click="$mdMenu.open($event)"
-                     class="md-icon-button"
-                     aria-label="Open sample menu">
-            <i class="material-icons sort-dropdown">arrow_drop_down</i>
-          </md-button>
-          <!-- Trigger element is a md-button with an icon -->
-          <md-menu-content>
-            <md-menu-item>
-              <md-button ng-click="sort('asc')">Name - A to Z</md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button ng-click="sort('desc')">Name - Z to A</md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button ng-click="sort('custom')">Custom</md-button>
-            </md-menu-item>
-          </md-menu-content>
-        </md-menu>
+    <div flex-container="row"
+         class="product-options">
+      <div class="search-field">
+        <md-input-container>
+          <input placeholder="Search Products"
+                 ng-keypress="searchProducts($event)"
+                 name="productName">
+        </md-input-container>
+      </div>
+      <div class="sort-field"
+           flex-container="row">
+        <div class="sort-name">Sort by: {{sortOption}}</div>
+        <div class="sort-action-icon pointer">
+          <md-menu md-position-mode="left bottom">
+            <md-button ng-click="$mdMenu.open($event)"
+                       class="md-icon-button"
+                       aria-label="Open sample menu">
+              <i class="material-icons sort-dropdown">arrow_drop_down</i>
+            </md-button>
+            <!-- Trigger element is a md-button with an icon -->
+            <md-menu-content>
+              <md-menu-item>
+                <md-button ng-click="sort('asc')">Name - A to Z</md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="sort('desc')">Name - Z to A</md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="sort('custom')">Custom</md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </div>
       </div>
     </div>
-    <button class="add-product-button pointer md-primary md-raised">
-      <md-tooltip md-direction="right">ADD PRODUCT</md-tooltip>
-      <i class="material-icons add-product-icon"
-         md-menu-origin=""
-         ng-click="openNewProductDialog()">add</i>
-    </button>
   </div>
 
   <div class="list"

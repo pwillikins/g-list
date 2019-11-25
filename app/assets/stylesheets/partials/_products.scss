@@ -2,10 +2,36 @@
     height: 100%;
     width: 100%;
 
+    .md-button.md-fab {
+      top: 85px;
+      right: 10px;
+      bottom: 0;
+      left: auto;
+      position: absolute;
+      background-color: #fb956d;
+
+      .material-icons {
+        padding-top: 15px;
+        outline: none;
+      }
+    }
+
+    .md-button.md-fab:hover {
+      background-color: #fb956d;
+    }
+
+    .create-recipe-list {
+      bottom: 95px !important;
+    }
+
     .product-header {
-      height:100px;
       text-align: center;
-      padding: 15px;
+      padding: 0px 15px 25px 15px;
+      border-bottom: 3px solid rgba(0,0,0,0.54);
+
+      h1 {
+        margin-bottom: 10px;
+      }
 
       .add-product-button {
         margin-left: 15px;
@@ -15,6 +41,7 @@
         display: flex;
         align-items: center;
         padding: 0;
+        background-color: white;
 
         .add-product-icon {
           color: rgba(0,0,0,0.54);
@@ -25,16 +52,17 @@
       }
 
       .sort-field {
-        width: 130px;
         height: 30px;
         border: 1px solid #CCC;
         border-radius: 3px;
         margin-left: 15px;
 
         .sort-name {
-          width: 98px;
+          width: 155px;
           height: 100%;
-          padding-top: 5px;
+          text-align: left;
+          padding-left: 3px;
+          padding-top: 6px;
           color: rgba(0,0,0,0.54);
         }
 
@@ -58,7 +86,6 @@
         border: 1px solid #CCC;
         border-radius: 3px;
         height: 30px;
-        margin-left: 15px;
 
         md-input-container {
           margin: 0;
@@ -87,7 +114,7 @@
     }
 
     .list {
-        height: calc(100% - 155px);
+        height: calc(100% - 243px);
         overflow: scroll;
 
         .product-detail {
@@ -122,5 +149,20 @@
 
   .product-header {
     height: auto !important;
+
+    .product-options {
+      flex-direction: column;
+
+      .sort-field {
+        margin-left: 0;
+        margin-top: 5px;
+      }
+
+      .add-product-button {
+        margin-top: 7px;
+      }
+    }
+
+
   }
 }
