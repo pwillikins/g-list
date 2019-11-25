@@ -2,9 +2,11 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
   function ($scope, categories, recipeLists, $mdDialog) {
     $scope.recipeLists = recipeLists.recipeLists
     $scope.recipes = recipeLists.recipes
+    $scope.filteredRecipes = [...$scope.recipes]
     $scope.recipes.forEach(recipe => recipe.selected = false)
     $scope.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
     $scope.recipeSelected = false
+    $scope.sortOption = 'Custom'
 
     $scope.currentShoppingList = []
     const items = localStorage[ `userShoppingList-${ localStorage.userId }` ]
@@ -200,5 +202,53 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
     //     $mdDialog.hide($scope.recipeProducts)
     //   }
     // }
+
+    $scope.searchRecipes = function(event) {
+    const input = event.target.value
+    if (input && input.length) {
+      $scope.filteredRecipes = $scope.recipes.filter(recipe => recipe.attributes.name.toLowerCase().includes(input))
+    } else {
+      $scope.filteredRecipes = $scope.recipes
+    }
   }
-]);
+
+  $scope.sort = function(direction) {
+    property = 'name'
+    if (direction === 'asc') {
+      $scope.sortOption = 'Name Asc'
+    } else if (direction === 'desc') {
+      $scope.sortOption = 'Name Desc'
+    } else {
+      $scope.sortOption = 'Custom'
+    }
+    
+    if (direction !== 'custom') {
+      $scope.filteredRecipes = $scope.filteredRecipes.sort(function(a, b) {
+        if (a.attributes[property] && b.attributes[property]) {
+          var prop_a = a.attributes[property].toString().toLowerCase()
+          var prop_b = b.attributes[property].toString().toLowerCase()
+  
+          if (!!Number(a.attributes[property])) prop_a = Number(a.attributes[property])
+          if (!!Number(b.attributes[property])) prop_b = Number(b.attributes[property])
+  
+          if (direction == 'asc') {
+            if (prop_a < prop_b) return -1
+  
+            if (prop_a > prop_b) return 1
+  
+            return 0
+          } else {
+            if (prop_a > prop_b) return -1
+  
+            if (prop_a < prop_b) return 1
+  
+            return 0
+          }
+        }
+      })
+    } else {
+      console.log('resetting')
+      $scope.filteredRecipes = [...$scope.recipes]
+    }
+  }
+}]);
