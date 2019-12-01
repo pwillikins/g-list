@@ -28,7 +28,10 @@ angular.module('g-list')
   }
 
   $scope.setLocalStorageUser = async function() {
-    localStorage.clear()
+    if (localStorage.getItem('userId')) {
+      localStorage.removeItem('userId')
+    }
+    
     const user = await Auth.currentUser()
     localStorage.setItem('userId', user.id)
     localStorage.setItem(`userShoppingList-${user.id}`, JSON.stringify([]))

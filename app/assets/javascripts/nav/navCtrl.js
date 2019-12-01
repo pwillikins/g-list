@@ -22,7 +22,7 @@ angular.module('g-list')
         $scope.user = {}
         $scope.closeNav()
         $state.go('login')
-        localStorage.clear()
+        localStorage.removeItem('userId')
       })
 
       $scope.registerPage = function () {
