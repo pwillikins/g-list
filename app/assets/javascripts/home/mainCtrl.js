@@ -197,10 +197,9 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
     //   }
     // }
 
-    $scope.searchRecipes = function(event) {
-    const input = event.target.value
-    if (input && input.length) {
-      $scope.filteredRecipes = $scope.recipes.filter(recipe => recipe.attributes.name.toLowerCase().includes(input))
+    $scope.searchRecipes = function() {
+    if ($scope.searchPhrase && $scope.searchPhrase.length) {
+      $scope.filteredRecipes = $scope.recipes.filter(recipe => recipe.attributes.name.toLowerCase().includes($scope.searchPhrase.toLowerCase()))
     } else {
       $scope.filteredRecipes = $scope.recipes
     }

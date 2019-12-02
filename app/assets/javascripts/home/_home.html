@@ -22,7 +22,8 @@
       <div class="search-field">
         <md-input-container>
           <input placeholder="Search Recipes"
-                 ng-keypress="searchRecipes($event)"
+                 ng-change="searchRecipes()"
+                 ng-model="searchPhrase"
                  name="recipeName">
         </md-input-container>
       </div>

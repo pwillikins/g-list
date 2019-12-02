@@ -114,11 +114,6 @@ angular.module('g-list')
     }
   }
 
-  $scope.clearSearch = function() {
-    $scope.filteredProducts = $scope.products
-    $scope.searchPhrase = ''
-  }
-
   $scope.sort = function(direction) {
     property = 'name'
     if (direction === 'asc') {
