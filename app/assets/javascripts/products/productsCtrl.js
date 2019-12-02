@@ -1,6 +1,6 @@
 angular.module('g-list')
-  .controller('ProductsCtrl', [ '$scope', 'products', 'categories', '$mdDialog', '$mdMenu',
-    function ($scope, products, categories, $mdDialog, $mdMenu) {
+  .controller('ProductsCtrl', [ '$scope', 'products', 'categories', '$mdDialog','$mdToast',
+    function ($scope, products, categories, $mdDialog, $mdToast) {
 
   $scope.title = 'Products'
   $scope.products = products.products
@@ -22,8 +22,14 @@ angular.module('g-list')
     }
   }
 
-  $scope.removeProduct = function(id) {
-    products.deleteProduct(id)
+  $scope.removeProduct = async function(id) {
+    try {
+      await products.deleteProduct(id)
+      $scope.filteredProducts = $scope.filteredProducts.filter(prod => prod.id !== id)
+      toastMessage('Product Removed')
+    } catch (error) {
+      toastMessage('Error Removing Product')
+    }
   }
 
   $scope.addToShoppingList = function(product) {
@@ -76,7 +82,7 @@ angular.module('g-list')
       templateUrl: 'products/_newProductDialog.html',
       parent: angular.element(document.body),
       targetEvent: ev,
-      // locals: { recipes: $scope.recipes },
+      locals: { filteredProducts: $scope.filteredProducts },
       clickOutsideToClose: true
     }).then(function (answer) {
         $scope.status = 'You said the information was "' + answer + '".';
@@ -85,13 +91,14 @@ angular.module('g-list')
       });
   };
 
-  function DialogController($scope, $mdDialog) {
-    $scope.createProduct = function () {
+  function DialogController($scope, $mdDialog, filteredProducts) {
+    $scope.createProduct = async function () {
       var product = { name: $scope.productName }
       if ($scope.productName == '') { return; }
-      products.create(product);
+      const newProduct = await products.create(product);
+      filteredProducts.push(newProduct)
       $scope.productName = '';
-      $scope.closeDialog()
+      toastMessage('Product Created')
     };
 
     $scope.closeDialog = function () {
@@ -103,7 +110,6 @@ angular.module('g-list')
     console.log('event', event)
     const input = event.target.value
     if (input && input.length) {
-      console.log('$scope.prod', $scope.products)
       $scope.filteredProducts = $scope.products.filter(prod => prod.attributes.name.includes(input))
     } else {
       $scope.filteredProducts = $scope.products
@@ -147,5 +153,9 @@ angular.module('g-list')
     } else {
       $scope.filteredProducts = [...$scope.products]
     }
+  }
+
+  toastMessage = function(message) {
+    $mdToast.show($mdToast.simple().textContent(message).position('center'))
   }
 }]);

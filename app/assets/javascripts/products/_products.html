@@ -51,8 +51,7 @@
        flex-align="center center">
     <md-list>
       <md-list-item class="product"
-                    ng-repeat="product in filteredProducts"
-                    ng-class="{'added-to-list': isInShoppingList(product)}">
+                    ng-repeat="product in filteredProducts">
         <div flex-container="row"
              flex-item="100"
              flex-align="center center">
@@ -67,7 +66,8 @@
           <div class="product-detail"
                flex-container="row"
                flex-item="70"
-               flex-align="start center">{{ product.attributes.name | uppercase }}</div>
+               flex-align="start center">{{ product.attributes.name | uppercase }}
+          </div>
 
           <div class="product-detail"
                flex-container="row"

@@ -76,7 +76,7 @@ angular.module('g-list')
 
       if( validationResponse.valid ) {
         products.create(product).then(function(productResponse) {
-          $mdToast.show($mdToast.simple().textContent('Ingredient Added!'))
+          toastMessage('Ingredient Added!')
           $scope.recipeProducts.push({ 
             id: productResponse.id, 
             name: productResponse.attributes.name,
@@ -112,7 +112,7 @@ angular.module('g-list')
 
   $scope.removeProduct = function( productId ) {
     products.removeRecipeProduct($scope.recipe.id, productId).then(function() {
-      $mdToast.show($mdToast.simple().textContent('Product Removed!'))
+      toastMessage('Product Removed!')
     })
     $scope.recipeProducts = $scope.recipeProducts.filter( ( product ) => product.id != productId )
   }
@@ -184,6 +184,10 @@ angular.module('g-list')
         $mdToast.show($mdToast.simple().textContent('Portion Updated!'))
       })
     }
+  }
+
+  toastMessage = function(message) {
+    $mdToast.show($mdToast.simple().textContent(message).position('center'))
   }
 
 }])
