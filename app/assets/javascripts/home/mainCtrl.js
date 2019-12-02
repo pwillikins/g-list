@@ -1,5 +1,5 @@
-angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recipeLists', '$mdDialog', 
-  function ($scope, categories, recipeLists, $mdDialog) {
+angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recipeLists', '$mdDialog', '$mdToast', 
+  function ($scope, categories, recipeLists, $mdDialog, $mdToast) {
     $scope.recipeLists = recipeLists.recipeLists
     $scope.recipes = recipeLists.recipes
     $scope.filteredRecipes = [...$scope.recipes]
@@ -76,10 +76,8 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
       }
       return exists
     }
-    // product without catId
-    // product with catId - could have dups from two different recipes
 
-    // ---------------- DIALOG FUNCTIONALITY ---------------- //
+    // ---------------- DIALOG CONTROLLER ---------------- //
     function NewRecipeDialogController($scope, $mdDialog, recipes) {
       $scope.createRecipe = function () {
         if (!$scope.recipeName || $scope.recipeName == '') { return; }
@@ -88,13 +86,11 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
           recipe: true,
           // image: [$scope.fileUpload]
         }
-        console.log('new recipe', newRecipe)
         categories.create(newRecipe).then(function (newRecipe) {
-          $scope.navigateToRecipe(newRecipe.id);
           recipes.push(newRecipe)
-          $mdDialog.hide()
+          $scope.recipeName = ''
+          toastMessage('New Recipe Created')
         });
-        $scope.recipeName = ''
       };
 
       $scope.navigateToRecipe = function (id) {
@@ -106,9 +102,7 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
       }
 
       $scope.onUpload = (evt) => {
-        console.log('UPLOAD', $scope.fileUpload)
         categories.upload()
-        // $scope.imageUpload = evt[0]
       }
 
     }
@@ -123,7 +117,7 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
         templateUrl: 'home/_newRecipeDialog.html',
         parent: angular.element(document.body),
         targetEvent: ev,
-        locals: {recipes: $scope.recipes},
+        locals: {recipes: $scope.filteredRecipes},
         clickOutsideToClose: true
       })
         .then(function (answer) {
@@ -247,8 +241,11 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
         }
       })
     } else {
-      console.log('resetting')
       $scope.filteredRecipes = [...$scope.recipes]
     }
+  }
+
+  toastMessage = function(message) {
+    $mdToast.show($mdToast.simple().textContent(message).position('center'))
   }
 }]);
