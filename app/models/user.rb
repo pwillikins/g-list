@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   after_create do 
     generate_seed_products
+    generate_default_units_of_measure
   end
 
   private
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
   end
 
   def seed_products
-    products_to_create = [
+    [
       'Kosher Salt', 'Sea Salt', 'Salt', 'Black Pepper', 'Garlic Powder', 'Garlic Salt', 'Onion Powder',
       'Cayenne Pepper', 'Bay Leaves', 'Red Pepper Flakes', 'Cumin', 'Chili Powder', 'Milk', 'Heavy Cream', 'Half & Half',
       'Buttermilk', 'Salsa', 'Sour Cream', 'Taco Shells', 'Tortillas', 'White Bread', 'Wheat Bread', 'Hamburger Buns', 'Hotdog Buns',
@@ -30,7 +31,14 @@ class User < ActiveRecord::Base
       'Snap Peas', 'Peas', 'Green Beans', 'Garlic', 'Parsley', 'Cilantro', 'Ginger', 'Jalepeno', 
       'Apple', 'Orange', 'Pear', 'Grapes', 'Plum', 'Nectarine', 'Peach', 'Banana'
     ]
+  end
 
-    products_to_create
+  def generate_default_units_of_measure
+    mapped_uoms = seed_units_of_measure.map {|uom| {name: uom, user_id: self.id}}
+    UnitOfMeasure.create(mapped_uoms)
+  end
+
+  def seed_units_of_measure
+    ['tsp', 'tbsp', 'cup', 'box', 'package', 'bag', 'pound', 'ounce']
   end
 end

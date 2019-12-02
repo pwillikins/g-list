@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_032106) do
+ActiveRecord::Schema.define(version: 2019_12_02_025502) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -117,6 +117,14 @@ ActiveRecord::Schema.define(version: 2019_11_04_032106) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "total_spent"
+  end
+
+  create_table "unit_of_measures", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_unit_of_measures_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
