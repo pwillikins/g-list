@@ -19,13 +19,12 @@ angular.module('g-list')
   // we check if the item is in the shopping list
   $scope.isInShoppingList = function (product) {
     exists = false
-    for (i = 0; i < $scope.currentShoppingList.length; i++) {
-      if ($scope.currentShoppingList[ i ].id == product.id) {
-        exists = true;
-      }
-    };
+    const foundItem = $scope.currentShoppingList.find(item => item.id === product.id.toString())
+    if (foundItem) {
+      exists = true
+    }
 
-    return exists;
+    return exists
   }
 
   // we loop through each product and set selected products

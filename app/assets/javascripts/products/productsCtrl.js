@@ -92,6 +92,11 @@ angular.module('g-list')
   };
 
   function DialogController($scope, $mdDialog, filteredProducts) {
+    setTimeout(() => {
+      const input = document.getElementById("new-product")
+      input.focus();
+    }, 500)
+
     $scope.createProduct = async function () {
       var product = { name: $scope.productName }
       if ($scope.productName == '') { return; }

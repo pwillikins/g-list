@@ -46,6 +46,10 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     if product 
       product.destroy
+      cats = Categorization.where(product_id: params[:id])
+      if cats.present?
+        cats.delete(cats.map {|cat| cat.id})
+      end
     end
     respond_with {}
   end

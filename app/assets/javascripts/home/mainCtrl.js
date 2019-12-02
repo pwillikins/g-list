@@ -18,6 +18,8 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
     $scope.removeRecipe = function (id) {
       categories.deleteRecipe(id);
       $scope.recipes = $scope.recipes.filter(recipe => recipe.id != id)
+      $scope.filteredRecipes = $scope.filteredRecipes.filter(recipe => recipe.id != id)
+      toastMessage('Recipe Removed')
     }
     
     $scope.navigateToRecipe = function (id) {
@@ -26,10 +28,10 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
     }
     
     $scope.selectRecipe = function () {
-      const recipesAreSelected = $scope.areRecipesSelected()
-      if ($scope.$parent.recipeSelected != recipesAreSelected) {
-        $scope.recipeSelected = recipesAreSelected
-      }
+      // const recipesAreSelected = $scope.areRecipesSelected()
+      // if ($scope.$parent.recipeSelected != recipesAreSelected) {
+      //   $scope.recipeSelected = recipesAreSelected
+      // }
       $scope.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
     }
     
@@ -79,6 +81,11 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
 
     // ---------------- DIALOG CONTROLLER ---------------- //
     function NewRecipeDialogController($scope, $mdDialog, recipes) {
+      setTimeout(() => {
+        const input = document.getElementById("recipe-name")
+        input.focus();
+      }, 500)
+
       $scope.createRecipe = function () {
         if (!$scope.recipeName || $scope.recipeName == '') { return; }
         const newRecipe = {
