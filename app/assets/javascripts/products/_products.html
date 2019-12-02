@@ -12,11 +12,17 @@
     <div flex-container="row"
          class="product-options">
       <div class="search-field">
-        <md-input-container>
-          <input placeholder="Search Products"
-                 ng-keypress="searchProducts($event)"
-                 name="productName">
-        </md-input-container>
+        <div flex-container="row">
+          <md-input-container>
+            <input placeholder="Search Products"
+                   ng-change="searchProducts($event)"
+                   ng-model="searchPhrase"
+                   name="productName">
+          </md-input-container>
+          <i ng-if="searchPhrase && searchPhrase.length"
+             class="material-icons clear-icon pointer"
+             ng-click="clearSearch()">clear</i>
+        </div>
       </div>
       <div class="sort-field"
            flex-container="row">

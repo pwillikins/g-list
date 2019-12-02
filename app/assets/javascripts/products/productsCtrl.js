@@ -106,14 +106,17 @@ angular.module('g-list')
     }
   }
 
-  $scope.searchProducts = function(event) {
-    console.log('event', event)
-    const input = event.target.value
-    if (input && input.length) {
-      $scope.filteredProducts = $scope.products.filter(prod => prod.attributes.name.includes(input))
+  $scope.searchProducts = function() {
+    if ($scope.searchPhrase && $scope.searchPhrase.length) {
+      $scope.filteredProducts = $scope.products.filter(prod => prod.attributes.name.toLowerCase().includes($scope.searchPhrase.toLowerCase()))
     } else {
       $scope.filteredProducts = $scope.products
     }
+  }
+
+  $scope.clearSearch = function() {
+    $scope.filteredProducts = $scope.products
+    $scope.searchPhrase = ''
   }
 
   $scope.sort = function(direction) {
