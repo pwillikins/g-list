@@ -118,7 +118,7 @@ angular.module('g-list')
 
   $scope.addToShoppingList = function(product) {
     $scope.currentShoppingList.push(product)
-    localStorage.setItem(`userShoppingList-${product.user_id}`, JSON.stringify($scope.currentShoppingList))
+    localStorage.setItem(`userShoppingList-${product.user}`, JSON.stringify($scope.currentShoppingList))
   }
 
   $scope.removeFromList = function(product) {

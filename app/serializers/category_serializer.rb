@@ -9,7 +9,8 @@ class CategorySerializer < ActiveModel::Serializer
           id: cat.product.id,
           name: cat.product.name,
           portion: cat.portion,
-          category: object.id
+          category: object.id,
+          user: object.user_id
         }
         product
       end

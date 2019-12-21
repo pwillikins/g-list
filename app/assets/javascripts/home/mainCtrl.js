@@ -28,10 +28,10 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
     }
     
     $scope.selectRecipe = function () {
-      // const recipesAreSelected = $scope.areRecipesSelected()
-      // if ($scope.$parent.recipeSelected != recipesAreSelected) {
-      //   $scope.recipeSelected = recipesAreSelected
-      // }
+      const recipesAreSelected = $scope.areRecipesSelected()
+      if ($scope.$parent.recipeSelected != recipesAreSelected) {
+        $scope.recipeSelected = recipesAreSelected
+      }
       $scope.selectedRecipes = $scope.recipes.filter(recipe => recipe.selected)
     }
     
