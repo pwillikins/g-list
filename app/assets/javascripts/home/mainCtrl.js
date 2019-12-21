@@ -57,26 +57,13 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
 
       let uniqueProductList = $scope.removeDuplicates(propagatedProducts, 'id')
       // we reset all products to unselected
-      uniqueProductList.forEach(product => product[ 'selected' ] = false)
+      // uniqueProductList.forEach(product => product[ 'selected' ] = false)
 
       return uniqueProductList
     }
 
     $scope.isInShoppingList = function (product) {
-      let exists = false
-      const foundItem = $scope.currentShoppingList.find(listItem => {
-        if (listItem.category) {
-          if (listItem.id == product.id && listItem.category == product.category) {
-            return listItem
-          }
-        } else if (listItem.id == product.id) {
-          return listItem
-        }
-      })
-      if (foundItem) {
-        exists = !exists
-      }
-      return exists
+      return $scope.currentShoppingList.some(listItem => listItem.id === product.id)
     }
 
     // ---------------- DIALOG CONTROLLER ---------------- //
@@ -140,13 +127,9 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
 
     $scope.buildList = function () {
       const recipeProducts = $scope.buildPropagatedList()
-      recipeProducts.forEach(product => {
-        product.selected = true
-      })
-
       $scope.currentShoppingList = $scope.currentShoppingList.concat(
         recipeProducts.filter(product => {
-          if (product.selected && !$scope.isInShoppingList(product)) {
+          if (!$scope.isInShoppingList(product)) {
             return {
               id: product.id,
               categoryId: product.category,
@@ -158,6 +141,7 @@ angular.module('g-list').controller('MainCtrl', [ '$scope', 'categories', 'recip
 
       localStorage.setItem(`userShoppingList-${ localStorage.userId }`, JSON.stringify($scope.currentShoppingList))
       $scope.navigateToShoppingLists()
+      // refactor to keep track of recipes selected
       // recipeLists.create({ recipes: $scope.selectedRecipes }).then(function () {
       // })
     }
