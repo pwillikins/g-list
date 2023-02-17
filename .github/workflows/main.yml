@@ -1,0 +1,19 @@
+name: Label Pull Request
+on:
+  pull_request:
+    types:
+      - reopened
+      - opened
+jobs:
+  apply_label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.pull_requests.addLabels({
+              pull_request_number: context.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['enhancement']
+            })
