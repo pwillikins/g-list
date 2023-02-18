@@ -12,7 +12,7 @@ jobs:
         with:
           script: |
             github.rest.pulls.addLabels({
-              pull_request_number: github.event.pull_request.number,
+              pull_request_number: context.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ['enhancement']
