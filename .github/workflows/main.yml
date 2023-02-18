@@ -14,7 +14,8 @@ jobs:
           
             const creator = context.payload.sender.login
             console.log("CREATOR", creator)
-            console.log("CONTEXT", context)
+            const teams = github.rest.teams.list
+            console.log("teams", teams)
             github.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
